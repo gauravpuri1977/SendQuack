@@ -757,22 +757,162 @@
            FOOTER
         ========================================================= */
 
-        .footer {
-            margin-top: 27px;
+     /* =========================================================
+   FOOTER
+========================================================= */
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+.site-footer {
+    margin-top: 35px;
+    padding: 34px 36px 18px;
 
-            color: #95a3b2;
+    background: white;
 
-            font-size: 10px;
-        }
+    border: 1px solid var(--border);
+    border-radius: 18px;
 
-        .footer-brand {
-            font-weight: 700;
-            color: #72869a;
-        }
+    box-shadow: var(--shadow);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.3fr;
+    gap: 45px;
+
+    padding-bottom: 28px;
+}
+
+.footer-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo-row img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.footer-brand-name {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+    color: var(--navy);
+}
+
+.footer-brand-name span {
+    color: var(--blue);
+}
+
+.footer-about p {
+    margin: 10px 0 5px;
+
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.responsible-message {
+    color: #91a0af;
+    font-size: 11px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-column h4 {
+    margin: 0 0 5px;
+
+    color: var(--navy);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+.footer-column a,
+.footer-column span {
+    color: var(--muted);
+
+    font-size: 12px;
+    text-decoration: none;
+
+    transition: color .15s ease;
+}
+
+.footer-column a:hover {
+    color: var(--blue);
+}
+
+.footer-column small {
+    margin-left: 4px;
+
+    padding: 2px 5px;
+
+    border-radius: 999px;
+
+    background: var(--amber-bg);
+    color: var(--amber);
+
+    font-size: 8px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+.footer-bottom {
+    padding-top: 17px;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    color: #95a3b2;
+    font-size: 10px;
+}
+
+
+/* Footer mobile */
+
+@media (max-width: 750px) {
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .footer-about {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .site-footer {
+        padding: 27px 22px 17px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-about {
+        grid-column: auto;
+    }
+
+}
 
 
         /* =========================================================
@@ -1195,17 +1335,77 @@
          FOOTER
     ================================================== -->
 
-    <footer class="footer">
+<footer class="site-footer">
 
-        <div class="footer-brand">
-            SendQuack
+    <div class="footer-main">
+
+        <div class="footer-about">
+
+            <div class="footer-logo-row">
+                <img src="sendquack-duck.png" alt="SendQuack">
+                <div class="footer-brand-name">
+                    Send<span>Quack</span>
+                </div>
+            </div>
+
+            <p>
+                Upload. Personalize. Send.
+            </p>
+
+            <div class="responsible-message">
+                Built for responsible communication.
+            </div>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Product</h4>
+
+            <a href="/">Email</a>
+            <span>WhatsApp <small>Coming Soon</small></span>
+            <span>SMS <small>Coming Soon</small></span>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Company</h4>
+
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Legal</h4>
+
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="anti-spam.html">Anti-Spam Policy</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <div>
+            © 2026 SendQuack. All rights reserved.
         </div>
 
         <div>
-            Simple personalized messaging.
+            Simple messaging. Responsibly delivered.
         </div>
 
-    </footer>
+    </div>
+
+</footer>
 
 
 </main>
