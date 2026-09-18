@@ -5,302 +5,2117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SendQuack — Upload. Personalize. Send.</title>
+    <title>SendQuack | Upload. Personalize. Send.</title>
 
-    <meta name="description"
-          content="SendQuack makes it simple to send personalized messages to opted-in contacts using a spreadsheet.">
+    <!-- Excel library -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+    <!-- Quill Editor -->
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
 
     <style>
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
         * {
             box-sizing: border-box;
         }
 
-        html, body {
-            margin: 0;
-            min-height: 100%;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #102a4c;
-            background: #ffffff;
+        :root {
+            --navy: #062a57;
+            --blue: #0878f9;
+            --blue-dark: #0564d5;
+            --blue-light: #eaf4ff;
+            --blue-soft: #f5f9ff;
+
+            --yellow: #ffc928;
+            --orange: #ff8614;
+
+            --green: #16875b;
+            --green-bg: #eaf8f2;
+
+            --red: #c43c4b;
+            --red-bg: #fff0f2;
+
+            --amber: #9a6500;
+            --amber-bg: #fff7df;
+
+            --text: #18324c;
+            --muted: #718198;
+
+            --border: #dfe8f2;
+            --background: #f5f9fd;
+
+            --shadow:
+                0 12px 35px rgba(18, 54, 89, 0.08);
         }
 
         body {
+            margin: 0;
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at 90% 5%,
+                    rgba(8, 120, 249, 0.11),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 5% 35%,
+                    rgba(255, 201, 40, 0.10),
+                    transparent 24%
+                ),
+                var(--background);
+
             min-height: 100vh;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .topbar {
+            background: rgba(255, 255, 255, 0.94);
+            border-bottom: 1px solid rgba(218, 230, 242, 0.9);
+            backdrop-filter: blur(12px);
+        }
+
+        .topbar-inner {
+            max-width: 1240px;
+            margin: auto;
+
+            padding: 15px 28px;
+
             display: flex;
-            flex-direction: column;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            padding: 18px 20px 5px;
-        }
-
-        .content img {
-            width: 165px !important;
-            margin-bottom: 2px !important;
-        }
-
-        .duck {
-            font-size: 105px;
-            line-height: 1;
-            margin-bottom: 5px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
         }
 
         .brand {
-            font-size: 54px;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .brand-logo {
+            width: 67px;
+            height: 67px;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-size: 29px;
+            line-height: 1;
             font-weight: 800;
-            letter-spacing: -3px;
-            margin: 0;
+            letter-spacing: -1px;
+            color: var(--navy);
         }
 
-        .brand-send {
-            color: #102a4c;
-        }
-
-        .brand-quack {
-            color: #087bea;
+        .brand-name span {
+            color: var(--blue);
         }
 
         .tagline {
-            margin-top: 8px;
-            font-size: 26px;
-            font-weight: 700;
-            color: #102a4c;
+            margin-top: 5px;
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: 0.15px;
         }
 
-        .description {
-            max-width: 760px;
-            margin: 18px auto 0;
-            color: #5b6c82;
-            font-size: 16px;
-            line-height: 1.5;
-        }
+
+        /* =========================================================
+           CHANNELS
+        ========================================================= */
 
         .channels {
             display: flex;
-            justify-content: center;
+            gap: 9px;
             align-items: center;
-            gap: 42px;
-            margin-top: 22px;
         }
+
         .channel {
-            width: 115px;
-        }
+            border: 1px solid var(--border);
+            background: white;
 
-        .icon {
-            width: 62px;
-            height: 62px;
-            margin: auto;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+            padding: 8px 13px;
+            border-radius: 999px;
 
-        .email {
-            background: #eaf4ff;
-        }
-
-        .whatsapp {
-            background: #e9fbed;
-        }
-
-        .sms {
-            background: #fbeafb;
-        }
-
-        .channel-name {
-            margin-top: 7px;
-            font-size: 16px;
+            font-size: 12px;
             font-weight: 700;
+
+            color: var(--muted);
+
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .divider {
-            height: 65px;
-            width: 1px;
-            background: #d7e2ec;
+        .channel.active {
+            color: var(--blue);
+            border-color: #b9d9ff;
+            background: var(--blue-light);
         }
 
         .coming-soon {
-            display: inline-block;
-            margin-top: 22px;
-            padding: 12px 45px;
-            border-radius: 30px;
-            background: linear-gradient(135deg, #277eea, #0785ef);
-            color: white;
-            font-size: 17px;
-            box-shadow: 0 8px 22px rgba(31, 126, 234, 0.18);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+
+            color: var(--amber);
+            background: var(--amber-bg);
+
+            padding: 3px 6px;
+            border-radius: 999px;
         }
 
-        footer {
-            position: relative;
-            overflow: hidden;
-            min-height: 90px;
+                .channel i {
+            font-size: 16px;
+        }
+
+        .channel.active i {
+            color: var(--blue);
+        }
+
+        .channel.whatsapp i {
+            color: #25D366;
+            font-size: 18px;
+        }
+
+        .channel.sms i {
+            color: #7b61ff;
+            font-size: 17px;
+        }
+
+        /* =========================================================
+           PAGE
+        ========================================================= */
+
+        .container {
+            max-width: 1240px;
+            margin: 34px auto 60px;
+            padding: 0 28px;
+        }
+
+        .hero {
+            margin-bottom: 27px;
+        }
+
+        .hero h1 {
+            margin: 0;
+
+            font-size: 31px;
+            letter-spacing: -0.7px;
+
+            color: var(--navy);
+        }
+
+        .hero p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+
+        /* =========================================================
+           CARDS
+        ========================================================= */
+
+        .card {
+            background: rgba(255,255,255,.97);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .card-header {
+            padding: 20px 22px 0;
+
             display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .step-number {
+            width: 31px;
+            height: 31px;
+
+            border-radius: 9px;
+
+            display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: flex-end;
-            padding: 18px 20px;
-            text-align: center;
-            color: #6f7f92;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    #42a3ff
+                );
+
+            color: white;
+            font-weight: 800;
+            font-size: 14px;
+
+            box-shadow:
+                0 5px 12px rgba(8,120,249,.22);
+        }
+
+        .card-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .card-subtitle {
+            margin-left: auto;
+            color: var(--muted);
             font-size: 12px;
         }
 
-        footer::before {
-            content: "";
-            position: absolute;
-            width: 120%;
-            height: 100px;
-            left: -10%;
-            top: 25px;
-            background: #eef7ff;
-            border-radius: 50% 50% 0 0;
-            transform: rotate(-2deg);
-            z-index: 0;
+
+        /* =========================================================
+           UPLOAD
+        ========================================================= */
+
+        .upload-card {
+            overflow: hidden;
         }
 
-        .footer-content {
+        .upload-content {
+            padding: 18px 22px 22px;
+        }
+
+        .upload-zone {
             position: relative;
-            z-index: 1;
+
+            min-height: 108px;
+
+            border: 2px dashed #b8d6f5;
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f9fcff,
+                    #f1f7ff
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            transition: .2s ease;
         }
 
-        .footer-line {
-            margin-top: 7px;
+        .upload-zone:hover {
+            border-color: var(--blue);
+            background: var(--blue-light);
         }
 
-        @media (max-width: 650px) {
+        #excelFile {
+            position: absolute;
+            inset: 0;
 
-            .duck {
-                font-size: 85px;
-            }
+            width: 100%;
+            height: 100%;
 
-            .brand {
-                font-size: 48px;
-            }
+            opacity: 0;
+            cursor: pointer;
+        }
 
-            .tagline {
-                font-size: 24px;
-            }
+        .upload-icon {
+            width: 43px;
+            height: 43px;
 
-            .description {
-                font-size: 16px;
+            border-radius: 12px;
+
+            margin: 0 auto 7px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+            color: var(--blue);
+
+            font-size: 21px;
+
+            box-shadow:
+                0 5px 15px rgba(20,70,120,.09);
+        }
+
+        .upload-main {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .upload-help {
+            margin-top: 4px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        #result {
+            margin-top: 14px;
+        }
+
+        #result p {
+            margin: 6px 0;
+            font-size: 13px;
+        }
+
+        #result table {
+            width: 100%;
+            margin-top: 12px;
+
+            border-collapse: collapse;
+            overflow: hidden;
+
+            border-radius: 10px;
+
+            font-size: 12px;
+        }
+
+        #result th {
+            background: #edf5fd;
+            color: var(--navy);
+            text-align: left;
+        }
+
+        #result th,
+        #result td {
+            padding: 9px;
+            border: 1px solid var(--border);
+        }
+
+
+        /* =========================================================
+           WORKSPACE
+        ========================================================= */
+
+        .workspace {
+            display: grid;
+            grid-template-columns:
+                minmax(0, 1.03fr)
+                minmax(0, .97fr);
+
+            gap: 24px;
+            margin-top: 24px;
+
+            align-items: start;
+        }
+
+        .compose-card,
+        .preview-card {
+            overflow: hidden;
+        }
+
+        .compose-body {
+            padding: 21px 22px 23px;
+        }
+
+
+        /* =========================================================
+           FORM
+        ========================================================= */
+
+        .field {
+            margin-bottom: 17px;
+        }
+
+        .field label,
+        .message-label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #39546e;
+
+            font-size: 12px;
+            font-weight: 750;
+        }
+
+        .field-hint {
+            font-weight: 400;
+            color: #8998a9;
+        }
+
+        .text-input {
+            width: 100%;
+
+            padding: 11px 13px;
+
+            border: 1px solid #d7e2ed;
+            border-radius: 9px;
+
+            background: #fbfdff;
+
+            color: var(--text);
+            font-size: 14px;
+
+            outline: none;
+
+            transition:
+                border-color .15s ease,
+                box-shadow .15s ease,
+                background .15s ease;
+        }
+
+        .text-input:focus {
+            background: white;
+            border-color: #69adff;
+
+            box-shadow:
+                0 0 0 3px rgba(8,120,249,.10);
+        }
+
+        .two-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+
+        /* =========================================================
+           BACKGROUND SELECTOR
+        ========================================================= */
+
+        .editor-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-top: 4px;
+            margin-bottom: 8px;
+        }
+
+        .background-picker {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        #emailBackground {
+            width: 30px;
+            height: 26px;
+
+            padding: 0;
+
+            border: 1px solid var(--border);
+            border-radius: 6px;
+
+            cursor: pointer;
+            background: white;
+        }
+
+
+        /* =========================================================
+           QUILL
+        ========================================================= */
+
+        .ql-toolbar.ql-snow {
+            border: 1px solid #d7e2ed;
+            border-radius: 10px 10px 0 0;
+
+            background: #f8fbfe;
+        }
+
+        .ql-container.ql-snow {
+            border: 1px solid #d7e2ed;
+            border-top: 0;
+
+            border-radius: 0 0 10px 10px;
+
+            background: white;
+        }
+
+        #editor {
+            height: 245px;
+        }
+
+        .ql-editor {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           SEND BUTTON
+        ========================================================= */
+
+        #sendButton {
+            width: 100%;
+
+            margin-top: 20px;
+
+            border: 0;
+            border-radius: 11px;
+
+            padding: 14px 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    #0d92ff
+                );
+
+            color: white;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px rgba(8,120,249,.23);
+
+            transition:
+                transform .15s ease,
+                box-shadow .15s ease;
+        }
+
+        #sendButton:hover {
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 11px 25px rgba(8,120,249,.30);
+        }
+
+        #sendButton:active {
+            transform: translateY(0);
+        }
+
+        .send-note {
+            margin-top: 9px;
+
+            text-align: center;
+
+            color: #91a0af;
+            font-size: 10px;
+        }
+
+
+        /* =========================================================
+           PREVIEW
+        ========================================================= */
+
+        .preview-body {
+            padding: 21px 22px 23px;
+        }
+
+        .preview-box {
+            width: 100%;
+
+            border: 1px solid #dce6ef;
+            border-radius: 13px;
+
+            background: white;
+
+            overflow-y: auto;
+
+            box-shadow:
+                inset 0 1px 2px rgba(30,60,90,.025);
+        }
+
+        .preview-empty {
+            height: 100%;
+
+            min-height: 330px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            text-align: center;
+        }
+
+        .preview-empty-icon {
+            width: 54px;
+            height: 54px;
+
+            margin: auto;
+
+            border-radius: 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--blue-light);
+
+            font-size: 23px;
+        }
+
+        .preview-empty-title {
+            margin-top: 12px;
+
+            font-size: 14px;
+            font-weight: 750;
+
+            color: var(--navy);
+        }
+
+        .preview-empty-text {
+            margin-top: 5px;
+
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .preview-header {
+            padding: 18px 19px 14px;
+
+            background: #fbfdff;
+
+            border-bottom: 1px solid var(--border);
+
+            font-size: 12px;
+            line-height: 1.45;
+        }
+
+        .preview-row {
+            display: flex;
+            margin-bottom: 8px;
+        }
+
+        .preview-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .preview-label {
+            width: 58px;
+            flex-shrink: 0;
+
+            color: #8998a8;
+            font-weight: 650;
+        }
+
+        .preview-value {
+            color: #314b65;
+            word-break: break-word;
+        }
+
+        .preview-message.ql-editor {
+            min-height: 220px;
+            padding: 21px;
+        }
+
+        .preview-message.ql-editor p:first-child {
+            margin-top: 0;
+        }
+
+        .preview-badge {
+            margin-left: auto;
+
+            padding: 4px 8px;
+
+            border-radius: 999px;
+
+            background: var(--green-bg);
+            color: var(--green);
+
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .footer {
+            margin-top: 27px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            color: #95a3b2;
+
+            font-size: 10px;
+        }
+
+        .footer-brand {
+            font-weight: 700;
+            color: #72869a;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .workspace {
+                grid-template-columns: 1fr;
             }
 
             .channels {
-                gap: 18px;
-            }
-
-            .divider {
                 display: none;
             }
+
+            .two-fields {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
         }
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 0 15px;
+                margin-top: 24px;
+            }
+
+            .topbar-inner {
+                padding: 12px 15px;
+            }
+
+            .brand-logo {
+                width: 54px;
+                height: 54px;
+            }
+
+            .brand-name {
+                font-size: 25px;
+            }
+
+            .hero h1 {
+                font-size: 25px;
+            }
+
+            .card-subtitle {
+                display: none;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-<main>
 
-    <div class="content">
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-        <img
-            src="sendquack-duck.png"
-            alt="SendQuack"
-            style="
-                width: 220px;
-                max-width: 70%;
-                height: auto;
-                margin-bottom: 10px;
-            "
-        >
+<header class="topbar">
 
-        <h1>
-            <span style="color:#102a4c;">Send</span><span style="color:#087bea;">Quack</span>
-        </h1>
+    <div class="topbar-inner">
 
-        <div class="tagline">
-            Upload. Personalize. Send.
-        </div>
+        <div class="brand">
 
-        <div class="description">
+            <img
+                src="sendquack-duck.png"
+                class="brand-logo"
+                alt="SendQuack"
+            >
 
-            SendQuack is a simple communication tool for sending
-            personalized messages to contacts who have opted in to receive them.
+            <div>
 
-            <br><br>
+                <div class="brand-name">
+                    Send<span>Quack</span>
+                </div>
 
-            Upload your spreadsheet, personalize your message,
-            review it and send.
+                <div class="tagline">
+                    Upload. Personalize. Send.
+                </div>
+
+            </div>
 
         </div>
+
 
         <div class="channels">
 
-            <div class="channel">
-                <div class="icon email">
-                    <svg width="38" height="38" viewBox="0 0 24 24"
-                        fill="none" stroke="#087bea" stroke-width="2">
-                        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                        <path d="M3 7l9 6 9-6"></path>
-                    </svg>
-                </div>
-                <div class="channel-name">Email</div>
+            <div class="channel active">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Email</span>
             </div>
 
-            <div class="divider"></div>
+            <div class="channel whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp</span>
 
-            <div class="channel">
-                <div class="icon whatsapp">
-                    <svg width="40" height="40" viewBox="0 0 24 24"
-                        fill="none" stroke="#16b653" stroke-width="2">
-                        <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z"></path>
-                        <path d="M9 8.5c.5 3 2 4.5 5 5"></path>
-                    </svg>
-                </div>
-                <div class="channel-name">WhatsApp</div>
+                <span class="coming-soon">
+                    Coming Soon
+                </span>
             </div>
 
-            <div class="divider"></div>
+            <div class="channel sms">
+                <i class="fa-solid fa-comment-sms"></i>
+                <span>SMS</span>
 
-            <div class="channel">
-                <div class="icon sms">
-                    <svg width="40" height="40" viewBox="0 0 24 24"
-                        fill="none" stroke="#a20b9d" stroke-width="2">
-                        <path d="M21 12a8 8 0 0 1-8 8H6l-3 2 1-5a8 8 0 1 1 17-5z"></path>
-                        <circle cx="9" cy="12" r="0.7" fill="#a20b9d"></circle>
-                        <circle cx="12" cy="12" r="0.7" fill="#a20b9d"></circle>
-                        <circle cx="15" cy="12" r="0.7" fill="#a20b9d"></circle>
-                    </svg>
-                </div>
-                <div class="channel-name">SMS</div>
+                <span class="coming-soon">
+                    Coming Soon
+                </span>
             </div>
 
-        </div>
-
-        <div class="coming-soon">
-            Coming Soon
         </div>
 
     </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     PAGE
+===================================================== -->
+
+<main class="container">
+
+
+    <section class="hero">
+
+        <h1>
+            Send personalized emails in seconds.
+        </h1>
+
+        <p>
+            Upload your Excel contacts, write once,
+            and SendQuack personalizes every message.
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         STEP 1
+    ================================================== -->
+
+    <section class="card upload-card">
+
+        <div class="card-header">
+
+            <div class="step-number">
+                1
+            </div>
+
+            <div class="card-title">
+                Upload contacts
+            </div>
+
+            <div class="card-subtitle">
+                Excel · Maximum 5 contacts
+            </div>
+
+        </div>
+
+
+        <div class="upload-content">
+
+            <div class="upload-zone">
+
+                <input
+                    type="file"
+                    id="excelFile"
+                    accept=".xlsx,.xls"
+                >
+
+                <div>
+
+                    <div class="upload-icon">
+                        ↑
+                    </div>
+
+                    <div class="upload-main">
+                        Choose your Excel file
+                    </div>
+
+                    <div class="upload-help">
+                        Required columns:
+                        Salutation, Name, Email Address
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div id="result"></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         WORKSPACE
+    ================================================== -->
+
+    <section class="workspace">
+
+
+        <!-- =============================================
+             COMPOSE
+        ============================================== -->
+
+        <div class="card compose-card">
+
+            <div class="card-header">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <div class="card-title">
+                    Compose
+                </div>
+
+                <div class="card-subtitle">
+                    Personalize with {{Name}}
+                </div>
+
+            </div>
+
+
+            <div class="compose-body">
+
+                <div
+                    id="composeArea"
+                    class="compose-area"
+                >
+
+
+                    <div class="two-fields">
+
+                        <div class="field">
+
+                            <label>
+                                Sender's Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="senderName"
+                                class="text-input"
+                                placeholder="e.g. Mark Hopper"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Reply-To Email
+                                <span class="field-hint">
+                                    · for responses
+                                </span>
+                            </label>
+
+                            <input
+                                type="email"
+                                id="replyTo"
+                                class="text-input"
+                                placeholder="you@example.com"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Email Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            class="text-input"
+                            placeholder="Enter email subject"
+                        >
+
+                    </div>
+
+
+                    <div class="editor-options">
+
+                        <label class="message-label">
+                            Message
+                        </label>
+
+
+                        <div class="background-picker">
+
+                            Email background
+
+                            <input
+                                type="color"
+                                id="emailBackground"
+                                value="#ffffff"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="editor">
+
+                        <p>
+                            Dear {{Salutation}} {{Name}},
+                        </p>
+
+                        <p><br></p>
+
+                        <p>
+                            Type your message here...
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button id="sendButton">
+                    Send Emails →
+                </button>
+
+
+                <div class="send-note">
+                    You'll review the recipient count before anything is sent.
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =============================================
+             PREVIEW
+        ============================================== -->
+
+        <div class="card preview-card">
+
+            <div class="card-header">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <div class="card-title">
+                    Preview
+                </div>
+
+                <div class="preview-badge">
+                    Live
+                </div>
+
+            </div>
+
+
+            <div class="preview-body">
+
+                <div
+                    id="preview"
+                    class="preview-box"
+                >
+
+                    <div class="preview-empty">
+
+                        <div>
+
+                            <div class="preview-empty-icon">
+                                ✉
+                            </div>
+
+                            <div class="preview-empty-title">
+                                Your personalized email
+                                will appear here
+                            </div>
+
+                            <div class="preview-empty-text">
+                                Upload an Excel file to
+                                generate the first recipient preview.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-brand">
+            SendQuack
+        </div>
+
+        <div>
+            Simple personalized messaging.
+        </div>
+
+    </footer>
+
 
 </main>
 
-<footer>
 
-    <div class="footer-content">
 
-        <div>
-            © 2026 SendQuack. All rights reserved.
+<script>
+
+
+// ----------------------------------------------------
+// GLOBAL VARIABLES
+// ----------------------------------------------------
+
+let rows = [];
+let errorCount = 0;
+
+
+// ----------------------------------------------------
+// QUILL EDITOR
+// ----------------------------------------------------
+
+const quill = new Quill("#editor", {
+
+    theme: "snow",
+
+    modules: {
+
+        toolbar: [
+
+            [{ font: [] }],
+
+            [{ size: ["small", false, "large", "huge"] }],
+
+            ["bold", "italic", "underline"],
+
+            [
+                { color: [] },
+                { background: [] }
+            ],
+
+            [{ align: [] }],
+
+            [
+                { list: "ordered" },
+                { list: "bullet" }
+            ],
+
+            ["image"],
+
+            ["clean"]
+
+        ]
+
+    }
+
+});
+
+
+// ----------------------------------------------------
+// KEEP PREVIEW SAME HEIGHT AS COMPOSE AREA
+// ----------------------------------------------------
+
+function syncPreviewHeight() {
+
+    const composeArea =
+        document.getElementById("composeArea");
+
+    const preview =
+        document.getElementById("preview");
+
+    if (window.innerWidth > 900) {
+
+        preview.style.height =
+            composeArea.offsetHeight + "px";
+
+    }
+
+    else {
+
+        preview.style.height = "auto";
+
+    }
+
+}
+
+
+window.addEventListener(
+    "load",
+    syncPreviewHeight
+);
+
+
+window.addEventListener(
+    "resize",
+    syncPreviewHeight
+);
+
+
+const resizeObserver =
+    new ResizeObserver(function() {
+
+        syncPreviewHeight();
+
+    });
+
+
+resizeObserver.observe(
+    document.getElementById("composeArea")
+);
+
+
+// ----------------------------------------------------
+// LIVE PREVIEW
+// ----------------------------------------------------
+
+function updatePreview() {
+
+    const preview =
+        document.getElementById("preview");
+
+
+    if (rows.length === 0) {
+
+        preview.innerHTML = `
+
+            <div class="preview-empty">
+
+                <div>
+
+                    <div class="preview-empty-icon">
+                        ✉
+                    </div>
+
+                    <div class="preview-empty-title">
+                        Your personalized email
+                        will appear here
+                    </div>
+
+                    <div class="preview-empty-text">
+                        Upload an Excel file to
+                        generate the first recipient preview.
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const subject =
+        document.getElementById("subject").value;
+
+
+    const emailBackground =
+        document.getElementById(
+            "emailBackground"
+        ).value;
+
+
+    const message =
+        quill.root.innerHTML;
+
+
+    const firstContact =
+        rows[0];
+
+
+    let personalizedSubject =
+        subject
+            .replaceAll(
+                "{{Salutation}}",
+                firstContact["Salutation"] || ""
+            )
+            .replaceAll(
+                "{{Name}}",
+                firstContact["Name"] || ""
+            );
+
+
+    let personalizedMessage =
+        message
+            .replaceAll(
+                "{{Salutation}}",
+                firstContact["Salutation"] || ""
+            )
+            .replaceAll(
+                "{{Name}}",
+                firstContact["Name"] || ""
+            );
+
+
+    preview.innerHTML = `
+
+        <div class="preview-header">
+
+            <div class="preview-row">
+
+                <div class="preview-label">
+                    To
+                </div>
+
+                <div class="preview-value">
+                    ${firstContact["Email Address"] || ""}
+                </div>
+
+            </div>
+
+
+            <div class="preview-row">
+
+                <div class="preview-label">
+                    Subject
+                </div>
+
+                <div class="preview-value">
+                    ${personalizedSubject || "(No subject)"}
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="footer-line">
-            Simple tools. Meaningful connections.
+
+        <div
+            class="ql-editor preview-message"
+            style="
+                background-color: ${emailBackground};
+                box-sizing: border-box;
+            "
+        >
+            ${personalizedMessage}
         </div>
 
-    </div>
+    `;
 
-</footer>
+}
+
+
+// ----------------------------------------------------
+// LIVE SUBJECT
+// ----------------------------------------------------
+
+document
+    .getElementById("subject")
+    .addEventListener(
+        "input",
+        updatePreview
+    );
+
+
+document
+    .getElementById("emailBackground")
+    .addEventListener(
+        "input",
+        updatePreview
+    );
+
+
+// ----------------------------------------------------
+// LIVE MESSAGE
+// ----------------------------------------------------
+
+quill.on(
+    "text-change",
+    function() {
+
+        updatePreview();
+        syncPreviewHeight();
+
+    }
+);
+
+
+// ----------------------------------------------------
+// EXCEL UPLOAD
+// ----------------------------------------------------
+
+document
+    .getElementById("excelFile")
+    .addEventListener(
+        "change",
+        function(event) {
+
+
+    const file =
+        event.target.files[0];
+
+
+    if (!file) {
+        return;
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(e) {
+
+
+        const data =
+            new Uint8Array(
+                e.target.result
+            );
+
+
+        const workbook =
+            XLSX.read(
+                data,
+                {
+                    type: "array"
+                }
+            );
+
+
+        const firstSheet =
+            workbook.Sheets[
+                workbook.SheetNames[0]
+            ];
+
+
+        rows =
+            XLSX.utils.sheet_to_json(
+                firstSheet,
+                {
+                    defval: ""
+                }
+            );
+
+
+        const result =
+            document.getElementById(
+                "result"
+            );
+
+
+        if (rows.length > 5) {
+
+            result.innerHTML = `
+                <div style="
+                    padding:11px 13px;
+                    background:#fff0f2;
+                    color:#a93243;
+                    border-radius:9px;
+                    font-size:13px;
+                ">
+                    ✕ This file contains
+                    ${rows.length} contacts.
+                    A maximum of 5 contacts is allowed
+                    per upload.
+                </div>
+            `;
+
+            rows = [];
+            errorCount = 0;
+
+            updatePreview();
+            syncPreviewHeight();
+
+            return;
+        }
+
+
+        if (rows.length === 0) {
+
+            result.innerHTML = `
+                <div style="
+                    padding:11px 13px;
+                    background:#fff0f2;
+                    color:#a93243;
+                    border-radius:9px;
+                    font-size:13px;
+                ">
+                    ✕ No contacts found.
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        // --------------------------------------------
+        // VALIDATION
+        // --------------------------------------------
+
+        errorCount = 0;
+
+        let errorRows = [];
+        let seenEmails = new Set();
+
+
+        rows.forEach(
+            function(row, index) {
+
+
+            const salutation =
+                String(
+                    row["Salutation"] || ""
+                ).trim();
+
+
+            const name =
+                String(
+                    row["Name"] || ""
+                ).trim();
+
+
+            const email =
+                String(
+                    row["Email Address"] || ""
+                ).trim();
+
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            let errors = [];
+
+
+            if (!salutation) {
+
+                errors.push(
+                    "Missing Salutation"
+                );
+
+            }
+
+
+            if (!name) {
+
+                errors.push(
+                    "Missing Name"
+                );
+
+            }
+
+
+            if (!email) {
+
+                errors.push(
+                    "Missing Email"
+                );
+
+            }
+
+            else if (
+                !emailPattern.test(email)
+            ) {
+
+                errors.push(
+                    "Invalid Email"
+                );
+
+            }
+
+            else if (
+                seenEmails.has(
+                    email.toLowerCase()
+                )
+            ) {
+
+                errors.push(
+                    "Duplicate Email"
+                );
+
+            }
+
+            else {
+
+                seenEmails.add(
+                    email.toLowerCase()
+                );
+
+            }
+
+
+            if (errors.length > 0) {
+
+                errorCount++;
+
+
+                errorRows.push({
+
+                    rowNumber:
+                        index + 2,
+
+                    name:
+                        name,
+
+                    email:
+                        email,
+
+                    errors:
+                        errors
+
+                });
+
+            }
+
+        });
+
+
+        // --------------------------------------------
+        // SHOW VALIDATION RESULT
+        // --------------------------------------------
+
+        let html = "";
+
+
+        if (errorCount === 0) {
+
+            html = `
+
+                <div style="
+                    padding:11px 13px;
+                    background:#eaf8f2;
+                    color:#16875b;
+                    border-radius:9px;
+                    font-size:13px;
+                    font-weight:650;
+                ">
+
+                    ✓ ${rows.length}
+                    contact${rows.length === 1 ? "" : "s"}
+                    validated and ready to send.
+
+                </div>
+
+            `;
+
+        }
+
+        else {
+
+            html = `
+
+                <div style="
+                    padding:11px 13px;
+                    background:#fff0f2;
+                    color:#a93243;
+                    border-radius:9px;
+                    font-size:13px;
+                    font-weight:650;
+                ">
+
+                    ✕ ${errorCount}
+                    contact(s) have errors.
+
+                </div>
+
+
+                <table>
+
+                    <tr>
+
+                        <th>Row</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Error</th>
+
+                    </tr>
+
+            `;
+
+
+            errorRows.forEach(
+                function(row) {
+
+
+                html += `
+
+                    <tr>
+
+                        <td>
+                            ${row.rowNumber}
+                        </td>
+
+                        <td>
+                            ${row.name}
+                        </td>
+
+                        <td>
+                            ${row.email}
+                        </td>
+
+                        <td>
+                            ${row.errors.join(", ")}
+                        </td>
+
+                    </tr>
+
+                `;
+
+            });
+
+
+            html += "</table>";
+
+        }
+
+
+        result.innerHTML = html;
+
+
+        updatePreview();
+        syncPreviewHeight();
+
+    };
+
+
+    reader.readAsArrayBuffer(file);
+
+});
+
+
+// ----------------------------------------------------
+// SEND BUTTON
+// ----------------------------------------------------
+
+document
+    .getElementById("sendButton")
+    .addEventListener(
+        "click",
+        function() {
+
+
+    if (rows.length === 0) {
+
+        alert(
+            "Please upload an Excel file first."
+        );
+
+        return;
+    }
+
+
+    if (errorCount > 0) {
+
+        alert(
+            "Please correct the Excel errors before sending."
+        );
+
+        return;
+    }
+
+
+    const subject =
+        document
+            .getElementById("subject")
+            .value
+            .trim();
+
+
+    const message =
+        quill
+            .getText()
+            .trim();
+
+
+    const senderName =
+        document
+            .getElementById("senderName")
+            .value
+            .trim();
+
+
+    if (!senderName) {
+
+        alert(
+            "Please enter a Sender Name."
+        );
+
+        return;
+    }
+
+
+    const replyTo =
+        document
+            .getElementById("replyTo")
+            .value
+            .trim();
+
+
+    const emailPattern =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    if (!replyTo) {
+
+        alert(
+            "Please enter a Reply-To email address."
+        );
+
+        return;
+    }
+
+
+    if (!emailPattern.test(replyTo)) {
+
+        alert(
+            "Please enter a valid Reply-To email address."
+        );
+
+        return;
+    }
+
+
+    if (!subject) {
+
+        alert(
+            "Please enter an email subject."
+        );
+
+        return;
+    }
+
+
+    if (!message) {
+
+        alert(
+            "Please enter an email message."
+        );
+
+        return;
+    }
+
+
+    const confirmed = confirm(
+
+        "You are about to send " +
+        rows.length +
+        " email" +
+        (rows.length === 1 ? "" : "s") +
+        ".\n\n" +
+        "Do you want to continue?"
+
+    );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    // --------------------------------------------
+    // BUILD RECIPIENTS
+    // --------------------------------------------
+
+    const recipients =
+        rows.map(
+            function(row) {
+
+                return {
+
+                    salutation:
+                        row["Salutation"] || "",
+
+                    name:
+                        row["Name"] || "",
+
+                    email:
+                        row["Email Address"] || ""
+
+                };
+
+            }
+        );
+
+
+    // --------------------------------------------
+    // SEND TO BACKEND
+    // --------------------------------------------
+
+    const sendButton =
+        document.getElementById(
+            "sendButton"
+        );
+
+
+    const originalButtonText =
+        sendButton.innerHTML;
+
+
+    sendButton.disabled = true;
+
+    sendButton.innerHTML =
+        "Sending...";
+
+
+    fetch(
+        "https://sendquack-backend.onrender.com/send-emails",
+        {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type":
+                    "application/json"
+            },
+
+            body: JSON.stringify({
+
+                recipients:
+                    recipients,
+
+                sender_name:
+                    document
+                        .getElementById(
+                            "senderName"
+                        )
+                        .value
+                        .trim(),
+
+                reply_to:
+                    document
+                        .getElementById(
+                            "replyTo"
+                        )
+                        .value
+                        .trim(),
+
+                subject:
+                    subject,
+
+                message:
+                    quill.root.innerHTML
+
+            })
+
+        }
+    )
+
+    .then(response => response.json())
+
+    .then(data => {
+
+
+        const suppressedCount =
+            (data.results || []).filter(
+                result =>
+                    result.status ===
+                    "Suppressed"
+            ).length;
+
+
+        const actualFailedCount =
+            (data.failed || 0) -
+            suppressedCount;
+
+
+        let summary =
+            (data.sent || 0) +
+            " email(s) sent successfully.";
+
+
+        if (suppressedCount > 0) {
+
+            summary +=
+                "\n" +
+                suppressedCount +
+                " email(s) skipped because the address is suppressed.";
+
+        }
+
+
+        if (actualFailedCount > 0) {
+
+            summary +=
+                "\n" +
+                actualFailedCount +
+                " email(s) failed.";
+
+        }
+
+
+        alert(summary);
+
+    })
+
+    .catch(error => {
+
+        console.error(error);
+
+        alert(
+            "Something went wrong connecting to the backend."
+        );
+
+    })
+
+    .finally(function() {
+
+        sendButton.disabled = false;
+
+        sendButton.innerHTML =
+            originalButtonText;
+
+    });
+
+});
+
+</script>
+
 
 </body>
 </html>
