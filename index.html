@@ -9,7 +9,10 @@
 
     <!-- Excel library -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
-
+   
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
     <!-- Quill Editor -->
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
@@ -1616,6 +1619,21 @@
 let rows = [];
 let errorCount = 0;
 
+    // ----------------------------------------------------
+// SUPABASE
+// ----------------------------------------------------
+
+    const SUPABASE_URL =
+        "https://zaaxcnvwfggplspvimmp.supabase.co";
+    
+    const SUPABASE_KEY =
+        "sb_publishable_Fsml7akstbWkrDNvdStVHw_gYhomPi6";
+    
+    const supabaseClient =
+        supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
 
 // ----------------------------------------------------
 // QUILL EDITOR
