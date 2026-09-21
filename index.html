@@ -1976,12 +1976,6 @@ document
             function(row, index) {
 
 
-            const salutation =
-                String(
-                    row["Salutation"] || ""
-                ).trim();
-
-
             const name =
                 String(
                     row["Name"] || ""
@@ -1999,16 +1993,6 @@ document
 
 
             let errors = [];
-
-
-            if (!salutation) {
-
-                errors.push(
-                    "Missing Salutation"
-                );
-
-            }
-
 
             if (!name) {
 
