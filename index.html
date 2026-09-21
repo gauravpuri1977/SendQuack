@@ -745,20 +745,17 @@
             word-break: break-word;
         }
 
-        .preview-message. {
+      .preview-message.ql-editor {
             min-height: 220px;
             padding: 20px 21px 21px;
+            height: auto;
+            overflow: visible;
         }
         
-        .preview-message p:first-child {
-            margin-top: 0;
-        }
-        
-        .preview-message > p:first-child {
+        .preview-message.ql-editor p:first-child {
             margin-top: 0;
             padding-top: 0;
         }
-
                 
         .preview-badge {
             margin-left: auto;
@@ -1810,7 +1807,7 @@ function updatePreview() {
 
 
         <div
-            class="preview-message"
+            class="ql-editor preview-message"
             style="
                 background-color: ${emailBackground};
                 box-sizing: border-box;
@@ -1863,6 +1860,47 @@ quill.on(
 
     }
 );
+
+
+// ----------------------------------------------------
+// EXCEL DRAG & DROP
+// ----------------------------------------------------
+
+const uploadZone =
+    document.querySelector(".upload-zone");
+
+const excelFileInput =
+    document.getElementById("excelFile");
+
+uploadZone.addEventListener("dragover", function(event) {
+    event.preventDefault();
+    uploadZone.style.borderColor = "#0878f9";
+    uploadZone.style.background = "#eaf4ff";
+});
+
+uploadZone.addEventListener("dragleave", function() {
+    uploadZone.style.borderColor = "";
+    uploadZone.style.background = "";
+});
+
+uploadZone.addEventListener("drop", function(event) {
+    event.preventDefault();
+
+    uploadZone.style.borderColor = "";
+    uploadZone.style.background = "";
+
+    const files = event.dataTransfer.files;
+
+    if (files.length === 0) {
+        return;
+    }
+
+    excelFileInput.files = files;
+
+    excelFileInput.dispatchEvent(
+        new Event("change", { bubbles: true })
+    );
+});
 
 
 // ----------------------------------------------------
