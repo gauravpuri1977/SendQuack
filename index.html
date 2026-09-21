@@ -1758,16 +1758,23 @@ function updatePreview() {
             );
 
 
-    let personalizedMessage =
-        message
-            .replaceAll(
+         let personalizedMessage =
+            message.replaceAll(
                 "{{Name}}",
                 firstContact["Name"] || ""
-            )
-            .replace(
-                /^(<p><br><\/p>\s*)+/i,
-                ""
             );
+        
+        const tempMessage = document.createElement("div");
+        tempMessage.innerHTML = personalizedMessage;
+        
+        while (
+            tempMessage.firstElementChild &&
+            tempMessage.firstElementChild.textContent.trim() === ""
+        ) {
+            tempMessage.firstElementChild.remove();
+        }
+        
+        personalizedMessage = tempMessage.innerHTML;
 
 
     preview.innerHTML = `
