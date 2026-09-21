@@ -2592,7 +2592,10 @@ formData.append(
     quill.root.innerHTML
 );
 
-
+formData.append(
+    "email_background",
+    document.getElementById("emailBackground").value
+);
 // Add attachments
 
 selectedAttachments.forEach(
