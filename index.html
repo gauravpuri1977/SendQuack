@@ -782,10 +782,27 @@
             margin-top: 10px;
         }
 
-        /* =========================================================
-           FOOTER
-        ========================================================= */
+      /* Quill formatting inside Preview */
 
+        .preview-message .ql-font-serif {
+            font-family: Georgia, "Times New Roman", serif;
+        }
+        
+        .preview-message .ql-font-monospace {
+            font-family: Monaco, "Courier New", monospace;
+        }
+        
+        .preview-message .ql-size-small {
+            font-size: 0.75em;
+        }
+        
+        .preview-message .ql-size-large {
+            font-size: 1.5em;
+        }
+        
+        .preview-message .ql-size-huge {
+            font-size: 2.5em;
+        }
      /* =========================================================
    FOOTER
 ========================================================= */
@@ -1810,7 +1827,7 @@ function updatePreview() {
 
 
         <div
-            class="ql-editor preview-message"
+            class="preview-message"
             style="
                 background-color: ${emailBackground};
                 box-sizing: border-box;
