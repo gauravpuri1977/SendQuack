@@ -2196,7 +2196,182 @@ document
 
 });
 
-
+        // ----------------------------------------------------
+        // ATTACHMENTS
+        // ----------------------------------------------------
+        
+        let selectedAttachments = [];
+        
+        const attachmentInput =
+            document.getElementById("attachments");
+        
+        const attachmentList =
+            document.getElementById("attachmentList");
+        
+        
+        attachmentInput.addEventListener(
+            "change",
+            function(event) {
+        
+                const newFiles =
+                    Array.from(event.target.files);
+        
+                newFiles.forEach(function(file) {
+        
+                    // Avoid adding the same file twice
+                    const alreadyExists =
+                        selectedAttachments.some(
+                            existingFile =>
+                                existingFile.name === file.name &&
+                                existingFile.size === file.size
+                        );
+        
+                    if (!alreadyExists) {
+                        selectedAttachments.push(file);
+                    }
+        
+                });
+        
+        
+                // Maximum total attachment size = 10 MB
+        
+                const totalSize =
+                    selectedAttachments.reduce(
+                        (sum, file) => sum + file.size,
+                        0
+                    );
+        
+        
+                if (totalSize > 10 * 1024 * 1024) {
+        
+                    alert(
+                        "Total attachment size cannot exceed 10 MB."
+                    );
+        
+                    selectedAttachments = [];
+        
+                    attachmentInput.value = "";
+        
+                }
+        
+        
+                renderAttachments();
+        
+            }
+        );
+        
+        
+        function renderAttachments() {
+        
+            if (selectedAttachments.length === 0) {
+        
+                attachmentList.innerHTML =
+                    "No files attached";
+        
+                return;
+            }
+        
+        
+            attachmentList.innerHTML = "";
+        
+        
+            selectedAttachments.forEach(
+                function(file, index) {
+        
+        
+                    const fileSize =
+                        file.size < 1024 * 1024
+                            ? (file.size / 1024).toFixed(1) + " KB"
+                            : (file.size / (1024 * 1024)).toFixed(1) + " MB";
+        
+        
+                    const item =
+                        document.createElement("div");
+        
+        
+                    item.style.cssText = `
+                        display:flex;
+                        align-items:center;
+                        justify-content:space-between;
+                        gap:10px;
+                        padding:7px 9px;
+                        margin-top:5px;
+                        background:#f7f9fc;
+                        border:1px solid #e6eaf0;
+                        border-radius:7px;
+                    `;
+        
+        
+                    const fileInfo =
+                        document.createElement("span");
+        
+        
+                    fileInfo.textContent =
+                        "📎 " +
+                        file.name +
+                        " · " +
+                        fileSize;
+        
+        
+                    const removeButton =
+                        document.createElement("button");
+        
+        
+                    removeButton.type =
+                        "button";
+        
+        
+                    removeButton.textContent =
+                        "×";
+        
+        
+                    removeButton.title =
+                        "Remove attachment";
+        
+        
+                    removeButton.style.cssText = `
+                        border:none;
+                        background:transparent;
+                        cursor:pointer;
+                        font-size:18px;
+                        color:#98a2b3;
+                        line-height:1;
+                    `;
+        
+        
+                    removeButton.addEventListener(
+                        "click",
+                        function() {
+        
+                            selectedAttachments.splice(
+                                index,
+                                1
+                            );
+        
+                            renderAttachments();
+        
+                        }
+                    );
+        
+        
+                    item.appendChild(
+                        fileInfo
+                    );
+        
+        
+                    item.appendChild(
+                        removeButton
+                    );
+        
+        
+                    attachmentList.appendChild(
+                        item
+                    );
+        
+                }
+            );
+        
+        }
 // ----------------------------------------------------
 // SEND BUTTON
 // ----------------------------------------------------
