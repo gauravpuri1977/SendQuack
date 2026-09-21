@@ -1758,16 +1758,37 @@ function updatePreview() {
             );
 
 
-    let personalizedMessage =
-        message
-            .replaceAll(
-                "{{Name}}",
-                firstContact["Name"] || ""
+let personalizedMessage =
+    message.replaceAll(
+        "{{Name}}",
+        firstContact["Name"] || ""
+    );
+
+
+        // Remove blank lines at the beginning of the Quill message
+        
+        const tempMessage =
+            document.createElement("div");
+        
+        tempMessage.innerHTML =
+            personalizedMessage;
+        
+        
+        while (
+            tempMessage.firstElementChild &&
+            (
+                tempMessage.firstElementChild.innerHTML.trim() === "<br>" ||
+                tempMessage.firstElementChild.textContent.trim() === ""
             )
-            .replace(
-                /^(<p><br><\/p>\s*)+/i,
-                ""
-            );
+        ) {
+        
+            tempMessage.firstElementChild.remove();
+        
+        }
+        
+        
+        personalizedMessage =
+            tempMessage.innerHTML;
 
 
     preview.innerHTML = `
