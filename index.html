@@ -740,18 +740,20 @@
             word-break: break-word;
         }
 
-        .preview-message.ql-editor {
+            .preview-message {
             min-height: 220px;
             padding: 10px 21px 21px;
+            font-size: 14px;
+            line-height: 1.6;
         }
         
-        .preview-message.ql-editor p:first-child {
+        .preview-message > *:first-child {
             margin-top: 0;
         }
         
-        .preview-message.ql-editor > p:first-child {
+        .preview-message p {
             margin-top: 0;
-            padding-top: 0;
+            margin-bottom: 1em;
         }
         .preview-badge {
             margin-left: auto;
@@ -1819,7 +1821,7 @@ let personalizedMessage =
 
 
         <div
-            class="ql-editor preview-message"
+            class="preview-message"
             style="
                 background-color: ${emailBackground};
                 box-sizing: border-box;
