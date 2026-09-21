@@ -64,20 +64,10 @@
         /* =====================================================
            AUTH SCREEN
         ===================================================== */
+
+
+
         
-        #authScreen {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            background: #ffffff;
-        
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        
-            gap: 14px;
-        }
                /* =====================================================
 
         
@@ -173,12 +163,79 @@
            CHANNELS
         ========================================================= */
 
+
+        .header-login {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        
+            padding: 9px 15px;
+        
+            border: 1px solid #dbe3ee;
+            border-radius: 8px;
+        
+            background: #ffffff;
+            color: #1f2937;
+        
+            font-size: 14px;
+            font-weight: 600;
+        
+            cursor: pointer;
+        }
+        
+        .header-login:hover {
+            background: #f8fafc;
+        }
+
+        #authScreen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+        
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 14px;
+        
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(3px);
+        }
+        
+        #authScreen h2,
+        #authScreen input,
+        #authScreen button,
+        #authMessage {
+            width: 320px;
+            max-width: calc(100vw - 48px);
+        }
+        
+        #authScreen input {
+            box-sizing: border-box;
+            padding: 12px 14px;
+            border: 1px solid #dbe3ee;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        #authScreen button {
+            padding: 11px 14px;
+            border: 0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        #authScreen h2,
+        #authMessage {
+            text-align: center;
+        }
         .channels {
             display: flex;
             gap: 9px;
             align-items: center;
         }
 
+
+        
         .channel {
             border: 1px solid var(--border);
             background: white;
@@ -1159,32 +1216,7 @@
 
 
 <body>
-    <!-- AUTH SCREEN -->
-    <div id="authScreen">
-        <h2>Welcome to SendQuack</h2>
-    
-        <input
-            type="email"
-            id="authEmail"
-            placeholder="Email address"
-        >
-    
-        <input
-            type="password"
-            id="authPassword"
-            placeholder="Password"
-        >
-    
-        <button id="loginButton">
-            Login
-        </button>
-    
-        <button id="signupButton">
-            Create Account
-        </button>
-    
-        <div id="authMessage"></div>
-    </div>
+
 
 <!-- =====================================================
      HEADER
@@ -1241,6 +1273,11 @@
                     Coming Soon
                 </span>
             </div>
+
+            <button id="headerLoginButton" class="header-login">
+                <i class="fa-solid fa-user"></i>
+                Login
+            </button>
 
         </div>
 
@@ -1652,7 +1689,32 @@
 
 </main>
 
-
+ <!-- AUTH SCREEN -->
+    <div id="authScreen" style="display: none;">
+        <h2>Welcome to SendQuack</h2>
+    
+        <input
+            type="email"
+            id="authEmail"
+            placeholder="Email address"
+        >
+    
+        <input
+            type="password"
+            id="authPassword"
+            placeholder="Password"
+        >
+    
+        <button id="loginButton">
+            Login
+        </button>
+    
+        <button id="signupButton">
+            Create Account
+        </button>
+    
+        <div id="authMessage"></div>
+    </div>
 
 <script>
 
@@ -1680,6 +1742,10 @@ let errorCount = 0;
             SUPABASE_KEY
         );
 
+    // Open Login / Sign Up
+        document.getElementById("headerLoginButton").addEventListener("click", () => {
+            document.getElementById("authScreen").style.display = "flex";
+        });
 
     // ----------------------------------------------------
 // SIGN UP
