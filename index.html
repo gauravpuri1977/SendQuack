@@ -1241,7 +1241,7 @@
 
                     <div class="upload-help">
                         Required columns:
-                        Salutation, Name, Email Address
+                        Name, Email Address
                     </div>
 
                 </div>
@@ -1375,7 +1375,7 @@
                     <div id="editor">
 
                         <p>
-                            Dear {{Salutation}} {{Name}},
+                            Dear {{Name}},
                         </p>
 
                         <p><br></p>
@@ -1749,10 +1749,6 @@ function updatePreview() {
     let personalizedSubject =
         subject
             .replaceAll(
-                "{{Salutation}}",
-                firstContact["Salutation"] || ""
-            )
-            .replaceAll(
                 "{{Name}}",
                 firstContact["Name"] || ""
             );
@@ -1760,10 +1756,6 @@ function updatePreview() {
 
     let personalizedMessage =
         message
-            .replaceAll(
-                "{{Salutation}}",
-                firstContact["Salutation"] || ""
-            )
             .replaceAll(
                 "{{Name}}",
                 firstContact["Name"] || ""
