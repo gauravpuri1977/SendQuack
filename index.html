@@ -1660,6 +1660,33 @@ let errorCount = 0;
             SUPABASE_KEY
         );
 
+
+    // ----------------------------------------------------
+// SIGN UP
+// ----------------------------------------------------
+
+        document.getElementById("signupButton").addEventListener("click", async () => {
+        
+            const email = document.getElementById("authEmail").value.trim();
+            const password = document.getElementById("authPassword").value;
+        
+            const message = document.getElementById("authMessage");
+        
+            message.textContent = "Creating account...";
+        
+            const { data, error } = await supabaseClient.auth.signUp({
+                email: email,
+                password: password
+            });
+        
+            if (error) {
+                message.textContent = error.message;
+                return;
+            }
+        
+            message.textContent =
+                "Account created. Please check your email to confirm your account.";
+        });
 // ----------------------------------------------------
 // QUILL EDITOR
 // ----------------------------------------------------
