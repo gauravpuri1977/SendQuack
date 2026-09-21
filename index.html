@@ -745,18 +745,19 @@
             word-break: break-word;
         }
 
-      .preview-message.ql-editor {
+        .preview-message {
             min-height: 220px;
             padding: 20px 21px 21px;
-            height: auto;
-            overflow: visible;
         }
         
-        .preview-message.ql-editor p:first-child {
+        .preview-message p:first-child {
+            margin-top: 0;
+        }
+        
+        .preview-message > p:first-child {
             margin-top: 0;
             padding-top: 0;
         }
-                
         .preview-badge {
             margin-left: auto;
 
@@ -1387,7 +1388,9 @@
                         <p>
                             Dear {{Name}},
                         </p>
-                             
+
+                      
+
                         <p>
                             Type your message here...
                         </p>
@@ -1807,7 +1810,7 @@ function updatePreview() {
 
 
         <div
-            class="ql-editor preview-message"
+            class="preview-message"
             style="
                 background-color: ${emailBackground};
                 box-sizing: border-box;
@@ -1819,13 +1822,7 @@ function updatePreview() {
     `;
 
 }
-        .preview-message .ql-font-serif {
-            font-family: Georgia, "Times New Roman", serif;
-        }
-        
-        .preview-message .ql-font-monospace {
-            font-family: Monaco, "Courier New", monospace;
-        }
+
 
 // ----------------------------------------------------
 // LIVE SUBJECT
@@ -1863,81 +1860,31 @@ quill.on(
 
 
 // ----------------------------------------------------
-// EXCEL DRAG & DROP
-// ----------------------------------------------------
-
-const uploadZone =
-    document.querySelector(".upload-zone");
-
-const excelFileInput =
-    document.getElementById("excelFile");
-
-uploadZone.addEventListener("dragover", function(event) {
-    event.preventDefault();
-    uploadZone.style.borderColor = "#0878f9";
-    uploadZone.style.background = "#eaf4ff";
-});
-
-uploadZone.addEventListener("dragleave", function() {
-    uploadZone.style.borderColor = "";
-    uploadZone.style.background = "";
-});
-
-uploadZone.addEventListener("drop", function(event) {
-    event.preventDefault();
-
-    uploadZone.style.borderColor = "";
-    uploadZone.style.background = "";
-
-    const files = event.dataTransfer.files;
-    
-    if (files.length === 0) {
-        return;
-    }
-    
-    const file = files[0];
-    
-    if (!file.name.toLowerCase().match(/\.(xlsx|xls)$/)) {
-        alert("Please drop an Excel file (.xlsx or .xls).");
-        return;
-    }
-    
-    readExcelFile(file);
-});
-
-
-// ----------------------------------------------------
 // EXCEL UPLOAD
 // ----------------------------------------------------
 
-// ----------------------------------------------------
-// EXCEL UPLOAD
-// ----------------------------------------------------
+document
+    .getElementById("excelFile")
+    .addEventListener(
+        "change",
+        function(event) {
 
-    document
-        .getElementById("excelFile")
-        .addEventListener(
-            "change",
-            function(event) {
-    
-                const file = event.target.files[0];
-    
-                if (!file) {
-                    return;
-                }
-    
-                readExcelFile(file);
-            }
-        );
-    
-    
-    function readExcelFile(file) {
-    
-        const reader =
-            new FileReader();
-    
-        reader.onload =
-            function(e) {
+
+    const file =
+        event.target.files[0];
+
+
+    if (!file) {
+        return;
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(e) {
 
 
         const data =
@@ -2235,9 +2182,10 @@ uploadZone.addEventListener("drop", function(event) {
 
     };
 
+
     reader.readAsArrayBuffer(file);
-    
-    }
+
+});
 
         // ----------------------------------------------------
         // ATTACHMENTS
