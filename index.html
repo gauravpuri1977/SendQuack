@@ -1767,6 +1767,10 @@ function updatePreview() {
             .replaceAll(
                 "{{Name}}",
                 firstContact["Name"] || ""
+            )
+            .replace(
+                /^(<p><br><\/p>\s*)+/i,
+                ""
             );
 
 
