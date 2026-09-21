@@ -2546,49 +2546,78 @@ document
         "Sending...";
 
 
-    fetch(
-        "https://sendquack-backend.onrender.com/send-emails",
-        {
+    // --------------------------------------------
+// BUILD FORM DATA
+// --------------------------------------------
 
-            method: "POST",
+const formData =
+    new FormData();
 
-            headers: {
-                "Content-Type":
-                    "application/json"
-            },
 
-            body: JSON.stringify({
+formData.append(
+    "recipients",
+    JSON.stringify(recipients)
+);
 
-                recipients:
-                    recipients,
 
-                sender_name:
-                    document
-                        .getElementById(
-                            "senderName"
-                        )
-                        .value
-                        .trim(),
+formData.append(
+    "sender_name",
+    document
+        .getElementById("senderName")
+        .value
+        .trim()
+);
 
-                reply_to:
-                    document
-                        .getElementById(
-                            "replyTo"
-                        )
-                        .value
-                        .trim(),
 
-                subject:
-                    subject,
+formData.append(
+    "reply_to",
+    document
+        .getElementById("replyTo")
+        .value
+        .trim()
+);
 
-                message:
-                    quill.root.innerHTML
 
-            })
+formData.append(
+    "subject",
+    subject
+);
 
-        }
-    )
 
+formData.append(
+    "message",
+    quill.root.innerHTML
+);
+
+
+// Add attachments
+
+selectedAttachments.forEach(
+    function(file) {
+
+        formData.append(
+            "attachments",
+            file
+        );
+
+    }
+);
+
+
+// --------------------------------------------
+// SEND TO BACKEND
+// --------------------------------------------
+
+fetch(
+    "https://sendquack-backend.onrender.com/send-emails",
+    {
+
+        method: "POST",
+
+        body: formData
+
+    }
+)
     .then(response => response.json())
 
     .then(data => {
