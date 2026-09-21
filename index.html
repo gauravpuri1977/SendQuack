@@ -1910,25 +1910,32 @@ uploadZone.addEventListener("drop", function(event) {
 // EXCEL UPLOAD
 // ----------------------------------------------------
 
-document
-    .getElementById("excelFile")
-    .addEventListener(
-        "change",
-        function(event) {
+// ----------------------------------------------------
+// EXCEL UPLOAD
+// ----------------------------------------------------
 
-
-    const file =
-        event.target.files[0];
-
-
-    if (!file) {
-        return;
+    document
+        .getElementById("excelFile")
+        .addEventListener(
+            "change",
+            function(event) {
+    
+                const file = event.target.files[0];
+    
+                if (!file) {
+                    return;
+                }
+    
+                readExcelFile(file);
+            }
+        );
+    
+    
+    function readExcelFile(file) {
+    
+        const reader =
+            new FileReader();
     }
-
-
-    const reader =
-        new FileReader();
-
 
     reader.onload =
         function(e) {
