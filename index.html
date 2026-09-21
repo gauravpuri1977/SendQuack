@@ -1890,16 +1890,19 @@ uploadZone.addEventListener("drop", function(event) {
     uploadZone.style.background = "";
 
     const files = event.dataTransfer.files;
-
+    
     if (files.length === 0) {
         return;
     }
-
-    excelFileInput.files = files;
-
-    excelFileInput.dispatchEvent(
-        new Event("change", { bubbles: true })
-    );
+    
+    const file = files[0];
+    
+    if (!file.name.toLowerCase().match(/\.(xlsx|xls)$/)) {
+        alert("Please drop an Excel file (.xlsx or .xls).");
+        return;
+    }
+    
+    readExcelFile(file);
 });
 
 
