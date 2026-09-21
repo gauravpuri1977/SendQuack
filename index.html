@@ -452,11 +452,12 @@
         
         .preview-body {
             flex: 1;
-            padding: 0 22px 23px;
+            display: flex;
+            flex-direction: column;
         }
         
         .preview-box {
-            width: 100%;
+            flex: 1;
         }
         /* =========================================================
            FORM
@@ -646,6 +647,10 @@
            PREVIEW
         ========================================================= */
 
+        .preview-body {
+            padding: 0px 22px 23px;
+        }
+
         .preview-box {
             width: 100%;
 
@@ -740,19 +745,18 @@
             word-break: break-word;
         }
 
-            .preview-message {
+        .preview-message.ql-editor {
             min-height: 220px;
             padding: 10px 21px 21px;
-            font-size: 14px;
-            line-height: 1.6;
         }
         
-        .preview-message > *:first-child {
+        .preview-message.ql-editor p:first-child {
             margin-top: 0;
         }
         
-        .preview-message p {
+        .preview-message.ql-editor > p:first-child {
             margin-top: 0;
+            padding-top: 0;
         }
         .preview-badge {
             margin-left: auto;
@@ -1102,9 +1106,6 @@
         font-size: 11px;
         color: #98a2b3;
     }
-
-
-        }
     </style>
 
 </head>
@@ -1380,6 +1381,8 @@
                         <p>
                             Dear {{Name}},
                         </p>
+
+                        <p><br></p>
 
                         <p>
                             Type your message here...
@@ -1755,37 +1758,16 @@ function updatePreview() {
             );
 
 
-let personalizedMessage =
-    message.replaceAll(
-        "{{Name}}",
-        firstContact["Name"] || ""
-    );
-
-
-        // Remove blank lines at the beginning of the Quill message
-        
-        const tempMessage =
-            document.createElement("div");
-        
-        tempMessage.innerHTML =
-            personalizedMessage;
-        
-        
-        while (
-            tempMessage.firstElementChild &&
-            (
-                tempMessage.firstElementChild.innerHTML.trim() === "<br>" ||
-                tempMessage.firstElementChild.textContent.trim() === ""
+    let personalizedMessage =
+        message
+            .replaceAll(
+                "{{Name}}",
+                firstContact["Name"] || ""
             )
-        ) {
-        
-            tempMessage.firstElementChild.remove();
-        
-        }
-        
-        
-        personalizedMessage =
-            tempMessage.innerHTML;
+            .replace(
+                /^(<p><br><\/p>\s*)+/i,
+                ""
+            );
 
 
     preview.innerHTML = `
@@ -1821,7 +1803,7 @@ let personalizedMessage =
 
 
         <div
-            class="preview-message"
+            class="ql-editor preview-message"
             style="
                 background-color: ${emailBackground};
                 box-sizing: border-box;
