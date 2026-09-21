@@ -457,7 +457,7 @@
         }
         
         .preview-box {
-            flex: none;
+            flex: 1;
         }
         /* =========================================================
            FORM
@@ -745,16 +745,16 @@
             word-break: break-word;
         }
 
-        .preview-message.ql-editor {
+        .preview-message {
             min-height: 220px;
             padding: 10 21px 21px;
         }
         
-        .preview-message.ql-editor p:first-child {
+        .preview-message p:first-child {
             margin-top: 0;
         }
         
-        .preview-message.ql-editor > p:first-child {
+        .preview-message > p:first-child {
             margin-top: 0;
             padding-top: 0;
         }
@@ -1803,7 +1803,7 @@ function updatePreview() {
 
 
         <div
-            class="ql-editor preview-message"
+            class="preview-message"
             style="
                 background-color: ${emailBackground};
                 box-sizing: border-box;
