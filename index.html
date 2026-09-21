@@ -745,7 +745,7 @@
             word-break: break-word;
         }
 
-        .preview-message {
+        .preview-message.ql-editor {
             min-height: 220px;
             padding: 20px 21px 21px;
         }
@@ -758,6 +758,15 @@
             margin-top: 0;
             padding-top: 0;
         }
+
+        .preview-message.ql-editor {
+            min-height: 220px;
+            padding: 20px 21px 21px;
+        
+            height: auto;
+            overflow: visible;
+        }
+                
         .preview-badge {
             margin-left: auto;
 
@@ -1808,7 +1817,7 @@ function updatePreview() {
 
 
         <div
-            class="preview-message"
+            class="ql-editor preview-message"
             style="
                 background-color: ${emailBackground};
                 box-sizing: border-box;
