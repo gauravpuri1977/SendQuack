@@ -18,7 +18,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     >
-      
+    
     <style>
 
         /* =========================================================
@@ -1064,6 +1064,44 @@
         .workspace {
             margin-top: 16px;
         }
+    /* ATTACHMENTS */
+
+    .attachment-section {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+    
+    .attachment-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 7px;
+        padding: 8px 13px;
+        border: 1px solid #d7dfeb;
+        border-radius: 8px;
+        background: #ffffff;
+        font-size: 13px;
+        font-weight: 650;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    
+    .attachment-button:hover {
+        border-color: #0878f9;
+        background: #f6faff;
+    }
+    
+    .attachment-list {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #667085;
+    }
+    
+    .attachment-help {
+        margin-top: 4px;
+        font-size: 11px;
+        color: #98a2b3;
+    }
     </style>
 
 </head>
@@ -1350,7 +1388,39 @@
 
                 </div>
 
+                <!-- ATTACHMENTS -->
 
+                <div class="attachment-section">
+                
+                    <label class="field-label">
+                        Attachments
+                        <span style="font-weight:400; color:#8a94a6;">
+                            (optional)
+                        </span>
+                    </label>
+                
+                    <label class="attachment-button" for="attachments">
+                        📎 Attach files
+                    </label>
+                
+                    <input
+                        type="file"
+                        id="attachments"
+                        multiple
+                        accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.jpg,.jpeg,.png"
+                        style="display:none;"
+                    >
+                
+                    <div id="attachmentList" class="attachment-list">
+                        No files attached
+                    </div>
+                
+                    <div class="attachment-help">
+                        PDF, Word, Excel, PowerPoint, TXT or images · Maximum 10 MB total
+                    </div>
+                
+                </div>
+                
                 <button id="sendButton">
                     Send Emails →
                 </button>
