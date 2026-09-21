@@ -1102,6 +1102,22 @@
         font-size: 11px;
         color: #98a2b3;
     }
+
+        /* FINAL PREVIEW SPACING FIX */
+
+        .preview-message {
+            padding: 0 21px 21px !important;
+        }
+        
+        .preview-message p {
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 0 !important;
+        }
+        
+        .preview-message p:has(br:only-child) {
+            display: none !important;
+        }
     </style>
 
 </head>
