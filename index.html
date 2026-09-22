@@ -2588,6 +2588,123 @@ select {
     box-shadow:
         0 8px 18px rgba(8, 120, 249, 0.32);
 }
+
+        /* =====================================================
+   SENDQUACK — YELLOW / NAVY LABEL SYSTEM
+===================================================== */
+
+:root {
+    --sq-label-yellow: #ffd84d;
+    --sq-label-yellow-hover: #ffe36f;
+    --sq-label-navy: #082d5c;
+}
+
+
+/* -----------------------------------------------------
+   EMAIL / WHATSAPP / SMS
+----------------------------------------------------- */
+
+.channel,
+.channel.active {
+    background: var(--sq-label-yellow) !important;
+    color: var(--sq-label-navy) !important;
+
+    border: 1px solid rgba(8,45,92,.16) !important;
+
+    box-shadow:
+        0 5px 14px rgba(8,45,92,.16);
+
+    transition:
+        transform .15s ease,
+        background .15s ease,
+        box-shadow .15s ease;
+}
+
+.channel:hover {
+    background: var(--sq-label-yellow-hover) !important;
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 18px rgba(8,45,92,.20);
+}
+
+.channel > span:not(.coming-soon),
+.channel > i {
+    color: var(--sq-label-navy) !important;
+}
+
+
+/* Coming Soon inside header channels */
+
+.channel .coming-soon {
+    background: var(--sq-label-navy) !important;
+    color: var(--sq-label-yellow) !important;
+
+    border: none !important;
+}
+
+
+/* -----------------------------------------------------
+   HERO BENEFIT PILLS
+----------------------------------------------------- */
+
+.hero-benefits span {
+    background: var(--sq-label-yellow) !important;
+    color: var(--sq-label-navy) !important;
+
+    border: 1px solid rgba(8,45,92,.16) !important;
+
+    box-shadow:
+        0 5px 14px rgba(8,45,92,.16);
+
+    font-weight: 700;
+}
+
+.hero-benefits span:hover {
+    background: var(--sq-label-yellow-hover) !important;
+}
+
+
+/* -----------------------------------------------------
+   UPLOAD / COMPOSE / PREVIEW LABELS
+----------------------------------------------------- */
+
+.card-header .card-title {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 7px 13px;
+
+    background: var(--sq-label-yellow) !important;
+    color: var(--sq-label-navy) !important;
+
+    border-radius: 999px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 4px 12px rgba(8,45,92,.14);
+}
+
+
+/* -----------------------------------------------------
+   FOOTER COMING SOON PILLS
+----------------------------------------------------- */
+
+.footer-column small {
+    display: inline-flex;
+
+    padding: 3px 8px !important;
+
+    background: var(--sq-label-yellow) !important;
+    color: var(--sq-label-navy) !important;
+
+    border: 1px solid rgba(8,45,92,.14);
+
+    border-radius: 999px;
+
+    font-weight: 800;
+}
     </style>
 
 </head>
