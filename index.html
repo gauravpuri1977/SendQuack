@@ -1260,175 +1260,496 @@
         .preview-card {
             font-family: "Inter", Arial, sans-serif;
         }
-        /* =====================================================
-   SENDQUACK VIBRANT THEME
+
+/* =====================================================
+   SENDQUACK — CONSOLIDATED VISUAL THEME
 ===================================================== */
 
-        :root {
-            --sq-blue: #1683ff;
-            --sq-blue-dark: #0866d8;
-            --sq-blue-soft: #eef7ff;
-        
-            --sq-yellow: #ffc928;
-            --sq-yellow-soft: #fff7d6;
-        
-            --sq-green: #16b879;
-            --sq-green-soft: #e9fbf3;
-        
-            --sq-navy: #0b2f5b;
-            --sq-text: #334155;
-            --sq-border: #d7e7f7;
-        }
+:root {
+    --sq-blue: #1677ff;
+    --sq-blue-bright: #278cff;
+    --sq-blue-dark: #075dcc;
+    --sq-navy: #082d5c;
 
-        /* =====================================================
-   PAGE + HEADER + HERO
-===================================================== */
+    --sq-yellow: #ffc928;
+    --sq-orange: #ff7a1a;
+    --sq-coral: #ff5364;
+    --sq-green: #0dbb78;
 
-        /* Soft colourful page background */
-        html {
-            background:
-                radial-gradient(circle at 10% 10%, #e8f5ff 0, transparent 30%),
-                radial-gradient(circle at 90% 15%, #fff4bf 0, transparent 27%),
-                #f8fbff;
-        }
-        
-        /* Brighter premium header */
-        .topbar {
-            background: linear-gradient(
-                90deg,
-                #ffffff 0%,
-                #f1f8ff 55%,
-                #fff9df 100%
-            );
-        
-            border-bottom: 1px solid #dbeafe;
-            box-shadow: 0 4px 18px rgba(22, 131, 255, 0.08);
-        }
-        
-        /* Give the hero more energy */
-        .hero {
-            position: relative;
-            overflow: hidden;
-        
-            background: linear-gradient(
-                135deg,
-                #eef7ff 0%,
-                #ffffff 52%,
-                #fff7d6 100%
-            );
-        
-            border: 1px solid #dbeafe;
-            border-radius: 18px;
-        
-            padding: 32px 36px;
-            margin-top: 24px;
-            margin-bottom: 28px;
-        
-            box-shadow: 0 12px 35px rgba(22, 131, 255, 0.08);
-        }
-        
-        .hero h1 {
-            color: var(--sq-navy);
-        }
-        
-        .hero p {
-            color: #52657a;
-        }
+    --sq-text: #334155;
+    --sq-muted: #64748b;
 
-        /* =====================================================
+    --sq-border: #d9e6f4;
+    --sq-soft-blue: #eef7ff;
+    --sq-soft-yellow: #fff8dc;
+}
+
+
+/* -----------------------------------------------------
+   PAGE
+----------------------------------------------------- */
+
+html {
+    background:
+        radial-gradient(
+            circle at 0% 18%,
+            rgba(22,119,255,.16) 0,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 100% 20%,
+            rgba(255,201,40,.18) 0,
+            transparent 24%
+        ),
+        #f7fbff;
+
+    color: var(--sq-text);
+}
+
+
+/* -----------------------------------------------------
+   HEADER
+----------------------------------------------------- */
+
+.topbar {
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #f8fbff 55%,
+            #fff9e8 100%
+        );
+
+    border-bottom: 1px solid #dce9f7;
+
+    box-shadow:
+        0 4px 18px rgba(8,45,92,.07);
+}
+
+
+/* Email channel */
+
+.channel.active {
+    background: #eef7ff;
+    border-color: #9dccff;
+    color: var(--sq-blue);
+}
+
+
+/* Coming Soon */
+
+.coming-soon {
+    background: #fff3c5;
+    color: #946500;
+    border-color: #ffe08a;
+}
+
+
+/* Account */
+
+.header-login {
+    background: rgba(255,255,255,.92);
+    border-color: #d8e4f1;
+
+    box-shadow:
+        0 4px 12px rgba(8,45,92,.06);
+}
+
+.header-login:hover {
+    background: #eef7ff;
+    border-color: #9dccff;
+}
+
+
+/* -----------------------------------------------------
+   HERO
+----------------------------------------------------- */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    padding: 42px 44px;
+
+    margin-top: 26px;
+    margin-bottom: 30px;
+
+    border: 1px solid #dbeafe;
+    border-radius: 24px;
+
+    background:
+        radial-gradient(
+            circle at 92% 18%,
+            rgba(255,201,40,.90) 0 8%,
+            transparent 8.5%
+        ),
+
+        radial-gradient(
+            circle at 100% 75%,
+            rgba(255,83,100,.72) 0 13%,
+            transparent 13.5%
+        ),
+
+        radial-gradient(
+            circle at 2% 100%,
+            rgba(22,119,255,.92) 0 17%,
+            transparent 17.5%
+        ),
+
+        linear-gradient(
+            120deg,
+            #ffffff 20%,
+            #f3f9ff 60%,
+            #fff8df 100%
+        );
+
+    box-shadow:
+        0 14px 38px rgba(8,45,92,.09);
+}
+
+
+/* Small decorative colour shape */
+
+
+.hero h1 {
+    position: relative;
+    z-index: 1;
+
+    color: var(--sq-navy);
+
+    font-weight: 700;
+    letter-spacing: -1.2px;
+}
+
+
+.hero p {
+    position: relative;
+    z-index: 1;
+
+    color: #53677f;
+
+    font-weight: 400;
+}
+
+
+/* -----------------------------------------------------
    WORKFLOW CARDS
-===================================================== */
+----------------------------------------------------- */
 
 .card {
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255,255,255,.97);
+
     border: 1px solid var(--sq-border);
-    border-radius: 16px;
+
+    border-radius: 20px;
 
     box-shadow:
-        0 8px 24px rgba(15, 47, 91, 0.07),
-        0 2px 6px rgba(22, 131, 255, 0.04);
+        0 10px 30px rgba(8,45,92,.075),
+        0 2px 6px rgba(22,119,255,.04);
 
     transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
+        box-shadow .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
 }
+
 
 .card:hover {
-    border-color: #b9d9fa;
+    border-color: #b6d8fa;
+
     box-shadow:
-        0 12px 30px rgba(15, 47, 91, 0.10),
-        0 3px 8px rgba(22, 131, 255, 0.07);
+        0 15px 38px rgba(8,45,92,.10),
+        0 3px 9px rgba(22,119,255,.06);
 }
 
-/* Section titles */
+
 .card-title {
     color: var(--sq-navy);
 }
 
-/* Number badges: 1, 2, 3 */
+
+/* -----------------------------------------------------
+   STEP NUMBERS
+----------------------------------------------------- */
+
 .step-number {
-    background: linear-gradient(
-        135deg,
-        var(--sq-blue),
-        var(--sq-blue-dark)
-    );
+    background:
+        linear-gradient(
+            135deg,
+            var(--sq-blue-bright),
+            var(--sq-blue-dark)
+        );
 
     color: #ffffff;
 
-    box-shadow: 0 5px 12px rgba(22, 131, 255, 0.25);
+    box-shadow:
+        0 6px 14px rgba(22,119,255,.28);
 }
 
-        /* Upload area */
-        .upload-zone {
-            background: linear-gradient(
-                135deg,
-                #f4faff,
-                #eef7ff
-            );
-        
-            border-color: #8dc5ff;
-        }
-        
-        .upload-zone:hover {
-            background: #e8f4ff;
-            border-color: var(--sq-blue);
-        }
-        
-        /* Main action buttons */
-        .primary-button,
-        .send-button {
-            background: linear-gradient(
-                135deg,
-                var(--sq-blue),
-                var(--sq-blue-dark)
-            );
-        
-            color: #ffffff;
-        
-            box-shadow: 0 6px 16px rgba(22, 131, 255, 0.24);
-        }
-        
-        .primary-button:hover,
-        .send-button:hover {
-            box-shadow: 0 9px 22px rgba(22, 131, 255, 0.32);
-            transform: translateY(-1px);
-        }
-        
-        /* Live indicator */
-        .live-badge {
-            background: var(--sq-green-soft);
-            color: var(--sq-green);
-            border: 1px solid #b9efd8;
-        }
-        
-        /* Coming Soon */
-        .coming-soon {
-            background: var(--sq-yellow-soft);
-            color: #8a6500;
-            border: 1px solid #ffe17a;
-        }
 
+/* -----------------------------------------------------
+   UPLOAD AREA
+----------------------------------------------------- */
+
+.upload-zone {
+    background:
+        linear-gradient(
+            135deg,
+            #f8fcff,
+            #edf7ff
+        );
+
+    border-color: #8fc9ff;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+
+.upload-zone:hover {
+    background: #e9f5ff;
+    border-color: var(--sq-blue);
+
+    transform: translateY(-1px);
+}
+
+
+/* -----------------------------------------------------
+   FORM FIELDS
+----------------------------------------------------- */
+
+input,
+textarea,
+select {
+    border-color: #d3e2f2;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+
+    border-color: var(--sq-blue);
+
+    box-shadow:
+        0 0 0 3px rgba(22,119,255,.10);
+}
+
+
+/* -----------------------------------------------------
+   BUTTONS
+----------------------------------------------------- */
+
+.primary-button,
+.send-button {
+    background:
+        linear-gradient(
+            135deg,
+            var(--sq-blue-bright),
+            var(--sq-blue-dark)
+        );
+
+    color: #ffffff;
+
+    border: none;
+
+    box-shadow:
+        0 7px 18px rgba(22,119,255,.25);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.primary-button:hover,
+.send-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 11px 25px rgba(22,119,255,.34);
+}
+
+
+/* -----------------------------------------------------
+   LIVE BADGE
+----------------------------------------------------- */
+
+.live-badge {
+    background: #e7faf2;
+    color: #07945e;
+
+    border: 1px solid #b9efd8;
+
+    font-weight: 700;
+}
+
+
+/* -----------------------------------------------------
+   COMPOSE + PREVIEW
+----------------------------------------------------- */
+
+.preview-card {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #fbfdff
+        );
+}
+
+
+/* -----------------------------------------------------
+   SMALL DETAILS
+----------------------------------------------------- */
+
+label {
+    color: var(--sq-navy);
+    font-weight: 600;
+}
+
+
+.card-subtitle {
+    color: var(--sq-muted);
+}
+
+
+::selection {
+    background: #cde6ff;
+    color: var(--sq-navy);
+}
+
+/* =====================================================
+   SENDQUACK HERO LAYOUT
+===================================================== */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    min-height: 250px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    flex: 1 1 52%;
+    max-width: 650px;
+}
+
+.hero-content h1 {
+    margin: 0 0 14px;
+
+    font-size: clamp(34px, 3.2vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -1.8px;
+
+    color: var(--sq-navy);
+}
+
+.hero-content h1 span {
+    color: var(--sq-blue);
+}
+
+.hero-content p {
+    max-width: 590px;
+    margin: 0;
+
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.hero-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+.hero-benefits span {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 8px 14px;
+
+    background: rgba(255,255,255,.92);
+    border: 1px solid #dbe7f4;
+    border-radius: 999px;
+
+    color: var(--sq-navy);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    box-shadow: 0 4px 12px rgba(8,45,92,.07);
+}
+
+
+/* Hero artwork */
+
+.hero-art {
+    position: relative;
+    z-index: 2;
+
+    flex: 1 1 48%;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    min-width: 0;
+}
+
+.hero-art img {
+    display: block;
+
+    width: 100%;
+    max-width: 650px;
+    max-height: 300px;
+
+    object-fit: contain;
+}
+
+
+/* -----------------------------------------------------
+   MOBILE HERO
+----------------------------------------------------- */
+
+@media (max-width: 850px) {
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 30px 26px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero-art {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-art img {
+        max-width: 500px;
+        max-height: 230px;
+    }
+
+}
         
     </style>
 
@@ -1515,16 +1836,34 @@
 
 
     <section class="hero">
-
-        <h1>
-            Send personalized emails in seconds.
-        </h1>
-
-        <p>
-            Upload your Excel contacts, write once,
-            and SendQuack personalizes every message.
-        </p>
-
+    
+        <div class="hero-content">
+    
+            <h1>
+                Send personalized<br>
+                <span>emails in seconds.</span>
+            </h1>
+    
+            <p>
+                Upload your Excel contacts, write once,
+                and SendQuack personalizes every message.
+            </p>
+    
+            <div class="hero-benefits">
+                <span>⚡ Save time</span>
+                <span>👥 Stay personal</span>
+                <span>❤ Get better responses</span>
+            </div>
+    
+        </div>
+    
+        <div class="hero-art">
+            <img
+                src="sendquack-hero.png"
+                alt="SendQuack personalized email"
+            >
+        </div>
+    
     </section>
 
 
