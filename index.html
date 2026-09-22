@@ -4250,9 +4250,9 @@ document
 
 document
     .getElementById("sendButton")
-    .addEventListener(
-        "click",
-        function() {
+.addEventListener(
+    "click",
+    async function() {
 
 
     if (rows.length === 0) {
@@ -4355,6 +4355,32 @@ document
         return;
     }
 
+        // --------------------------------------------
+// GET LOGGED-IN USER SESSION
+// --------------------------------------------
+
+const {
+    data: { session },
+    error: sessionError
+} = await supabaseClient.auth.getSession();
+
+
+if (
+    sessionError ||
+    !session ||
+    !session.access_token
+) {
+
+    alert(
+        "Please log in before sending emails."
+    );
+
+    document
+        .getElementById("authScreen")
+        .style.display = "flex";
+
+    return;
+}
 
     const confirmed = confirm(
 
@@ -4486,10 +4512,17 @@ fetch(
 
         method: "POST",
 
+        headers: {
+            "Authorization":
+                "Bearer " +
+                session.access_token
+        },
+
         body: formData
 
     }
 )
+    
     .then(response => response.json())
 
     .then(data => {
