@@ -2512,6 +2512,82 @@ select {
 .workspace {
     margin-top: 14px;
 }
+
+
+        /* =====================================================
+   BLUE + YELLOW ACTION PILLS
+===================================================== */
+
+/* Email / WhatsApp / SMS */
+.channel,
+.channel.active {
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            #0d92ff
+        ) !important;
+
+    color: #ffd84d !important;
+
+    border: 1px solid #43a7ff !important;
+
+    box-shadow:
+        0 5px 14px rgba(8, 120, 249, 0.25);
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease;
+}
+
+.channel:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 18px rgba(8, 120, 249, 0.32);
+}
+
+/* Channel text + icons */
+.channel > span:not(.coming-soon),
+.channel > i {
+    color: #ffd84d !important;
+}
+
+
+/* Keep Coming Soon clearly visible */
+.channel .coming-soon {
+    background: #ffd84d !important;
+    color: #082d5c !important;
+
+    border: none !important;
+
+    font-weight: 800;
+}
+
+
+/* Save time / Stay personal / Get better responses */
+.hero-benefits span {
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            #0d92ff
+        ) !important;
+
+    color: #ffd84d !important;
+
+    border: 1px solid #43a7ff !important;
+
+    box-shadow:
+        0 5px 14px rgba(8, 120, 249, 0.25);
+}
+
+.hero-benefits span:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 18px rgba(8, 120, 249, 0.32);
+}
     </style>
 
 </head>
