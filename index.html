@@ -2705,6 +2705,63 @@ select {
 
     font-weight: 800;
 }
+
+        /* =====================================================
+   TOPBAR ALIGNMENT + ACCOUNT THEME
+===================================================== */
+
+/* Align header with Hero / Upload / Workspace */
+.topbar {
+    width: calc(100% - 56px);
+    max-width: 1184px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.topbar-inner {
+    width: 100%;
+    max-width: none;
+}
+
+
+/* Logged-in account matches yellow/navy theme */
+.header-login {
+    background: var(--sq-label-yellow) !important;
+    color: var(--sq-label-navy) !important;
+
+    border: 1px solid #ffe36a !important;
+
+    box-shadow:
+        0 5px 14px rgba(70, 45, 0, 0.16);
+}
+
+.header-login i,
+.header-login .logged-email,
+.header-login .logout-hint {
+    color: var(--sq-label-navy) !important;
+}
+
+.header-login:hover {
+    background: var(--sq-label-yellow-hover) !important;
+
+    border-color: #ffe36a !important;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 18px rgba(70, 45, 0, 0.20);
+}
+
+
+/* Mobile: retain sensible margins */
+@media (max-width: 600px) {
+
+    .topbar {
+        width: calc(100% - 30px);
+    }
+
+}
     </style>
 
 </head>
