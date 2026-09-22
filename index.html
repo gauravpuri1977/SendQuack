@@ -2767,6 +2767,43 @@ select {
             color: #082d5c !important;
             margin-right: 5px;
         }
+
+        .upload-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.template-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 5px 10px;
+
+    background: var(--sq-label-yellow);
+    color: var(--sq-label-navy);
+
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 4px 10px rgba(70, 45, 0, 0.14);
+}
+
+.template-download:hover {
+    background: var(--sq-label-yellow-hover);
+    transform: translateY(-1px);
+}
+
+.template-download i {
+    color: var(--sq-label-navy);
+}
     </style>
 
 </head>
@@ -2911,9 +2948,18 @@ select {
                 Upload contacts
             </div>
 
-            <div class="card-subtitle">
-                Maximum 5 contacts
-            </div>
+        <div class="card-subtitle upload-subtitle">
+            <span>Maximum 5 contacts</span>
+        
+            <a
+                href="SendQuack_Contacts_Template.xlsx"
+                download
+                class="template-download"
+            >
+                <i class="fa-solid fa-download"></i>
+                Download template
+            </a>
+        </div>
 
         </div>
 
