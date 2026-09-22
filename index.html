@@ -1787,6 +1787,140 @@ label {
     max-width: 500px;
     max-height: 210px;
 }
+
+ /* =====================================================
+   SENDQUACK — DARK VIBRANT PAGE
+===================================================== */
+
+/* Dark vibrant background behind the application */
+html {
+    background:
+        radial-gradient(
+            circle at 8% 35%,
+            rgba(30, 136, 255, 0.55) 0,
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 92% 65%,
+            rgba(123, 63, 228, 0.45) 0,
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #061b3a 0%,
+            #082e68 48%,
+            #101b55 100%
+        );
+}
+
+
+/* Remove gap below header */
+.hero {
+    margin-top: 0;
+}
+
+
+/* -----------------------------------------------------
+   CLEAN HERO
+   Remove coloured blob from behind the text
+----------------------------------------------------- */
+
+.hero {
+    background:
+        radial-gradient(
+            circle at 91% 5%,
+            rgba(255, 201, 40, .90) 0 11%,
+            transparent 11.5%
+        ),
+
+        radial-gradient(
+            circle at 100% 78%,
+            rgba(255, 83, 100, .72) 0 16%,
+            transparent 16.5%
+        ),
+
+        linear-gradient(
+            115deg,
+            #ffffff 0%,
+            #f7fbff 57%,
+            #fff9e8 100%
+        );
+}
+
+
+/* Hero text must stay completely clear */
+.hero-content {
+    position: relative;
+    z-index: 5;
+}
+
+.hero-content p {
+    color: #475569;
+    font-weight: 400;
+    background: none;
+    padding: 0;
+    margin-left: 0;
+}
+
+
+/* -----------------------------------------------------
+   CARDS POP AGAINST DARK BACKGROUND
+----------------------------------------------------- */
+
+.card {
+    background: #ffffff;
+
+    border: 1px solid rgba(255,255,255,.65);
+
+    box-shadow:
+        0 14px 35px rgba(0,0,0,.18),
+        0 3px 10px rgba(22,119,255,.08);
+}
+
+
+/* Upload card / other large white surfaces */
+.upload-section {
+    background: #ffffff;
+}
+
+
+/* Stronger separation around workflow */
+.container {
+    position: relative;
+}
+
+
+/* Upload zone remains bright */
+.upload-zone {
+    background:
+        linear-gradient(
+            135deg,
+            #f7fbff,
+            #edf7ff
+        );
+
+    border-color: #76bbff;
+}
+
+
+/* Compose + Preview stay clean */
+.preview-card {
+    background: #ffffff;
+}
+
+
+/* Slightly brighter step badges */
+.step-number {
+    background:
+        linear-gradient(
+            135deg,
+            #2694ff,
+            #0065e8
+        );
+
+    box-shadow:
+        0 6px 16px rgba(0,101,232,.35);
+}
         
     </style>
 
