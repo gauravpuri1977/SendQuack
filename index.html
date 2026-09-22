@@ -1742,11 +1742,54 @@ let errorCount = 0;
             SUPABASE_KEY
         );
 
-    // Open Login / Sign Up
-        document.getElementById("headerLoginButton").addEventListener("click", () => {
+// ----------------------------------------------------
+// HEADER LOGIN / LOGOUT
+// ----------------------------------------------------
+
+        document.getElementById("headerLoginButton").addEventListener("click", async () => {
+        
+            const { data: { session } } =
+                await supabaseClient.auth.getSession();
+        
+            // User is logged in -> Log out
+            if (session) {
+        
+                await supabaseClient.auth.signOut();
+        
+                document.getElementById("headerLoginButton").innerHTML =
+                    '<i class="fa-solid fa-user"></i> Login';
+        
+                return;
+            }
+        
+            // User is logged out -> Open Login
             document.getElementById("authScreen").style.display = "flex";
         });
 
+            // ----------------------------------------------------
+            // RESTORE LOGIN STATE
+            // ----------------------------------------------------
+            
+            async function restoreLoginState() {
+            
+                const { data: { session } } =
+                    await supabaseClient.auth.getSession();
+            
+                if (session && session.user) {
+            
+                    document.getElementById("headerLoginButton").innerHTML =
+                        '<i class="fa-solid fa-user-check"></i> ' +
+                        session.user.email;
+            
+                } else {
+            
+                    document.getElementById("headerLoginButton").innerHTML =
+                        '<i class="fa-solid fa-user"></i> Login';
+                }
+            }
+            
+            restoreLoginState();
+    
     // ----------------------------------------------------
 // SIGN UP
 // ----------------------------------------------------
@@ -1799,6 +1842,8 @@ let errorCount = 0;
             }
         
             document.getElementById("authScreen").style.display = "none";
+            document.getElementById("headerLoginButton").innerHTML =
+            '<i class="fa-solid fa-user-check"></i> ' + data.user.email;
         });
     
 // ----------------------------------------------------
