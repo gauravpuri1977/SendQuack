@@ -182,6 +182,25 @@
         
             cursor: pointer;
         }
+
+          .logged-user {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+        
+        .logged-email {
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .logout-hint {
+            font-size: 10px;
+            font-weight: 400;
+            color: #64748b;
+            margin-top: 2px;
+        }
         
         .header-login:hover {
             background: #f8fafc;
@@ -1777,9 +1796,12 @@ let errorCount = 0;
             
                 if (session && session.user) {
             
-                    document.getElementById("headerLoginButton").innerHTML =
-                        '<i class="fa-solid fa-user-check"></i> ' +
-                        session.user.email;
+                document.getElementById("headerLoginButton").innerHTML =
+                    '<i class="fa-solid fa-user-check"></i>' +
+                    '<span class="logged-user">' +
+                        '<span class="logged-email">' + session.user.email + '</span>' +
+                        '<span class="logout-hint">Click to logout</span>' +
+                    '</span>';
             
                 } else {
             
@@ -1843,7 +1865,11 @@ let errorCount = 0;
         
             document.getElementById("authScreen").style.display = "none";
             document.getElementById("headerLoginButton").innerHTML =
-            '<i class="fa-solid fa-user-check"></i> ' + data.user.email;
+                '<i class="fa-solid fa-user-check"></i>' +
+                '<span class="logged-user">' +
+                    '<span class="logged-email">' + data.user.email + '</span>' +
+                    '<span class="logout-hint">Click to logout</span>' +
+                '</span>';
         });
     
 // ----------------------------------------------------
