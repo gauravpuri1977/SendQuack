@@ -2426,6 +2426,92 @@ select {
 .compose-card .background-picker {
     color: #082d5c !important;
 }
+
+
+        /* =====================================================
+   ULTRA-COMPACT TOP AREA
+===================================================== */
+
+/* ---------- HERO ---------- */
+
+.hero {
+    min-height: 0;
+    padding: 18px 36px;
+    margin-bottom: 14px;
+    gap: 20px;
+}
+
+.hero-content h1 {
+    font-size: clamp(30px, 2.5vw, 44px);
+    line-height: 1.00;
+    margin-bottom: 8px;
+}
+
+.hero-content p {
+    font-size: 14px;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.hero-benefits {
+    margin-top: 12px;
+    gap: 8px;
+}
+
+.hero-benefits span {
+    padding: 5px 11px;
+    font-size: 11px;
+}
+
+.hero-art img {
+    max-height: 185px;
+    max-width: 470px;
+}
+
+
+/* ---------- UPLOAD CARD ---------- */
+
+.upload-card .card-header {
+    padding: 11px 18px 8px;
+}
+
+.upload-card .step-number {
+    width: 40px;
+    height: 40px;
+}
+
+.upload-content {
+    padding: 6px 18px 12px;
+}
+
+.upload-zone {
+    min-height: 70px;
+}
+
+.upload-icon {
+    width: 32px;
+    height: 32px;
+
+    margin-bottom: 2px;
+
+    font-size: 16px;
+}
+
+.upload-main {
+    font-size: 13px;
+}
+
+.upload-help {
+    margin-top: 1px;
+    font-size: 11px;
+}
+
+
+/* ---------- LESS SPACE BETWEEN SECTIONS ---------- */
+
+.workspace {
+    margin-top: 14px;
+}
     </style>
 
 </head>
@@ -2738,9 +2824,9 @@ select {
                 <div class="attachment-section">
                 
                     <label class="field-label">
-                        Attachments
-                        <span style="font-weight:400; color:#8a94a6;">
-                            (optional)
+                        Attachments (optional)
+                     <!--   <span style="font-weight:400; color:#8a94a6;"> -->
+                            
                         </span>
                     </label>
                 
