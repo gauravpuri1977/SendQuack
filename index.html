@@ -3475,6 +3475,40 @@ select {
         </button>
     
         <div id="authMessage"></div>
+
+        <div
+    id="resetPasswordSection"
+    style="
+        display:none;
+        width:320px;
+        max-width:calc(100vw - 48px);
+        flex-direction:column;
+        gap:12px;
+    "
+>
+
+    <input
+        type="password"
+        id="newPassword"
+        placeholder="New password"
+    >
+
+    <input
+        type="password"
+        id="confirmNewPassword"
+        placeholder="Confirm new password"
+    >
+
+    <button
+        id="saveNewPasswordButton"
+        type="button"
+    >
+        Set New Password
+    </button>
+
+    <div id="resetPasswordMessage"></div>
+
+</div>
     </div>
 
 <script>
@@ -3503,6 +3537,32 @@ let errorCount = 0;
             SUPABASE_KEY
         );
 
+    // ----------------------------------------------------
+// PASSWORD RECOVERY LINK
+// ----------------------------------------------------
+
+supabaseClient.auth.onAuthStateChange(
+    function(event, session) {
+
+        if (event === "PASSWORD_RECOVERY") {
+
+            document
+                .getElementById("authScreen")
+                .style.display = "flex";
+
+            document
+                .getElementById("resetPasswordSection")
+                .style.display = "flex";
+
+            document
+                .getElementById("authMessage")
+                .textContent =
+                    "Create your new password.";
+
+        }
+
+    }
+);
 // ----------------------------------------------------
 // HEADER LOGIN / LOGOUT
 // ----------------------------------------------------
