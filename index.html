@@ -4792,6 +4792,57 @@ document
     
 </script>
 
+    <!-- SEND HISTORY MODAL -->
+
+<div
+    id="historyModal"
+    class="history-modal"
+    style="display:none;"
+>
+
+    <div class="history-modal-card">
+
+        <div class="history-modal-header">
+
+            <div>
+                <h2>Send History</h2>
+                <p>Your most recent emails</p>
+            </div>
+
+            <button
+                id="closeHistoryButton"
+                class="history-close"
+                type="button"
+            >
+                &times;
+            </button>
+
+        </div>
+
+        <div class="history-table-wrap">
+
+            <table class="history-table">
+
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Recipient</th>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyTableBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
