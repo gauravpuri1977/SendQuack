@@ -4724,6 +4724,19 @@ fetch(
         "click",
         async function() {
 
+    document
+        .getElementById("closeHistoryButton")
+        .addEventListener(
+            "click",
+            function() {
+    
+                document
+                    .getElementById("historyModal")
+                    .style.display = "none";
+    
+            }
+        );
+            
             const {
                 data: { session }
             } =
@@ -4886,19 +4899,6 @@ document
     .getElementById("historyModal")
     .style.display = "flex";
 
-
-document
-    .getElementById("closeHistoryButton")
-    .addEventListener(
-        "click",
-        function() {
-
-            document
-                .getElementById("historyModal")
-                .style.display = "none";
-
-        }
-    );
                 
 
             }
