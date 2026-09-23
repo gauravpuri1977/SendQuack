@@ -3697,8 +3697,35 @@ supabaseClient.auth.onAuthStateChange(
                 return;
             }
         
-            message.textContent =
-                "Account created. Please check your email to confirm your account.";
+            document
+    .getElementById("authPassword")
+    .value = "";
+
+message.innerHTML = `
+    <div style="
+        padding:14px;
+        background:#fff8dc;
+        border-radius:10px;
+        color:#082d5c;
+        line-height:1.5;
+    ">
+        <div style="
+            font-size:16px;
+            font-weight:800;
+            margin-bottom:6px;
+        ">
+            Check your inbox
+        </div>
+
+        <div style="
+            font-size:13px;
+        ">
+            We’ve sent you a confirmation email.
+            Click the link in that email to activate your
+            SendQuack account, then come back and log in.
+        </div>
+    </div>
+`;
         });
 
         // ----------------------------------------------------
