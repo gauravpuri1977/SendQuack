@@ -4565,54 +4565,55 @@ document
                         "click",
                         function() {
         
-                            selectedAttachments.splice(
+                                                    selectedAttachments.splice(
                                 index,
-               const suppressedCount =
-            (data.results || []).filter(
-                result =>
-                    result.status ===
-                    "Suppressed"
-            ).length;
-
-
-        const actualFailedCount =
-            (data.failed || 0) -
-            suppressedCount;
-
-
-        let summary =
-            (data.sent || 0) +
-            " email(s) sent successfully.";
-
-
-        if (suppressedCount > 0) {
-
-            summary +=
-                "\n" +
-                suppressedCount +
-                " email(s) skipped because the address is suppressed.";
-
+                                1
+                            );
+        
+                            renderAttachments();
+        
+                        }
+                    );
+        
+        
+                    item.appendChild(
+                        fileInfo
+                    );
+        
+        
+                    item.appendChild(
+                        removeButton
+                    );
+        
+        
+                    attachmentList.appendChild(
+                        item
+                    );
+        
+                }
+            );
+        
         }
 
+// ----------------------------------------------------
+// SEND BUTTON
+// ----------------------------------------------------
 
-        if (actualFailedCount > 0) {
-
-            summary +=
-                "\n" +
-                actualFailedCount +
-                " email(s) failed.";
-
-        }
+document
+    .getElementById("sendButton")
+.addEventListener(
+    "click",
+    async function() {
 
 
-        alert(summary);
+    if (rows.length === 0) {
+
         alert(
             "Please upload an Excel file first."
         );
 
         return;
     }
-
 
     if (errorCount > 0) {
 
