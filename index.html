@@ -4567,46 +4567,67 @@ document
         
                             selectedAttachments.splice(
                                 index,
-                                1
-                            );
-        
-                            renderAttachments();
-        
-                        }
-                    );
-        
-        
-                    item.appendChild(
-                        fileInfo
-                    );
-        
-        
-                    item.appendChild(
-                        removeButton
-                    );
-        
-        
-                    attachmentList.appendChild(
-                        item
-                    );
-        
-                }
+          const suppressedCount =
+            (data.results || []).filter(
+                result =>
+                    result.status ===
+                    "Suppressed"
+            ).length;
+
+
+        const unsubscribedCount =
+            (data.results || []).filter(
+                result =>
+                    result.status ===
+                    "Unsubscribed"
+            ).length;
+
+
+        const actualFailedCount =
+            Math.max(
+                0,
+                (data.failed || 0) -
+                suppressedCount -
+                unsubscribedCount
             );
-        
+
+
+        let summary =
+            (data.sent || 0) +
+            " email(s) sent successfully.";
+
+
+        if (unsubscribedCount > 0) {
+
+            summary +=
+                "\n" +
+                unsubscribedCount +
+                " email(s) skipped because the recipient unsubscribed.";
+
         }
-// ----------------------------------------------------
-// SEND BUTTON
-// ----------------------------------------------------
-
-document
-    .getElementById("sendButton")
-.addEventListener(
-    "click",
-    async function() {
 
 
-    if (rows.length === 0) {
+        if (suppressedCount > 0) {
 
+            summary +=
+                "\n" +
+                suppressedCount +
+                " email(s) skipped because the address is suppressed.";
+
+        }
+
+
+        if (actualFailedCount > 0) {
+
+            summary +=
+                "\n" +
+                actualFailedCount +
+                " email(s) failed.";
+
+        }
+
+
+        alert(summary);
         alert(
             "Please upload an Excel file first."
         );
