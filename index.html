@@ -4763,17 +4763,58 @@ fetch(
                     await response.json();
 
 
-                if (
-                    response.status === 403 &&
-                    data.upgrade_required
-                ) {
+if (
+    response.status === 403 &&
+    data.upgrade_required
+) {
 
-                    alert(
-                        "Send History is available on paid plans."
-                    );
+    const historyTableBody =
+        document.getElementById(
+            "historyTableBody"
+        );
 
-                    return;
-                }
+    historyTableBody.innerHTML = `
+        <tr>
+            <td
+                colspan="5"
+                style="
+                    text-align:center;
+                    padding:45px 20px;
+                "
+            >
+                <div style="
+                    font-size:32px;
+                    margin-bottom:12px;
+                ">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+
+                <div style="
+                    font-size:18px;
+                    font-weight:800;
+                    color:#082d5c;
+                    margin-bottom:7px;
+                ">
+                    Send History is a paid feature
+                </div>
+
+                <div style="
+                    font-size:13px;
+                    color:#64748b;
+                ">
+                    Upgrade your SendQuack plan to access
+                    your email history and delivery status.
+                </div>
+            </td>
+        </tr>
+    `;
+
+    document
+        .getElementById("historyModal")
+        .style.display = "flex";
+
+    return;
+}
 
 
                 if (!response.ok) {
