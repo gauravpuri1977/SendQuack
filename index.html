@@ -2804,8 +2804,40 @@ select {
 .template-download i {
     color: var(--sq-label-navy);
 }
+
+        .header-history {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 8px 13px;
+
+    background: var(--sq-label-yellow);
+    color: var(--sq-label-navy);
+
+    border: 1px solid #ffe36a;
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 14px rgba(70, 45, 0, 0.16);
+}
+
+.header-history i {
+    color: var(--sq-label-navy);
+}
+
+.header-history:hover {
+    background: var(--sq-label-yellow-hover);
+    transform: translateY(-1px);
+}
     </style>
 
+    
 </head>
 
 
@@ -2867,7 +2899,10 @@ select {
                     Coming Soon
                 </span>
             </div>
-
+            <button id="historyButton" class="header-history">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                History
+            </button>
             <button id="headerLoginButton" class="header-login">
                 <i class="fa-solid fa-user"></i>
                 Login
@@ -3319,6 +3354,8 @@ select {
 
 </main>
 
+
+
  <!-- AUTH SCREEN -->
     <div id="authScreen" style="display: none;">
         <h2>Welcome to SendQuack</h2>
@@ -3482,6 +3519,8 @@ let errorCount = 0;
                     '<span class="logout-hint">Click to logout</span>' +
                 '</span>';
         });
+
+
     
 // ----------------------------------------------------
 // QUILL EDITOR
@@ -4591,6 +4630,101 @@ fetch(
 
 });
 
+
+    document
+    .getElementById("historyButton")
+    .addEventListener(
+        "click",
+        async function() {
+
+            const {
+                data: { session }
+            } =
+                await supabaseClient.auth.getSession();
+
+
+            if (!session) {
+
+                alert(
+                    "Please log in to view Send History."
+                );
+
+                document
+                    .getElementById("authScreen")
+                    .style.display = "flex";
+
+                return;
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "https://sendquack-backend.onrender.com/history",
+                        {
+                            headers: {
+                                "Authorization":
+                                    "Bearer " +
+                                    session.access_token
+                            }
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    response.status === 403 &&
+                    data.upgrade_required
+                ) {
+
+                    alert(
+                        "Send History is available on paid plans."
+                    );
+
+                    return;
+                }
+
+
+                if (!response.ok) {
+
+                    alert(
+                        data.error ||
+                        "Unable to load Send History."
+                    );
+
+                    return;
+                }
+
+
+                console.table(
+                    data.history
+                );
+
+                alert(
+                    "History loaded: " +
+                    data.count +
+                    " email(s)."
+                );
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                alert(
+                    "Unable to connect to Send History."
+                );
+
+            }
+
+        }
+    );
+    
 </script>
 
 
