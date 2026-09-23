@@ -4878,7 +4878,7 @@ fetch(
     .then(data => {
 
 
-        const suppressedCount =
+             const suppressedCount =
             (data.results || []).filter(
                 result =>
                     result.status ===
@@ -4886,14 +4886,36 @@ fetch(
             ).length;
 
 
+        const unsubscribedCount =
+            (data.results || []).filter(
+                result =>
+                    result.status ===
+                    "Unsubscribed"
+            ).length;
+
+
         const actualFailedCount =
-            (data.failed || 0) -
-            suppressedCount;
+            Math.max(
+                0,
+                (data.failed || 0) -
+                suppressedCount -
+                unsubscribedCount
+            );
 
 
         let summary =
             (data.sent || 0) +
             " email(s) sent successfully.";
+
+
+        if (unsubscribedCount > 0) {
+
+            summary +=
+                "\n" +
+                unsubscribedCount +
+                " email(s) skipped because the recipient unsubscribed.";
+
+        }
 
 
         if (suppressedCount > 0) {
