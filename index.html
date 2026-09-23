@@ -2922,6 +2922,150 @@ select {
     border-bottom: 1px solid #e9eef5;
     color: #18324c;
 }
+
+
+        /* =========================================================
+   CONSISTENT SPACING SYSTEM
+========================================================= */
+
+:root {
+    --page-side-space: 24px;
+    --section-gap: 16px;
+    --card-padding-x: 18px;
+    --card-padding-y: 16px;
+    --inner-gap: 14px;
+    --card-radius: 28px;
+}
+
+/* Remove accidental extra page gaps */
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Small breathing room only */
+body {
+    padding-top: 8px;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+.topbar {
+    margin: 0 var(--page-side-space) var(--section-gap);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+}
+
+/* =========================
+   MAIN PAGE WRAPPER
+========================= */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--page-side-space) var(--section-gap);
+}
+
+/* =========================
+   HERO / BANNER
+========================= */
+.hero {
+    margin: 0 0 var(--section-gap);
+}
+
+.hero-card,
+.hero-banner {
+    margin: 0 0 var(--section-gap);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+}
+
+/* =========================
+   GENERIC CARDS
+========================= */
+.card,
+.upload-card,
+.compose-card,
+.preview-card,
+.footer-card {
+    border-radius: var(--card-radius);
+    overflow: hidden;
+}
+
+/* Standard spacing between major cards */
+.upload-card {
+    margin-bottom: var(--section-gap);
+}
+
+/* =========================
+   TWO-COLUMN AREA
+========================= */
+/* Use whichever one exists in your file */
+.compose-preview-grid,
+.bottom-grid,
+.main-grid,
+.two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--section-gap);
+    align-items: start;
+    margin: 0 0 var(--section-gap);
+}
+
+/* =========================
+   CARD HEADER / BODY
+========================= */
+.card-header {
+    padding: var(--card-padding-y) var(--card-padding-x) 12px;
+    margin: 0;
+}
+
+.preview-body,
+.compose-body,
+.upload-body,
+.card-body {
+    padding: 0 var(--card-padding-x) var(--card-padding-y);
+    margin: 0;
+}
+
+/* =========================
+   INNER WHITE BOXES
+========================= */
+.preview-box,
+.drop-zone,
+.upload-dropzone,
+.file-drop-zone,
+.ql-container {
+    border-radius: 22px;
+    margin: 0;
+}
+
+/* Keep equal inset inside cards */
+.upload-card .drop-zone,
+.upload-card .upload-dropzone,
+.upload-card .file-drop-zone,
+.compose-card .ql-container,
+.preview-card .preview-box {
+    width: 100%;
+}
+
+/* Preview should align nicely with compose */
+.preview-card .preview-body {
+    padding-top: 0;
+}
+
+.preview-card .preview-box {
+    margin-top: 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer,
+.footer-card {
+    margin-top: var(--section-gap);
+}
     </style>
 
     
