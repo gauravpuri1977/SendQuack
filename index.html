@@ -1,44 +1,25 @@
 ```
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- =========================================================
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- =========================================================
          SEO / SOCIAL SHARING
     ========================================================= -->
-    <meta
-        name="description"
-        content="Send personalized emails from Excel online. Upload your spreadsheet, personalize each message, preview emails and send in seconds — no Outlook or complex mail merge setup."
-    >
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <link rel="canonical" href="https://sendquack.com/">
-
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="SendQuack">
-    <meta property="og:url" content="https://sendquack.com/">
-    <meta
-        property="og:title"
-        content="Send Personalized Emails from Excel Online | SendQuack"
-    >
-    <meta
-        property="og:description"
-        content="Send personalized emails from Excel online. Upload your spreadsheet, personalize each message, preview emails and send in seconds — no Outlook or complex mail merge setup."
-    >
-
-    <meta name="twitter:card" content="summary">
-    <meta
-        name="twitter:title"
-        content="Send Personalized Emails from Excel Online | SendQuack"
-    >
-    <meta
-        name="twitter:description"
-        content="Send personalized emails from Excel online with simple spreadsheet upload, personalization and preview — no Outlook required."
-    >
-
-    <script type="application/ld+json">
+<meta content="Send personalized emails from Excel online. Upload your spreadsheet, personalize each message, preview emails and send in seconds — no Outlook or complex mail merge setup." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://sendquack.com/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="SendQuack" property="og:site_name"/>
+<meta content="https://sendquack.com/" property="og:url"/>
+<meta content="Send Personalized Emails from Excel Online | SendQuack" property="og:title"/>
+<meta content="Send personalized emails from Excel online. Upload your spreadsheet, personalize each message, preview emails and send in seconds — no Outlook or complex mail merge setup." property="og:description"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Send Personalized Emails from Excel Online | SendQuack" name="twitter:title"/>
+<meta content="Send personalized emails from Excel online with simple spreadsheet upload, personalization and preview — no Outlook required." name="twitter:description"/>
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
@@ -63,32 +44,19 @@
       ]
     }
     </script>
-
-
-    <title>Send Personalized Emails from Excel Online | SendQuack</title>
-
-    <!-- Excel library -->
-    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
-   
-    <!-- Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-        
-    <!-- Quill Editor -->
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
-
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    >
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-    <style>
+<title>Send Personalized Emails from Excel Online | SendQuack</title>
+<!-- Excel library -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Quill Editor -->
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
 
         /* =========================================================
            GLOBAL
@@ -5138,110 +5106,131 @@ body {
     }
 }
 
+
+
+/* =====================================================
+   FOOTER RESOURCES — SEO INTERNAL LINKS
+===================================================== */
+
+.footer-resources {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+
+    margin-top: 6px;
+    padding: 10px 0 2px;
+
+    border-top: 1px solid rgba(255,255,255,.28);
+
+    font-size: 11px;
+}
+
+.footer-resources-title {
+    color: #082d5c;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .55px;
+    margin-right: 3px;
+}
+
+.footer-resources a {
+    color: #082d5c;
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.footer-resources a:hover {
+    color: #ff1493;
+}
+
+.footer-resource-separator {
+    color: rgba(8,45,92,.52);
+}
+
+@media (max-width: 600px) {
+    .footer-resources {
+        gap: 6px;
+        line-height: 1.55;
+    }
+
+    .footer-resource-separator {
+        display: none;
+    }
+
+    .footer-resources a {
+        width: 100%;
+    }
+}
 </style>
-
-    
 </head>
-
-
 <body>
-
-
 <!-- =====================================================
      DECORATIVE SIDE SPLASHES
      Embedded SVG so the organic mockup shapes render
      consistently instead of relying on CSS circles.
 ===================================================== -->
-
-<div class="side-art side-art-left" aria-hidden="true">
-    <svg viewBox="0 0 180 1000" preserveAspectRatio="none">
-        <defs>
-            <linearGradient id="sqPinkOrangeL" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#ff1493"/>
-                <stop offset="58%" stop-color="#ff3f91"/>
-                <stop offset="100%" stop-color="#ff9a1d"/>
-            </linearGradient>
-
-            <linearGradient id="sqGoldOrangeL" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#ffd94a"/>
-                <stop offset="55%" stop-color="#ff9a1d"/>
-                <stop offset="100%" stop-color="#ff1493"/>
-            </linearGradient>
-
-            <linearGradient id="sqBlueL" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#0049b9"/>
-                <stop offset="100%" stop-color="#082f7c"/>
-            </linearGradient>
-
-            <radialGradient id="sqPinkGlowL">
-                <stop offset="0%" stop-color="#ff5fba"/>
-                <stop offset="55%" stop-color="#ff1493"/>
-                <stop offset="100%" stop-color="#d90d7d"/>
-            </radialGradient>
-
-            <radialGradient id="sqGoldGlowL">
-                <stop offset="0%" stop-color="#fff07a"/>
-                <stop offset="65%" stop-color="#ffc72c"/>
-                <stop offset="100%" stop-color="#ff9a1d"/>
-            </radialGradient>
-
-            <filter id="sqGlowL" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur stdDeviation="4" result="blur"/>
-                <feMerge>
-                    <feMergeNode in="blur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-            </filter>
-        </defs>
-
-        <!-- Large top pink/orange sweep -->
-        <path
-            d="M0,0
+<div aria-hidden="true" class="side-art side-art-left">
+<svg preserveaspectratio="none" viewbox="0 0 180 1000">
+<defs>
+<lineargradient id="sqPinkOrangeL" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#ff1493"></stop>
+<stop offset="58%" stop-color="#ff3f91"></stop>
+<stop offset="100%" stop-color="#ff9a1d"></stop>
+</lineargradient>
+<lineargradient id="sqGoldOrangeL" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#ffd94a"></stop>
+<stop offset="55%" stop-color="#ff9a1d"></stop>
+<stop offset="100%" stop-color="#ff1493"></stop>
+</lineargradient>
+<lineargradient id="sqBlueL" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#0049b9"></stop>
+<stop offset="100%" stop-color="#082f7c"></stop>
+</lineargradient>
+<radialgradient id="sqPinkGlowL">
+<stop offset="0%" stop-color="#ff5fba"></stop>
+<stop offset="55%" stop-color="#ff1493"></stop>
+<stop offset="100%" stop-color="#d90d7d"></stop>
+</radialgradient>
+<radialgradient id="sqGoldGlowL">
+<stop offset="0%" stop-color="#fff07a"></stop>
+<stop offset="65%" stop-color="#ffc72c"></stop>
+<stop offset="100%" stop-color="#ff9a1d"></stop>
+</radialgradient>
+<filter height="220%" id="sqGlowL" width="220%" x="-60%" y="-60%">
+<fegaussianblur result="blur" stddeviation="4"></fegaussianblur>
+<femerge>
+<femergenode in="blur"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+</defs>
+<!-- Large top pink/orange sweep -->
+<path d="M0,0
                L124,0
                C126,42 116,75 91,97
                C65,119 38,126 0,121
-               Z"
-            fill="url(#sqPinkOrangeL)"
-        />
-
-        <!-- Top splash strokes -->
-        <path d="M116 78 C130 63 141 57 154 56"
-              stroke="#ffc72c" stroke-width="11"
-              stroke-linecap="round" fill="none"/>
-        <path d="M121 100 C136 91 149 88 161 91"
-              stroke="#ff1493" stroke-width="8"
-              stroke-linecap="round" fill="none"/>
-
-        <!-- Mid navy-blue rolling forms -->
-        <path
-            d="M0,168
+               Z" fill="url(#sqPinkOrangeL)"></path>
+<!-- Top splash strokes -->
+<path d="M116 78 C130 63 141 57 154 56" fill="none" stroke="#ffc72c" stroke-linecap="round" stroke-width="11"></path>
+<path d="M121 100 C136 91 149 88 161 91" fill="none" stroke="#ff1493" stroke-linecap="round" stroke-width="8"></path>
+<!-- Mid navy-blue rolling forms -->
+<path d="M0,168
                C25,153 55,154 76,169
                C99,185 105,208 101,235
                C96,267 79,286 58,300
                C38,314 19,316 0,311
-               Z"
-            fill="url(#sqBlueL)"
-            opacity=".92"
-        />
-
-        <path
-            d="M0,262
+               Z" fill="url(#sqBlueL)" opacity=".92"></path>
+<path d="M0,262
                C28,246 62,252 91,273
                C117,292 130,320 127,347
                C124,380 104,405 78,422
                C52,438 25,442 0,434
-               Z"
-            fill="#063a91"
-            opacity=".95"
-        />
-
-        <!-- Floating dots -->
-
-        <circle cx="82" cy="386" r="10" fill="url(#sqPinkGlowL)" filter="url(#sqGlowL)"/>
-
-        <!-- Large lower orange/pink sweep -->
-        <path
-            d="M0,520
+               Z" fill="#063a91" opacity=".95"></path>
+<!-- Floating dots -->
+<circle cx="82" cy="386" fill="url(#sqPinkGlowL)" filter="url(#sqGlowL)" r="10"></circle>
+<!-- Large lower orange/pink sweep -->
+<path d="M0,520
                C23,492 58,480 86,490
                C116,501 132,525 137,558
                C143,595 127,621 108,644
@@ -5249,119 +5238,78 @@ body {
                C137,736 144,762 136,789
                C126,822 99,837 68,838
                C42,840 19,830 0,811
-               Z"
-            fill="url(#sqGoldOrangeL)"
-        />
-
-        <!-- Lower splash strokes -->
-        <path d="M77 614 C91 595 105 587 119 586"
-              stroke="#ff1493" stroke-width="10"
-              stroke-linecap="round" fill="none"/>
-        <path d="M94 638 C108 624 122 617 137 620"
-              stroke="#ff1493" stroke-width="7"
-              stroke-linecap="round" fill="none"/>
-
-        <!-- Bottom navy rolling form -->
-        <path
-            d="M0,840
+               Z" fill="url(#sqGoldOrangeL)"></path>
+<!-- Lower splash strokes -->
+<path d="M77 614 C91 595 105 587 119 586" fill="none" stroke="#ff1493" stroke-linecap="round" stroke-width="10"></path>
+<path d="M94 638 C108 624 122 617 137 620" fill="none" stroke="#ff1493" stroke-linecap="round" stroke-width="7"></path>
+<!-- Bottom navy rolling form -->
+<path d="M0,840
                C29,826 61,830 90,850
                C116,868 135,900 143,933
                C149,958 150,980 148,1000
-               L0,1000 Z"
-            fill="#073a91"
-            opacity=".96"
-        />
-    </svg>
+               L0,1000 Z" fill="#073a91" opacity=".96"></path>
+</svg>
 </div>
-
-
-<div class="side-art side-art-right" aria-hidden="true">
-    <svg viewBox="0 0 180 1000" preserveAspectRatio="none">
-        <defs>
-            <linearGradient id="sqPinkOrangeR" x1="1" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#ff1493"/>
-                <stop offset="58%" stop-color="#ff3f91"/>
-                <stop offset="100%" stop-color="#ff9a1d"/>
-            </linearGradient>
-
-            <linearGradient id="sqGoldOrangeR" x1="1" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#ffd94a"/>
-                <stop offset="55%" stop-color="#ff9a1d"/>
-                <stop offset="100%" stop-color="#ff1493"/>
-            </linearGradient>
-
-            <linearGradient id="sqBlueR" x1="1" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#0049b9"/>
-                <stop offset="100%" stop-color="#082f7c"/>
-            </linearGradient>
-
-            <radialGradient id="sqPinkGlowR">
-                <stop offset="0%" stop-color="#ff5fba"/>
-                <stop offset="55%" stop-color="#ff1493"/>
-                <stop offset="100%" stop-color="#d90d7d"/>
-            </radialGradient>
-
-            <radialGradient id="sqGoldGlowR">
-                <stop offset="0%" stop-color="#fff07a"/>
-                <stop offset="65%" stop-color="#ffc72c"/>
-                <stop offset="100%" stop-color="#ff9a1d"/>
-            </radialGradient>
-
-            <filter id="sqGlowR" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur stdDeviation="4" result="blur"/>
-                <feMerge>
-                    <feMergeNode in="blur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-            </filter>
-        </defs>
-
-        <!-- Top navy form -->
-        <path
-            d="M180,0
+<div aria-hidden="true" class="side-art side-art-right">
+<svg preserveaspectratio="none" viewbox="0 0 180 1000">
+<defs>
+<lineargradient id="sqPinkOrangeR" x1="1" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ff1493"></stop>
+<stop offset="58%" stop-color="#ff3f91"></stop>
+<stop offset="100%" stop-color="#ff9a1d"></stop>
+</lineargradient>
+<lineargradient id="sqGoldOrangeR" x1="1" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ffd94a"></stop>
+<stop offset="55%" stop-color="#ff9a1d"></stop>
+<stop offset="100%" stop-color="#ff1493"></stop>
+</lineargradient>
+<lineargradient id="sqBlueR" x1="1" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#0049b9"></stop>
+<stop offset="100%" stop-color="#082f7c"></stop>
+</lineargradient>
+<radialgradient id="sqPinkGlowR">
+<stop offset="0%" stop-color="#ff5fba"></stop>
+<stop offset="55%" stop-color="#ff1493"></stop>
+<stop offset="100%" stop-color="#d90d7d"></stop>
+</radialgradient>
+<radialgradient id="sqGoldGlowR">
+<stop offset="0%" stop-color="#fff07a"></stop>
+<stop offset="65%" stop-color="#ffc72c"></stop>
+<stop offset="100%" stop-color="#ff9a1d"></stop>
+</radialgradient>
+<filter height="220%" id="sqGlowR" width="220%" x="-60%" y="-60%">
+<fegaussianblur result="blur" stddeviation="4"></fegaussianblur>
+<femerge>
+<femergenode in="blur"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+</defs>
+<!-- Top navy form -->
+<path d="M180,0
                L55,0
                C57,42 68,72 92,93
                C117,115 143,122 180,118
-               Z"
-            fill="#073a91"
-            opacity=".96"
-        />
-
-        <!-- Upper orange/yellow sweep -->
-        <path
-            d="M180,126
+               Z" fill="#073a91" opacity=".96"></path>
+<!-- Upper orange/yellow sweep -->
+<path d="M180,126
                C149,111 121,116 100,134
                C79,152 72,178 78,205
                C85,237 105,257 129,270
                C148,280 164,282 180,277
-               Z"
-            fill="url(#sqGoldOrangeR)"
-        />
-
-        <path d="M61 160 C48 145 36 139 22 140"
-              stroke="#ffc72c" stroke-width="11"
-              stroke-linecap="round" fill="none"/>
-        <path d="M57 184 C42 174 28 171 18 175"
-              stroke="#ff1493" stroke-width="8"
-              stroke-linecap="round" fill="none"/>
-
-        <!-- Mid blue form -->
-        <path
-            d="M180,252
+               Z" fill="url(#sqGoldOrangeR)"></path>
+<path d="M61 160 C48 145 36 139 22 140" fill="none" stroke="#ffc72c" stroke-linecap="round" stroke-width="11"></path>
+<path d="M57 184 C42 174 28 171 18 175" fill="none" stroke="#ff1493" stroke-linecap="round" stroke-width="8"></path>
+<!-- Mid blue form -->
+<path d="M180,252
                C151,238 120,244 97,263
                C74,282 62,309 66,340
                C70,373 90,397 116,414
                C139,428 161,431 180,426
-               Z"
-            fill="url(#sqBlueR)"
-            opacity=".93"
-        />
-
-        <circle cx="94" cy="335" r="10" fill="url(#sqGoldGlowR)" filter="url(#sqGlowR)"/>
-
-        <!-- Large middle/lower pink sweep -->
-        <path
-            d="M180,475
+               Z" fill="url(#sqBlueR)" opacity=".93"></path>
+<circle cx="94" cy="335" fill="url(#sqGoldGlowR)" filter="url(#sqGlowR)" r="10"></circle>
+<!-- Large middle/lower pink sweep -->
+<path d="M180,475
                C153,452 120,448 94,461
                C65,475 50,504 52,538
                C54,572 73,596 96,613
@@ -5369,175 +5317,117 @@ body {
                C87,695 79,721 89,749
                C100,778 127,792 154,790
                C165,789 174,786 180,782
-               Z"
-            fill="url(#sqPinkOrangeR)"
-        />
-
-        <path d="M89 570 C75 553 62 546 47 547"
-              stroke="#ff1493" stroke-width="10"
-              stroke-linecap="round" fill="none"/>
-        <path d="M74 595 C60 582 47 577 33 580"
-              stroke="#ff1493" stroke-width="7"
-              stroke-linecap="round" fill="none"/>
-
-        <!-- Bottom orange sweep -->
-        <path
-            d="M180,804
+               Z" fill="url(#sqPinkOrangeR)"></path>
+<path d="M89 570 C75 553 62 546 47 547" fill="none" stroke="#ff1493" stroke-linecap="round" stroke-width="10"></path>
+<path d="M74 595 C60 582 47 577 33 580" fill="none" stroke="#ff1493" stroke-linecap="round" stroke-width="7"></path>
+<!-- Bottom orange sweep -->
+<path d="M180,804
                C151,791 124,799 105,818
                C83,839 77,867 84,896
                C91,928 110,951 137,965
                C153,974 167,978 180,975
-               Z"
-            fill="url(#sqGoldOrangeR)"
-        />
-    </svg>
+               Z" fill="url(#sqGoldOrangeR)"></path>
+</svg>
 </div>
-
-
-
 <!-- =====================================================
      HEADER
 ===================================================== -->
-
 <main class="container">
-
-    <!-- =====================================================
+<!-- =====================================================
          COMBINED COMPACT HEADER + HERO
     ====================================================== -->
-    <section class="hero-shell">
-
+<section class="hero-shell">
 <header class="topbar">
-
-    <div class="topbar-inner">
-
-        <div class="brand">
-
-            <img
-                src="sendquack-duck.png"
-                class="brand-logo"
-                alt="SendQuack"
-            >
-
-            <div>
-
-                <div class="brand-name">
+<div class="topbar-inner">
+<div class="brand">
+<img alt="SendQuack" class="brand-logo" src="sendquack-duck.png"/>
+<div>
+<div class="brand-name">
                     Send<span>Quack</span>
-                </div>
-
-                <div class="tagline">
+</div>
+<div class="tagline">
                     Upload. Personalize. Send.
                 </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="channels">
-
-            <div class="channel active">
-                <i class="fa-solid fa-envelope"></i>
-                <span>Email</span>
-            </div>
-
-            <div class="channel whatsapp">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>WhatsApp</span>
-
-                <span class="coming-soon">
+</div>
+</div>
+<div class="channels">
+<div class="channel active">
+<i class="fa-solid fa-envelope"></i>
+<span>Email</span>
+</div>
+<div class="channel whatsapp">
+<i class="fa-brands fa-whatsapp"></i>
+<span>WhatsApp</span>
+<span class="coming-soon">
                     Coming Soon
                 </span>
-            </div>
-
-            <div class="channel sms">
-                <i class="fa-solid fa-comment-sms"></i>
-                <span>SMS</span>
-
-                <span class="coming-soon">
+</div>
+<div class="channel sms">
+<i class="fa-solid fa-comment-sms"></i>
+<span>SMS</span>
+<span class="coming-soon">
                     Coming Soon
                 </span>
-            </div>
-            <button id="historyButton" class="header-history">
-                <i class="fa-solid fa-clock-rotate-left"></i>
+</div>
+<button class="header-history" id="historyButton">
+<i class="fa-solid fa-clock-rotate-left"></i>
                 History
             </button>
-            <button id="headerLoginButton" class="header-login">
-                <i class="fa-solid fa-user"></i>
+<button class="header-login" id="headerLoginButton">
+<i class="fa-solid fa-user"></i>
                 Login
             </button>
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </header>
-
 <section class="hero">
-    
-        <div class="hero-content">
-    
-            <h1>
-                Send personalized<br>
-                <span class="hero-second-line">
+<div class="hero-content">
+<h1>
+                Send personalized<br/>
+<span class="hero-second-line">
                     emails from Excel in <span class="hero-hot-pink">seconds.</span>
-                </span>
-            </h1>
-    
-            <p>
+</span>
+</h1>
+<p>
                 Upload your Excel spreadsheet, write one message,
                 and SendQuack personalizes every email for each recipient —
                 a simple online mail merge without Outlook.
             </p>
-    
-            <div class="hero-benefits">
-                <span>
-                    <i class="fa-solid fa-bolt"></i>
+<div class="hero-benefits">
+<span>
+<i class="fa-solid fa-bolt"></i>
                     Save time
                 </span>
-            
-                <span>
-                    <i class="fa-solid fa-user-group"></i>
+<span>
+<i class="fa-solid fa-user-group"></i>
                     Stay personal
                 </span>
-            
-                <span>
-                    <i class="fa-solid fa-heart"></i>
+<span>
+<i class="fa-solid fa-heart"></i>
                     Get better responses
                 </span>
-            </div>
-    
-        </div>
-    
-        <div class="hero-art">
-
-            <svg
-                class="hero-splash-svg"
-                viewBox="0 0 620 260"
-                aria-hidden="true"
-            >
-                <defs>
-                    <linearGradient id="heroPink" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#ff1493"/>
-                        <stop offset="100%" stop-color="#ff5f74"/>
-                    </linearGradient>
-
-                    <linearGradient id="heroGold" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#ffd84a"/>
-                        <stop offset="100%" stop-color="#ff9a1d"/>
-                    </linearGradient>
-
-                    <linearGradient id="heroBlue" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#0878f9"/>
-                        <stop offset="100%" stop-color="#0049bf"/>
-                    </linearGradient>
-                </defs>
-
-                <circle cx="377" cy="96" r="66" fill="url(#heroBlue)"/>
-                <circle cx="275" cy="118" r="43" fill="url(#heroPink)"/>
-                <circle cx="483" cy="158" r="34" fill="#10bd87"/>
-
-                <path
-                    d="M75 176
+</div>
+</div>
+<div class="hero-art">
+<svg aria-hidden="true" class="hero-splash-svg" viewbox="0 0 620 260">
+<defs>
+<lineargradient id="heroPink" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#ff1493"></stop>
+<stop offset="100%" stop-color="#ff5f74"></stop>
+</lineargradient>
+<lineargradient id="heroGold" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#ffd84a"></stop>
+<stop offset="100%" stop-color="#ff9a1d"></stop>
+</lineargradient>
+<lineargradient id="heroBlue" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#0878f9"></stop>
+<stop offset="100%" stop-color="#0049bf"></stop>
+</lineargradient>
+</defs>
+<circle cx="377" cy="96" fill="url(#heroBlue)" r="66"></circle>
+<circle cx="275" cy="118" fill="url(#heroPink)" r="43"></circle>
+<circle cx="483" cy="158" fill="#10bd87" r="34"></circle>
+<path d="M75 176
                        C132 131 178 128 219 149
                        C257 169 281 193 338 195
                        C393 197 436 176 493 151
@@ -5545,295 +5435,151 @@ body {
                        C537 174 513 193 475 205
                        C424 221 372 224 319 219
                        C249 213 194 196 141 199
-                       C112 200 91 192 75 176Z"
-                    fill="url(#heroGold)"
-                />
-
-                <path
-                    d="M104 153
+                       C112 200 91 192 75 176Z" fill="url(#heroGold)"></path>
+<path d="M104 153
                        C151 113 196 102 235 120
                        C270 137 287 161 326 163
                        C365 165 390 142 414 125
                        C436 109 459 110 475 122
                        C448 148 431 170 398 183
                        C353 200 310 196 267 186
-                       C214 174 164 163 104 153Z"
-                    fill="url(#heroPink)"
-                    opacity=".96"
-                />
-
-                <path
-                    d="M143 126
+                       C214 174 164 163 104 153Z" fill="url(#heroPink)" opacity=".96"></path>
+<path d="M143 126
                        C167 101 189 89 211 87
                        C198 111 199 127 209 145
-                       C183 138 162 133 143 126Z"
-                    fill="#10bd87"
-                />
-
-                <circle cx="165" cy="91" r="9" fill="#ff1493"/>
-                <circle cx="532" cy="116" r="7" fill="#0878f9"/>
-
-                <path d="M550 73 L592 55"
-                      stroke="#ff1493"
-                      stroke-width="10"
-                      stroke-linecap="round"/>
-                <path d="M558 91 L607 90"
-                      stroke="#0878f9"
-                      stroke-width="9"
-                      stroke-linecap="round"/>
-                <path d="M544 106 L585 126"
-                      stroke="#ff1493"
-                      stroke-width="8"
-                      stroke-linecap="round"/>
-            </svg>
-
-            <img
-                src="sendquack-hero.png"
-                alt="SendQuack personalized email"
-            >
-        </div>
-    
-    </section>
-
-    </section>
-
-
-    <!-- =================================================
+                       C183 138 162 133 143 126Z" fill="#10bd87"></path>
+<circle cx="165" cy="91" fill="#ff1493" r="9"></circle>
+<circle cx="532" cy="116" fill="#0878f9" r="7"></circle>
+<path d="M550 73 L592 55" stroke="#ff1493" stroke-linecap="round" stroke-width="10"></path>
+<path d="M558 91 L607 90" stroke="#0878f9" stroke-linecap="round" stroke-width="9"></path>
+<path d="M544 106 L585 126" stroke="#ff1493" stroke-linecap="round" stroke-width="8"></path>
+</svg>
+<img alt="SendQuack personalized email" src="sendquack-hero.png"/>
+</div>
+</section>
+</section>
+<!-- =================================================
          STEP 1
     ================================================== -->
-
-    <section class="card upload-card">
-
-        <div class="card-header">
-
-            <div class="step-number">
+<section class="card upload-card">
+<div class="card-header">
+<div class="step-number">
                 1
             </div>
-
-            <div class="card-title">
+<div class="card-title">
                 Upload contacts
             </div>
-
-        <div class="card-subtitle upload-subtitle">
-            <span>Maximum 5 contacts</span>
-        
-            <a
-                href="SendQuack_Contacts_Template.xlsx"
-                download
-                class="template-download"
-            >
-                <i class="fa-solid fa-download"></i>
+<div class="card-subtitle upload-subtitle">
+<span>Maximum 5 contacts</span>
+<a class="template-download" download="" href="SendQuack_Contacts_Template.xlsx">
+<i class="fa-solid fa-download"></i>
                 Download template
             </a>
-        </div>
-
-        </div>
-
-
-        <div class="upload-content">
-
-            <div class="upload-zone">
-
-                <input
-                    type="file"
-                    id="excelFile"
-                    accept=".xlsx,.xls"
-                >
-
-                <div>
-
-                    <div class="upload-icon" aria-hidden="true">
-                        <svg class="sq-upload-icon-svg" viewBox="0 0 48 48" focusable="false">
-                            <path d="M15.5 36H13a9 9 0 0 1-1.6-17.86A13 13 0 0 1 36.2 18.8 8.6 8.6 0 0 1 35 36h-2.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M24 34V19" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
-                            <path d="M18.5 24.5 24 19l5.5 5.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-
-                    <div class="upload-main">
+</div>
+</div>
+<div class="upload-content">
+<div class="upload-zone">
+<input accept=".xlsx,.xls" id="excelFile" type="file"/>
+<div>
+<div aria-hidden="true" class="upload-icon">
+<svg class="sq-upload-icon-svg" focusable="false" viewbox="0 0 48 48">
+<path d="M15.5 36H13a9 9 0 0 1-1.6-17.86A13 13 0 0 1 36.2 18.8 8.6 8.6 0 0 1 35 36h-2.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.2"></path>
+<path d="M24 34V19" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3.2"></path>
+<path d="M18.5 24.5 24 19l5.5 5.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.2"></path>
+</svg>
+</div>
+<div class="upload-main">
                         Choose your Excel spreadsheet
                     </div>
-
-                    <div class="upload-help">
+<div class="upload-help">
                         Required columns:
                         Name, Email Address · .xlsx or .xls
                     </div>
-
-                </div>
-
-            </div>
-
-
-            <div id="result"></div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =================================================
+</div>
+</div>
+<div id="result"></div>
+</div>
+</section>
+<!-- =================================================
          WORKSPACE
     ================================================== -->
-
-    <section class="workspace">
-
-
-        <!-- =============================================
+<section class="workspace">
+<!-- =============================================
              COMPOSE
         ============================================== -->
-
-        <div class="card compose-card">
-
-            <div class="card-header">
-
-                <div class="step-number">
+<div class="card compose-card">
+<div class="card-header">
+<div class="step-number">
                     2
                 </div>
-
-                <div class="card-title">
+<div class="card-title">
                     Compose
                 </div>
-
-            </div>
-
-
-            <div class="compose-body">
-
-                <div
-                    id="composeArea"
-                    class="compose-area"
-                >
-
-
-                    <div class="two-fields">
-
-                        <div class="field">
-
-                            <label>
+</div>
+<div class="compose-body">
+<div class="compose-area" id="composeArea">
+<div class="two-fields">
+<div class="field">
+<label>
                                 Sender's Name
                             </label>
-
-                            <input
-                                type="text"
-                                id="senderName"
-                                class="text-input"
-                                placeholder="e.g. Mark Hopper"
-                            >
-
-                        </div>
-
-
-                        <div class="field">
-
-                            <label>
+<input class="text-input" id="senderName" placeholder="e.g. Mark Hopper" type="text"/>
+</div>
+<div class="field">
+<label>
                                 Reply-To Email (for responses)
 
                             </label>
-
-                            <input
-                                type="email"
-                                id="replyTo"
-                                class="text-input"
-                                placeholder="you@example.com"
-                            >
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="field">
-
-                        <label>
+<input class="text-input" id="replyTo" placeholder="you@example.com" type="email"/>
+</div>
+</div>
+<div class="field">
+<label>
                             Email Subject
                         </label>
-
-                        <input
-                            type="text"
-                            id="subject"
-                            class="text-input"
-                            placeholder="Enter email subject"
-                        >
-
-                    </div>
-
-
-                    <div class="editor-options">
-
-                        <label class="message-label">
+<input class="text-input" id="subject" placeholder="Enter email subject" type="text"/>
+</div>
+<div class="editor-options">
+<label class="message-label">
                             Message
                         </label>
-
-
-                        <div class="message-label">
+<div class="message-label">
 
                             Email background
 
-                            <input
-                                type="color"
-                                id="emailBackground"
-                                value="#ffffff"
-                            >
-
-                        </div>
-
-                    </div>
-
-
-                    <div id="editor">
-
-                        <p>
+                            <input id="emailBackground" type="color" value="#ffffff"/>
+</div>
+</div>
+<div id="editor">
+<p>
                             Dear {{Name}},
                         </p>
-
-                        <p>
-                          
-                        </p>
-
-                        <p>
+<p>
+</p>
+<p>
                             Type your message here...
                         </p>
-
-                    </div>
-
-                </div>
-
-                <!-- ATTACHMENTS -->
-
-                <div class="attachment-section">
-                
-                    <label class="field-label">
+</div>
+</div>
+<!-- ATTACHMENTS -->
+<div class="attachment-section">
+<label class="field-label">
                         Attachments (optional)
                      <!--   <span style="font-weight:400; color:#8a94a6;"> -->
-                            
-                        </span>
-                    </label>
-                
-                    <label class="attachment-button" for="attachments">
+
+</label>
+<label class="attachment-button" for="attachments">
                         📎 Attach files
                     </label>
-                
-                    <input
-                        type="file"
-                        id="attachments"
-                        multiple
-                        accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.jpg,.jpeg,.png"
-                        style="display:none;"
-                    >
-                
-                    <div id="attachmentList" class="attachment-list">
+<input accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.jpg,.jpeg,.png" id="attachments" multiple="" style="display:none;" type="file"/>
+<div class="attachment-list" id="attachmentList">
                         No files attached
                     </div>
-                
-                    <div class="attachment-help">
+<div class="attachment-help">
                         PDF, Word, Excel, PowerPoint, TXT or images · Maximum 10 MB total
                     </div>
-                
-                </div>
-
-                <div
-    style="
+</div>
+<div style="
         margin-top: 12px;
         padding: 10px 12px;
         background: rgba(255,255,255,.88);
@@ -5841,272 +5587,160 @@ body {
         font-size: 11px;
         line-height: 1.45;
         color: #082d5c;
-    "
->
-    <label
-        style="
+    ">
+<label style="
             display: flex;
             align-items: flex-start;
             gap: 8px;
             cursor: pointer;
-        "
-    >
-        <input
-            type="checkbox"
-            id="senderConsent"
-            style="
+        ">
+<input id="senderConsent" style="
                 margin-top: 2px;
                 flex-shrink: 0;
-            "
-        >
-
-        <span>
+            " type="checkbox"/>
+<span>
             I confirm that I have permission or another lawful basis
             to contact these recipients and that this message complies
             with SendQuack's
-            <a
-                href="anti-spam.html"
-                target="_blank"
-                style="color:#082d5c; font-weight:700;"
-            >
+            <a href="anti-spam.html" style="color:#082d5c; font-weight:700;" target="_blank">
                 Anti-Spam Policy
             </a>.
         </span>
-    </label>
+</label>
 </div>
-                
-                <button id="sendButton">
+<button id="sendButton">
                     Send Emails →
                 </button>
-
-
-                <div class="send-note">
+<div class="send-note">
                     You'll review the recipient count before anything is sent.
                 </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =============================================
+</div>
+</div>
+<!-- =============================================
              PREVIEW
         ============================================== -->
-
-        <div class="card preview-card">
-
-            <div class="card-header">
-
-                <div class="step-number">
+<div class="card preview-card">
+<div class="card-header">
+<div class="step-number">
                     3
                 </div>
-
-                <div class="card-title">
+<div class="card-title">
                     Preview
                 </div>
-
-                <div class="preview-badge">
+<div class="preview-badge">
                     Live
                 </div>
-
-            </div>
-
-
-            <div class="preview-body">
-
-                <div
-                    id="preview"
-                    class="preview-box"
-                >
-
-                    <div class="preview-empty">
-
-                        <div>
-
-                            <div class="preview-empty-icon-wrap" aria-hidden="true">
-                                <svg class="sq-preview-icon-svg" viewBox="0 0 120 86" focusable="false">
-                                    <rect x="26" y="20" width="68" height="48" rx="12" fill="#eaf2ff"/>
-                                    <path d="M34 31 60 50 86 31" fill="none" stroke="#6da8ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M34 58 49 45M86 58 71 45" fill="none" stroke="#8bb8ff" stroke-width="4" stroke-linecap="round"/>
-                                    <path d="M13 35 5 31M16 48 7 51M107 35l8-4M104 48l9 3" fill="none" stroke="#ff1493" stroke-width="5" stroke-linecap="round"/>
-                                </svg>
-                            </div>
-
-                            <div class="preview-empty-title">
+</div>
+<div class="preview-body">
+<div class="preview-box" id="preview">
+<div class="preview-empty">
+<div>
+<div aria-hidden="true" class="preview-empty-icon-wrap">
+<svg class="sq-preview-icon-svg" focusable="false" viewbox="0 0 120 86">
+<rect fill="#eaf2ff" height="48" rx="12" width="68" x="26" y="20"></rect>
+<path d="M34 31 60 50 86 31" fill="none" stroke="#6da8ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"></path>
+<path d="M34 58 49 45M86 58 71 45" fill="none" stroke="#8bb8ff" stroke-linecap="round" stroke-width="4"></path>
+<path d="M13 35 5 31M16 48 7 51M107 35l8-4M104 48l9 3" fill="none" stroke="#ff1493" stroke-linecap="round" stroke-width="5"></path>
+</svg>
+</div>
+<div class="preview-empty-title">
                                 Your personalized email
                                 will appear here
                             </div>
-
-                            <div class="preview-empty-text">
+<div class="preview-empty-text">
                                 Upload an Excel file to
                                 generate the first recipient preview.
                             </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- =================================================
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =================================================
          FOOTER
     ================================================== -->
-
 <footer class="site-footer">
-
-    <div class="footer-main">
-
-        <div class="footer-about">
-
-            <div class="footer-logo-row">
-                <img src="sendquack-duck.png" alt="SendQuack">
-                <div class="footer-brand-name">
+<div class="footer-main">
+<div class="footer-about">
+<div class="footer-logo-row">
+<img alt="SendQuack" src="sendquack-duck.png"/>
+<div class="footer-brand-name">
                     Send<span>Quack</span>
-                </div>
-            </div>
-
-            <p>
+</div>
+</div>
+<p>
                 Upload. Personalize. Send.
             </p>
-
-            <div class="responsible-message">
+<div class="responsible-message">
                 Built for responsible communication.
             </div>
-
-        </div>
-
-
-        <div class="footer-column">
-
-            <h4>Product</h4>
-
-            <a href="/">Email</a>
-            <span>WhatsApp <small>Coming Soon</small></span>
-            <span>SMS <small>Coming Soon</small></span>
-
-        </div>
-
-
-        <div class="footer-column">
-
-            <h4>Company</h4>
-
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-            <h4>Legal</h4>
-
-            <a href="terms.html">Terms of Service</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="anti-spam.html">Anti-Spam Policy</a>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <div>
+</div>
+<div class="footer-column">
+<h4>Product</h4>
+<a href="/">Email</a>
+<span>WhatsApp <small>Coming Soon</small></span>
+<span>SMS <small>Coming Soon</small></span>
+</div>
+<div class="footer-column">
+<h4>Company</h4>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+</div>
+<div class="footer-column">
+<h4>Legal</h4>
+<a href="terms.html">Terms of Service</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="anti-spam.html">Anti-Spam Policy</a>
+</div>
+</div>
+<div aria-label="SendQuack resources" class="footer-resources">
+<span class="footer-resources-title">Resources</span>
+<a href="excel-mail-merge-online.html">Excel Mail Merge Online</a>
+<span class="footer-resource-separator">•</span>
+<a href="mail-merge-without-outlook.html">Mail Merge Without Outlook</a>
+<span class="footer-resource-separator">•</span>
+<a href="send-emails-from-spreadsheet.html">Send Emails from Spreadsheet</a>
+</div><div class="footer-bottom">
+<div>
             © 2026 SendQuack. All rights reserved.
         </div>
-
-        <div>
+<div>
             Simple messaging. Responsibly delivered.
         </div>
-
-    </div>
-
+</div>
 </footer>
-
-
 </main>
-
-
-
- <!-- AUTH SCREEN -->
-    <div id="authScreen" style="display: none;">
-        <h2>Welcome to SendQuack</h2>
-    
-        <input
-            type="email"
-            id="authEmail"
-            placeholder="Email address"
-        >
-    
-        <input
-            type="password"
-            id="authPassword"
-            placeholder="Password"
-        >
-    
-        <button id="loginButton">
+<!-- AUTH SCREEN -->
+<div id="authScreen" style="display: none;">
+<h2>Welcome to SendQuack</h2>
+<input id="authEmail" placeholder="Email address" type="email"/>
+<input id="authPassword" placeholder="Password" type="password"/>
+<button id="loginButton">
             Login
         </button>
-        
-        <button
-            id="forgotPasswordButton"
-            type="button"
-        >
+<button id="forgotPasswordButton" type="button">
             Forgot password?
         </button>
-        
-        <button id="signupButton">
+<button id="signupButton">
             Create Account
         </button>
-    
-        <div id="authMessage"></div>
-
-        <div
-    id="resetPasswordSection"
-    style="
+<div id="authMessage"></div>
+<div id="resetPasswordSection" style="
         display:none;
         width:320px;
         max-width:calc(100vw - 48px);
         flex-direction:column;
         gap:12px;
-    "
->
-
-    <input
-        type="password"
-        id="newPassword"
-        placeholder="New password"
-    >
-
-    <input
-        type="password"
-        id="confirmNewPassword"
-        placeholder="Confirm new password"
-    >
-
-    <button
-        id="saveNewPasswordButton"
-        type="button"
-    >
+    ">
+<input id="newPassword" placeholder="New password" type="password"/>
+<input id="confirmNewPassword" placeholder="Confirm new password" type="password"/>
+<button id="saveNewPasswordButton" type="button">
         Set New Password
     </button>
-
-    <div id="resetPasswordMessage"></div>
-
+<div id="resetPasswordMessage"></div>
 </div>
-    </div>
-
+</div>
 <script>
 
 
@@ -7841,59 +7475,35 @@ document
  
     
 </script>
-
-    <!-- SEND HISTORY MODAL -->
-
-<div
-    id="historyModal"
-    class="history-modal"
-    style="display:none;"
->
-
-    <div class="history-modal-card">
-
-        <div class="history-modal-header">
-
-            <div>
-                <h2>Send History</h2>
-                <p>Your most recent emails</p>
-            </div>
-
-            <button
-                id="closeHistoryButton"
-                class="history-close"
-                type="button"
-            >
-                &times;
-            </button>
-
-        </div>
-
-        <div class="history-table-wrap">
-
-            <table class="history-table">
-
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Recipient</th>
-                        <th>Name</th>
-                        <th>Subject</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-
-                <tbody id="historyTableBody">
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
+<!-- SEND HISTORY MODAL -->
+<div class="history-modal" id="historyModal" style="display:none;">
+<div class="history-modal-card">
+<div class="history-modal-header">
+<div>
+<h2>Send History</h2>
+<p>Your most recent emails</p>
 </div>
-
+<button class="history-close" id="closeHistoryButton" type="button">
+                ×
+            </button>
+</div>
+<div class="history-table-wrap">
+<table class="history-table">
+<thead>
+<tr>
+<th>Date</th>
+<th>Recipient</th>
+<th>Name</th>
+<th>Subject</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="historyTableBody">
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </body>
 </html>
 ```
