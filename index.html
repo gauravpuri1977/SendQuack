@@ -3362,6 +3362,49 @@ select {
                     </div>
                 
                 </div>
+
+                <div
+    style="
+        margin-top: 12px;
+        padding: 10px 12px;
+        background: rgba(255,255,255,.88);
+        border-radius: 9px;
+        font-size: 11px;
+        line-height: 1.45;
+        color: #082d5c;
+    "
+>
+    <label
+        style="
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            cursor: pointer;
+        "
+    >
+        <input
+            type="checkbox"
+            id="senderConsent"
+            style="
+                margin-top: 2px;
+                flex-shrink: 0;
+            "
+        >
+
+        <span>
+            I confirm that I have permission or another lawful basis
+            to contact these recipients and that this message complies
+            with SendQuack's
+            <a
+                href="anti-spam.html"
+                target="_blank"
+                style="color:#082d5c; font-weight:700;"
+            >
+                Anti-Spam Policy
+            </a>.
+        </span>
+    </label>
+</div>
                 
                 <button id="sendButton">
                     Send Emails →
@@ -4856,6 +4899,19 @@ if (
     return;
 }
 
+if (
+    !document
+        .getElementById("senderConsent")
+        .checked
+) {
+
+    alert(
+        "Please confirm that you have permission to contact these recipients and comply with SendQuack's Anti-Spam Policy."
+    );
+
+    return;
+}
+        
     const confirmed = confirm(
 
         "You are about to send " +
