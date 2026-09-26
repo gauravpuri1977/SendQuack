@@ -4581,11 +4581,24 @@ body {
 }
 
 /* All real UI stays above the decorative rails */
-.container,
-#authScreen,
-#historyModal {
+.container {
     position: relative;
     z-index: 2;
+}
+
+#authScreen {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9999 !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+}
+
+#historyModal {
+    position: fixed !important;
+    z-index: 9999 !important;
 }
 
 
