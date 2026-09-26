@@ -3723,6 +3723,516 @@ select:focus-visible {
 
 }
 
+
+
+/* =====================================================
+   SENDQUACK — MOCKUP-MATCH REFINEMENT
+   Final visual-only overrides.
+   Goal: closer to the approved orange/gold/navy/hot-pink mockup.
+===================================================== */
+
+/* The previous version visually merged header + hero.
+   The mockup uses two compact surfaces with a narrow navy gap. */
+.hero-shell {
+    overflow: visible !important;
+    margin: 8px 0 10px !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+
+/* -----------------------------------------------------
+   BACKGROUND — deeper navy with stronger hot-pink energy
+----------------------------------------------------- */
+
+html {
+    background:
+        radial-gradient(
+            circle at -2% 4%,
+            rgba(255,20,147,.72) 0,
+            rgba(255,20,147,.30) 10%,
+            transparent 19%
+        ),
+        radial-gradient(
+            circle at 102% 27%,
+            rgba(255,42,161,.60) 0,
+            rgba(255,42,161,.22) 9%,
+            transparent 18%
+        ),
+        radial-gradient(
+            circle at -3% 69%,
+            rgba(255,93,82,.50) 0,
+            rgba(255,20,147,.20) 11%,
+            transparent 21%
+        ),
+        radial-gradient(
+            circle at 103% 88%,
+            rgba(255,20,147,.58) 0,
+            rgba(255,193,44,.24) 10%,
+            transparent 21%
+        ),
+        linear-gradient(
+            135deg,
+            #04183d 0%,
+            #063879 48%,
+            #081d52 100%
+        ) !important;
+}
+
+
+/* -----------------------------------------------------
+   HEADER — separate compact orange/gold bar
+----------------------------------------------------- */
+
+.hero-shell .topbar {
+    position: relative;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 0 9px !important;
+
+    overflow: hidden !important;
+
+    border: 1px solid rgba(255,255,255,.18) !important;
+    border-radius: 19px !important;
+
+    background:
+        linear-gradient(
+            100deg,
+            #ff681c 0%,
+            #ff941d 52%,
+            #ffc72c 100%
+        ) !important;
+
+    box-shadow:
+        0 10px 24px rgba(0,0,0,.18) !important;
+}
+
+
+.hero-shell .topbar-inner {
+    padding: 8px 20px !important;
+
+    border-bottom: 0 !important;
+}
+
+
+.hero-shell .brand-logo {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+
+.hero-shell .brand-name {
+    font-size: 26px !important;
+}
+
+
+.hero-shell .tagline {
+    color: #ffffff !important;
+    font-size: 11px !important;
+}
+
+
+.hero-shell .channel,
+.hero-shell .header-history,
+.hero-shell .header-login {
+    min-height: 39px;
+
+    box-shadow:
+        0 5px 12px rgba(72,42,0,.14) !important;
+}
+
+
+.hero-shell .channel:not(.active),
+.hero-shell .header-history,
+.hero-shell .header-login {
+    background:
+        linear-gradient(
+            180deg,
+            #ffe35e,
+            #ffd43f
+        ) !important;
+}
+
+
+/* -----------------------------------------------------
+   HERO — its own compact card
+----------------------------------------------------- */
+
+.hero-shell .hero {
+    position: relative;
+
+    min-height: 215px !important;
+
+    margin: 0 !important;
+
+    padding: 17px 30px 18px !important;
+
+    overflow: hidden;
+
+    gap: 18px !important;
+
+    border: 1px solid rgba(255,255,255,.18) !important;
+    border-radius: 22px !important;
+
+    background:
+        radial-gradient(
+            circle at 92% 6%,
+            rgba(255,226,102,.98) 0 17%,
+            transparent 17.5%
+        ),
+        radial-gradient(
+            circle at 100% 91%,
+            rgba(255,20,147,.70) 0 21%,
+            transparent 21.5%
+        ),
+        radial-gradient(
+            circle at 64% 116%,
+            rgba(255,89,100,.53) 0 17%,
+            transparent 17.5%
+        ),
+        linear-gradient(
+            105deg,
+            #ff6d1a 0%,
+            #ff991e 51%,
+            #ffc72c 100%
+        ) !important;
+
+    box-shadow:
+        0 12px 28px rgba(0,0,0,.18) !important;
+}
+
+
+/* Add some graphic energy around the artwork without touching the asset */
+.hero-shell .hero::after {
+    content: "";
+
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+    width: 43%;
+    height: 82%;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 18% 45%,
+            rgba(255,20,147,.95) 0 3%,
+            transparent 3.5%
+        ),
+        radial-gradient(
+            circle at 32% 19%,
+            rgba(13,98,255,.95) 0 3%,
+            transparent 3.5%
+        ),
+        radial-gradient(
+            circle at 76% 63%,
+            rgba(255,20,147,.90) 0 2.5%,
+            transparent 3%
+        ),
+        radial-gradient(
+            circle at 57% 87%,
+            rgba(255,210,45,.95) 0 2.5%,
+            transparent 3%
+        );
+
+    opacity: .9;
+}
+
+
+.hero-shell .hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+
+.hero-shell .hero-content h1 {
+    font-size: clamp(34px, 3vw, 48px) !important;
+    line-height: .98 !important;
+    margin-bottom: 8px !important;
+}
+
+
+.hero-shell .hero-content p {
+    max-width: 700px !important;
+
+    font-size: 13px !important;
+    line-height: 1.34 !important;
+}
+
+
+.hero-shell .hero-benefits {
+    margin-top: 11px !important;
+}
+
+
+.hero-shell .hero-benefits span {
+    padding: 6px 12px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe35e,
+            #ffd43f
+        ) !important;
+
+    font-size: 10px !important;
+}
+
+
+/* Make the existing hero asset much closer to mockup scale */
+.hero-shell .hero-art {
+    position: relative;
+    z-index: 2;
+
+    flex: 1 1 46% !important;
+}
+
+
+.hero-shell .hero-art img {
+    width: 100% !important;
+
+    max-width: 525px !important;
+    max-height: 205px !important;
+
+    transform:
+        translateX(6px)
+        scale(1.07);
+
+    transform-origin: center right;
+}
+
+
+/* -----------------------------------------------------
+   UPLOAD — match mockup proportions
+----------------------------------------------------- */
+
+.upload-card {
+    border-radius: 19px !important;
+}
+
+
+.upload-card .card-header {
+    padding: 8px 20px 5px !important;
+}
+
+
+.upload-card .step-number {
+    width: 38px !important;
+    height: 38px !important;
+
+    border-radius: 10px !important;
+}
+
+
+.upload-card .card-title {
+    padding: 6px 14px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe35e,
+            #ffd43f
+        );
+}
+
+
+.upload-content {
+    padding: 2px 20px 10px !important;
+}
+
+
+.upload-zone {
+    min-height: 68px !important;
+
+    border:
+        2px dashed
+        var(--sq-hot-pink) !important;
+
+    border-radius: 12px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #fffafc
+        ) !important;
+}
+
+
+.upload-icon {
+    width: 34px !important;
+    height: 34px !important;
+
+    font-size: 17px !important;
+}
+
+
+.upload-main {
+    font-size: 13px !important;
+}
+
+
+.upload-help {
+    font-size: 10px !important;
+}
+
+
+/* -----------------------------------------------------
+   COMPOSE / PREVIEW — stronger mockup treatment
+----------------------------------------------------- */
+
+.compose-card,
+.preview-card {
+    border-radius: 19px !important;
+}
+
+
+.compose-card .card-header,
+.preview-card .card-header {
+    padding: 10px 20px 4px !important;
+}
+
+
+.compose-card .card-title,
+.preview-card .card-title {
+    padding: 6px 14px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe35e,
+            #ffd43f
+        ) !important;
+
+    color: #082d5c !important;
+}
+
+
+.compose-card .step-number,
+.preview-card .step-number {
+    width: 38px !important;
+    height: 38px !important;
+
+    border-radius: 10px !important;
+}
+
+
+.compose-body {
+    padding: 10px 20px 14px !important;
+}
+
+
+.card.preview-card .preview-body {
+    padding: 10px 20px 14px !important;
+}
+
+
+.card.preview-card .preview-box {
+    border-radius: 14px !important;
+}
+
+
+/* -----------------------------------------------------
+   FOOTER — mockup uses a navy footer, not another orange card
+----------------------------------------------------- */
+
+.site-footer {
+    background:
+        linear-gradient(
+            105deg,
+            #031b45 0%,
+            #06336e 100%
+        ) !important;
+
+    border:
+        1px solid rgba(74,151,255,.42) !important;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.24) !important;
+}
+
+
+.site-footer,
+.site-footer p,
+.site-footer a,
+.site-footer span,
+.site-footer div,
+.footer-column a,
+.footer-column span,
+.responsible-message,
+.footer-bottom,
+.footer-column h4,
+.footer-brand-name {
+    color: #ffffff !important;
+}
+
+
+.footer-brand-name span {
+    color: #2f91ff !important;
+}
+
+
+.footer-column a:hover {
+    color: var(--sq-hot-pink) !important;
+}
+
+
+.footer-column small {
+    background: #ffd84d !important;
+    color: #082d5c !important;
+}
+
+
+.footer-bottom {
+    border-top-color:
+        rgba(255,255,255,.22) !important;
+}
+
+
+/* -----------------------------------------------------
+   DESKTOP WIDTH — mockup is slightly wider than current page
+----------------------------------------------------- */
+
+@media (min-width: 1000px) {
+
+    .container,
+    .site-footer {
+        width: 84% !important;
+        max-width: 1480px !important;
+    }
+
+}
+
+
+/* -----------------------------------------------------
+   MOBILE
+----------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .hero-shell .hero {
+        min-height: 0 !important;
+
+        padding: 16px 20px 18px !important;
+    }
+
+    .hero-shell .hero-art img {
+        transform: none;
+
+        max-height: 165px !important;
+    }
+
+}
+
 </style>
 
     
