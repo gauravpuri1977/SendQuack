@@ -776,26 +776,35 @@ h1 {
         <h2>5. Recipient choice</h2>
 
         <p>
-            SendQuack includes an unsubscribe mechanism for outgoing
-            email and maintains unsubscribe or suppression status to help
-            prevent further sending where a recipient opts out. Senders
-            must respect recipient preferences and must not remove, obscure,
-            bypass or attempt to circumvent these protections.
+            SendQuack includes an unsubscribe mechanism in outgoing email.
+            When a recipient unsubscribes, SendQuack records that preference
+            for the relevant sender account and blocks further SendQuack
+            emails from that account to that recipient.
+        </p>
+
+        <p>
+            Senders must not remove or obscure the unsubscribe mechanism,
+            re-upload an unsubscribed address to try to send again, or
+            otherwise bypass or attempt to circumvent recipient preferences
+            or SendQuack suppression controls.
         </p>
 
 
         <h2>6. Bounces and complaints</h2>
 
         <p>
-            SendQuack may prevent further delivery to addresses that
-            unsubscribe, generate permanent delivery failures, submit
-            spam complaints or produce other signals indicating that
-            further messages should not be sent.
+            In addition to recipient unsubscribe records, SendQuack may
+            automatically suppress further delivery to addresses that
+            generate permanent delivery failures, submit spam complaints
+            or produce other signals indicating that additional delivery
+            attempts should not be made.
         </p>
 
         <p>
-            These protections help safeguard recipients and maintain
-            the reliability and reputation of the SendQuack service.
+            SendQuack may skip a recipient rather than attempt delivery
+            where an active unsubscribe or suppression record applies.
+            These protections help safeguard recipients and maintain the
+            reliability and reputation of the SendQuack service.
         </p>
 
 

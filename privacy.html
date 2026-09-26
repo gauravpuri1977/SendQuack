@@ -766,9 +766,12 @@ h1 {
             When a user provides recipient information for the purpose
             of preparing and sending a communication, SendQuack processes
             that information on the user's instructions in order to provide
-            the requested service. The user remains responsible for the
-            recipient list, the message, the purpose of the communication
-            and the legal basis for contacting the recipient.
+            the requested service. This includes using recipient information
+            to personalize the message, generate the preview, transmit the
+            email and apply delivery, unsubscribe and suppression controls.
+            The user remains responsible for the recipient list, the message,
+            the purpose of the communication and the legal basis for
+            contacting the recipient.
         </p>
 
 
@@ -793,15 +796,24 @@ h1 {
         <h2>5. Suppression information</h2>
 
         <p>
-            SendQuack may maintain suppression records for email
-            addresses associated with unsubscribes, permanent delivery
-            failures, recipient complaints or other circumstances where
-            additional messages should not be sent.
+            SendQuack maintains unsubscribe information when a recipient
+            uses the unsubscribe mechanism included with an email. That
+            preference is associated with the relevant sender account so
+            that further SendQuack emails from that account to that
+            recipient can be blocked.
         </p>
 
         <p>
-            Suppression information may be used to prevent future
-            delivery attempts and help protect recipients and the
+            SendQuack may also maintain suppression records for email
+            addresses associated with permanent delivery failures,
+            recipient complaints or other circumstances where additional
+            delivery attempts should not be made.
+        </p>
+
+        <p>
+            Unsubscribe and suppression information is used to enforce
+            recipient preferences, avoid repeated delivery attempts,
+            investigate complaints and protect recipients and the
             reliability of the service.
         </p>
 
