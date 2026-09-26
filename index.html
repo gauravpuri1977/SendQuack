@@ -2998,7 +2998,453 @@ select {
     }
 
 }
-    </style>
+    
+
+/* =====================================================
+   SENDQUACK — COMBINED ULTRA-COMPACT HEADER + HERO
+   Final overrides intentionally placed last.
+===================================================== */
+
+.hero-shell {
+    position: relative;
+    overflow: hidden;
+
+    margin: 8px 0 10px;
+    border-radius: 24px;
+
+    background:
+        radial-gradient(
+            circle at 94% 12%,
+            rgba(255, 220, 94, .95) 0 13%,
+            transparent 13.5%
+        ),
+        radial-gradient(
+            circle at 100% 90%,
+            rgba(255, 95, 86, .88) 0 18%,
+            transparent 18.5%
+        ),
+        linear-gradient(
+            105deg,
+            #ff6b18 0%,
+            #ff951d 48%,
+            #ffc72c 100%
+        );
+
+    box-shadow:
+        0 14px 34px rgba(0,0,0,.20);
+}
+
+
+/* Header now lives inside the hero shell */
+.hero-shell .topbar {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    background: transparent !important;
+
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+
+.hero-shell .topbar-inner {
+    width: 100%;
+    max-width: none !important;
+
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 8px 24px 7px !important;
+
+    gap: 18px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.30);
+}
+
+
+/* Compact brand without making it feel cramped */
+.hero-shell .brand {
+    gap: 9px;
+    flex-shrink: 0;
+}
+
+
+.hero-shell .brand-logo {
+    width: 46px !important;
+    height: 46px !important;
+}
+
+
+.hero-shell .brand-name {
+    font-size: 24px !important;
+    line-height: 1 !important;
+}
+
+
+.hero-shell .tagline {
+    margin-top: 3px !important;
+
+    color: #ffffff !important;
+
+    font-size: 11px !important;
+    line-height: 1.1;
+}
+
+
+/* Navigation controls */
+.hero-shell .channels {
+    gap: 8px !important;
+}
+
+
+.hero-shell .channel,
+.hero-shell .header-history,
+.hero-shell .header-login {
+    min-height: 38px;
+
+    padding: 7px 12px !important;
+
+    border-radius: 999px !important;
+}
+
+
+.hero-shell .channel {
+    gap: 5px !important;
+
+    background: rgba(255, 221, 79, .96) !important;
+    border-color: rgba(8,45,92,.14) !important;
+
+    color: #082d5c !important;
+
+    box-shadow:
+        0 4px 10px rgba(83,48,0,.13) !important;
+}
+
+
+.hero-shell .channel i,
+.hero-shell .channel span {
+    color: #082d5c;
+}
+
+
+.hero-shell .coming-soon {
+    padding: 3px 7px !important;
+
+    background: #082d5c !important;
+    color: #ffd84d !important;
+
+    font-size: 8px !important;
+}
+
+
+.hero-shell .header-history,
+.hero-shell .header-login {
+    background: rgba(255, 221, 79, .96) !important;
+
+    border: 1px solid rgba(8,45,92,.14) !important;
+
+    color: #082d5c !important;
+
+    box-shadow:
+        0 4px 10px rgba(83,48,0,.13) !important;
+}
+
+
+.hero-shell .header-history {
+    font-size: 12px;
+}
+
+
+.hero-shell .header-login {
+    border-radius: 11px !important;
+}
+
+
+.hero-shell .logged-email {
+    font-size: 11px !important;
+}
+
+
+.hero-shell .logout-hint {
+    margin-top: 1px !important;
+
+    color: #082d5c !important;
+
+    font-size: 9px !important;
+}
+
+
+/* Hero is now the lower half of the same card */
+.hero-shell .hero {
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
+    padding: 12px 28px 15px !important;
+
+    gap: 22px !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    background: transparent !important;
+
+    box-shadow: none !important;
+}
+
+
+.hero-shell .hero-content {
+    flex: 1 1 56% !important;
+    max-width: 720px !important;
+}
+
+
+.hero-shell .hero-content h1 {
+    margin: 0 0 7px !important;
+
+    color: #ffffff !important;
+
+    font-size: clamp(30px, 2.7vw, 44px) !important;
+    line-height: .98 !important;
+    letter-spacing: -1.4px !important;
+}
+
+
+.hero-shell .hero-content h1 span {
+    color: #082d5c !important;
+}
+
+
+.hero-shell .hero-content p {
+    max-width: 680px !important;
+
+    margin: 0 !important;
+
+    color: #ffffff !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.32 !important;
+}
+
+
+.hero-shell .hero-benefits {
+    margin-top: 9px !important;
+
+    gap: 7px !important;
+}
+
+
+.hero-shell .hero-benefits span {
+    padding: 5px 10px !important;
+
+    background: rgba(255, 221, 79, .96) !important;
+
+    border: 1px solid rgba(8,45,92,.14) !important;
+
+    color: #082d5c !important;
+
+    font-size: 10px !important;
+    font-weight: 700 !important;
+
+    box-shadow:
+        0 4px 10px rgba(83,48,0,.13) !important;
+}
+
+
+/* Artwork stays prominent but no longer drives page height */
+.hero-shell .hero-art {
+    flex: 1 1 44% !important;
+}
+
+
+.hero-shell .hero-art img {
+    max-width: 430px !important;
+    max-height: 155px !important;
+}
+
+
+/* Pull Step 1 directly underneath */
+.hero-shell + .upload-card {
+    margin-top: 0 !important;
+}
+
+
+/* Keep Step 1 tight while retaining a generous click target */
+.upload-card .card-header {
+    padding: 7px 18px 4px !important;
+}
+
+
+.upload-card .step-number {
+    width: 34px !important;
+    height: 34px !important;
+}
+
+
+.upload-content {
+    padding: 3px 18px 7px !important;
+}
+
+
+.upload-zone {
+    min-height: 48px !important;
+}
+
+
+.upload-icon {
+    width: 27px !important;
+    height: 27px !important;
+
+    margin-bottom: 1px !important;
+
+    font-size: 14px !important;
+}
+
+
+.upload-main {
+    font-size: 12px !important;
+}
+
+
+.upload-help {
+    margin-top: 0 !important;
+
+    font-size: 10px !important;
+}
+
+
+/* Tighten the global vertical rhythm without touching functionality */
+.workspace {
+    margin-top: 10px !important;
+}
+
+
+.site-footer {
+    margin-top: 10px !important;
+}
+
+
+/* Desktop uses the same 80% application width already used elsewhere */
+@media (min-width: 1000px) {
+
+    .container {
+        margin-top: 0 !important;
+    }
+
+}
+
+
+/* Tablet: keep the combined shell intact, then stack hero */
+@media (max-width: 900px) {
+
+    .hero-shell .topbar-inner {
+        padding: 8px 16px 7px !important;
+    }
+
+    .hero-shell .channels {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .hero-shell .hero {
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 16px 20px 18px !important;
+    }
+
+    .hero-shell .hero-art {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .hero-shell .hero-art img {
+        max-height: 140px !important;
+    }
+
+}
+
+
+/* Mobile: prioritize brand + account, keep content compact */
+@media (max-width: 600px) {
+
+    .hero-shell {
+        border-radius: 18px;
+    }
+
+    .hero-shell .topbar-inner {
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .hero-shell .brand-logo {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .hero-shell .brand-name {
+        font-size: 21px !important;
+    }
+
+    .hero-shell .channels {
+        gap: 6px !important;
+    }
+
+    .hero-shell .channel {
+        display: none !important;
+    }
+
+    .hero-shell .header-history {
+        padding: 7px 10px !important;
+    }
+
+    .hero-shell .header-login {
+        max-width: 175px;
+        padding: 7px 10px !important;
+    }
+
+    .hero-shell .logged-email {
+        max-width: 135px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .hero-shell .hero {
+        padding: 14px 18px 16px !important;
+    }
+
+    .hero-shell .hero-content h1 {
+        font-size: 31px !important;
+    }
+
+    .hero-shell .hero-content p {
+        font-size: 12px !important;
+    }
+
+    .hero-shell .hero-benefits {
+        gap: 6px !important;
+    }
+
+    .hero-shell .hero-benefits span {
+        padding: 5px 8px !important;
+        font-size: 9px !important;
+    }
+
+    .hero-shell .hero-art img {
+        max-height: 120px !important;
+    }
+
+}
+
+</style>
 
     
 </head>
@@ -3010,6 +3456,13 @@ select {
 <!-- =====================================================
      HEADER
 ===================================================== -->
+
+<main class="container">
+
+    <!-- =====================================================
+         COMBINED COMPACT HEADER + HERO
+    ====================================================== -->
+    <section class="hero-shell">
 
 <header class="topbar">
 
@@ -3077,21 +3530,11 @@ select {
 
 </header>
 
-
-
-<!-- =====================================================
-     PAGE
-===================================================== -->
-
-<main class="container">
-
-
-    <section class="hero">
+<section class="hero">
     
         <div class="hero-content">
     
             <h1>
-                <br>
                 Send personalized<br>
                 <span>emails in seconds.</span>
             </h1>
@@ -3129,6 +3572,7 @@ select {
     
     </section>
 
+    </section>
 
 
     <!-- =================================================
