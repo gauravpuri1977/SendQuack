@@ -3633,6 +3633,120 @@ supabaseClient.auth.onAuthStateChange(
         }
 
     }
+    // ----------------------------------------------------
+// SAVE NEW PASSWORD
+// ----------------------------------------------------
+
+document
+    .getElementById("saveNewPasswordButton")
+    .addEventListener(
+        "click",
+        async function() {
+
+            const newPassword =
+                document
+                    .getElementById("newPassword")
+                    .value;
+
+            const confirmPassword =
+                document
+                    .getElementById("confirmNewPassword")
+                    .value;
+
+            const message =
+                document.getElementById(
+                    "resetPasswordMessage"
+                );
+
+
+            message.textContent = "";
+
+
+            if (!newPassword) {
+
+                message.textContent =
+                    "Please enter a new password.";
+
+                return;
+            }
+
+
+            if (newPassword.length < 6) {
+
+                message.textContent =
+                    "Password must be at least 6 characters.";
+
+                return;
+            }
+
+
+            if (
+                newPassword !==
+                confirmPassword
+            ) {
+
+                message.textContent =
+                    "Passwords do not match.";
+
+                return;
+            }
+
+
+            message.textContent =
+                "Updating password...";
+
+
+            const { error } =
+                await supabaseClient.auth.updateUser({
+                    password: newPassword
+                });
+
+
+            if (error) {
+
+                message.textContent =
+                    error.message;
+
+                return;
+            }
+
+
+            await supabaseClient.auth.signOut();
+
+
+            document
+                .getElementById("newPassword")
+                .value = "";
+
+            document
+                .getElementById("confirmNewPassword")
+                .value = "";
+
+
+            document
+                .getElementById("resetPasswordSection")
+                .style.display = "none";
+
+
+            document
+                .getElementById("authPassword")
+                .value = "";
+
+
+            document
+                .getElementById("authMessage")
+                .textContent =
+                    "Password updated successfully. Please log in with your new password.";
+
+
+            window.history.replaceState(
+                {},
+                document.title,
+                "https://sendquack.com/"
+            );
+
+        }
+    );
 );
 // ----------------------------------------------------
 // HEADER LOGIN / LOGOUT
