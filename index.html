@@ -4518,6 +4518,368 @@ body::after {
 
 }
 
+
+
+/* =====================================================
+   SENDQUACK — MOCKUP-FAITHFUL VECTOR DECORATION
+===================================================== */
+
+/* Remove earlier CSS blob experiments */
+body::before,
+body::after {
+    display: none !important;
+}
+
+html {
+    background:
+        linear-gradient(
+            135deg,
+            #061b3a 0%,
+            #082e68 48%,
+            #101b55 100%
+        ) !important;
+}
+
+body {
+    position: relative;
+    background: transparent !important;
+    overflow-x: hidden;
+}
+
+/* Organic side rails occupy only the outer 10% margins */
+.side-art {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+
+    width: 10vw;
+    max-width: 180px;
+    min-width: 105px;
+
+    pointer-events: none;
+    z-index: 0;
+
+    overflow: hidden;
+}
+
+.side-art svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+}
+
+.side-art-left {
+    left: 0;
+}
+
+.side-art-right {
+    right: 0;
+}
+
+/* All real UI stays above the decorative rails */
+.container,
+#authScreen,
+#historyModal {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Keep the comfortable side margins */
+@media (min-width: 1000px) {
+
+    .container {
+        width: 80% !important;
+        max-width: none !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+        box-sizing: border-box !important;
+    }
+
+}
+
+
+/* Header + hero remain one single compact container */
+.hero-shell {
+    position: relative !important;
+
+    overflow: hidden !important;
+
+    margin: 0 0 10px !important;
+
+    border-radius: 24px !important;
+
+    background:
+        radial-gradient(
+            circle at 93% 8%,
+            rgba(255,223,89,.97) 0 15%,
+            transparent 15.5%
+        ),
+        radial-gradient(
+            circle at 100% 92%,
+            rgba(255,20,147,.67) 0 20%,
+            transparent 20.5%
+        ),
+        linear-gradient(
+            105deg,
+            #ff681c 0%,
+            #ff951d 49%,
+            #ffc72c 100%
+        ) !important;
+
+    box-shadow:
+        0 14px 34px rgba(0,0,0,.20) !important;
+}
+
+.hero-shell .topbar {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    background: transparent !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+}
+
+.hero-shell .topbar-inner {
+    padding:
+        7px 22px
+        6px !important;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.27) !important;
+}
+
+.hero-shell .hero {
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
+    padding:
+        11px 26px
+        13px !important;
+
+    gap: 18px !important;
+
+    background: transparent !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+}
+
+/* Keep the whole merged top area compact */
+.hero-shell .brand-logo {
+    width: 44px !important;
+    height: 44px !important;
+}
+
+.hero-shell .brand-name {
+    font-size: 23px !important;
+}
+
+.hero-shell .tagline {
+    margin-top: 2px !important;
+
+    font-size: 10px !important;
+}
+
+.hero-shell .channel,
+.hero-shell .header-history,
+.hero-shell .header-login {
+    min-height: 36px !important;
+
+    padding:
+        6px 11px !important;
+}
+
+.hero-shell .hero-content h1 {
+    margin:
+        0 0 6px !important;
+
+    font-size:
+        clamp(
+            30px,
+            2.7vw,
+            44px
+        ) !important;
+
+    line-height:
+        .98 !important;
+}
+
+.hero-shell .hero-content p {
+    margin: 0 !important;
+
+    font-size:
+        12px !important;
+
+    line-height:
+        1.3 !important;
+}
+
+.hero-shell .hero-benefits {
+    margin-top:
+        8px !important;
+}
+
+.hero-shell .hero-benefits span {
+    padding:
+        5px 10px !important;
+
+    font-size:
+        9px !important;
+}
+
+
+/* Real vector splash behind the duck */
+.hero-shell .hero-art {
+    position: relative !important;
+
+    min-height: 152px !important;
+
+    overflow: visible !important;
+}
+
+.hero-splash-svg {
+    position: absolute;
+
+    z-index: 1;
+
+    right: -8px;
+    top: 50%;
+
+    width: 108%;
+    height: 190px;
+
+    transform:
+        translateY(-50%);
+
+    pointer-events: none;
+}
+
+.hero-shell .hero-art img {
+    position: relative !important;
+
+    z-index: 3 !important;
+
+    width: 100% !important;
+
+    max-width:
+        485px !important;
+
+    max-height:
+        174px !important;
+
+    object-fit:
+        contain !important;
+}
+
+/* Remove old pseudo splash experiments */
+.hero-shell .hero-art::before,
+.hero-shell .hero-art::after,
+.hero-shell .hero::after {
+    display: none !important;
+}
+
+
+/* Step cards remain compact */
+.upload-card .card-header {
+    padding:
+        7px 18px
+        4px !important;
+}
+
+.upload-content {
+    padding:
+        2px 18px
+        7px !important;
+}
+
+.upload-zone {
+    min-height:
+        50px !important;
+}
+
+.workspace {
+    margin-top:
+        10px !important;
+}
+
+
+/* Footer remains orange/gold and aligns to same page width */
+.site-footer {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin:
+        10px 0 0 !important;
+
+    padding:
+        22px 28px
+        12px !important;
+
+    background:
+        linear-gradient(
+            110deg,
+            #ff681c 0%,
+            #ff8c1c 48%,
+            #ffc72c 100%
+        ) !important;
+
+    border:
+        0 !important;
+
+    border-radius:
+        22px !important;
+
+    box-shadow:
+        0 14px 34px
+        rgba(0,0,0,.20) !important;
+}
+
+.footer-main {
+    padding-bottom:
+        9px !important;
+}
+
+.footer-bottom {
+    margin-top:
+        5px !important;
+
+    padding-top:
+        9px !important;
+}
+
+
+/* Side art is intentionally removed on mobile */
+@media (max-width: 900px) {
+
+    .side-art {
+        display: none;
+    }
+
+    .hero-splash-svg {
+        width: 100%;
+        height: 150px;
+    }
+
+}
+
+
 </style>
 
     
@@ -4525,6 +4887,262 @@ body::after {
 
 
 <body>
+
+
+<!-- =====================================================
+     DECORATIVE SIDE SPLASHES
+     Embedded SVG so the organic mockup shapes render
+     consistently instead of relying on CSS circles.
+===================================================== -->
+
+<div class="side-art side-art-left" aria-hidden="true">
+    <svg viewBox="0 0 180 1000" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="sqPinkOrangeL" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ff1493"/>
+                <stop offset="58%" stop-color="#ff3f91"/>
+                <stop offset="100%" stop-color="#ff9a1d"/>
+            </linearGradient>
+
+            <linearGradient id="sqGoldOrangeL" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ffd94a"/>
+                <stop offset="55%" stop-color="#ff9a1d"/>
+                <stop offset="100%" stop-color="#ff1493"/>
+            </linearGradient>
+
+            <linearGradient id="sqBlueL" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0049b9"/>
+                <stop offset="100%" stop-color="#082f7c"/>
+            </linearGradient>
+
+            <radialGradient id="sqPinkGlowL">
+                <stop offset="0%" stop-color="#ff5fba"/>
+                <stop offset="55%" stop-color="#ff1493"/>
+                <stop offset="100%" stop-color="#d90d7d"/>
+            </radialGradient>
+
+            <radialGradient id="sqGoldGlowL">
+                <stop offset="0%" stop-color="#fff07a"/>
+                <stop offset="65%" stop-color="#ffc72c"/>
+                <stop offset="100%" stop-color="#ff9a1d"/>
+            </radialGradient>
+
+            <filter id="sqGlowL" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </defs>
+
+        <!-- Large top pink/orange sweep -->
+        <path
+            d="M0,0
+               L124,0
+               C126,42 116,75 91,97
+               C65,119 38,126 0,121
+               Z"
+            fill="url(#sqPinkOrangeL)"
+        />
+
+        <!-- Top splash strokes -->
+        <path d="M116 78 C130 63 141 57 154 56"
+              stroke="#ffc72c" stroke-width="11"
+              stroke-linecap="round" fill="none"/>
+        <path d="M121 100 C136 91 149 88 161 91"
+              stroke="#ff1493" stroke-width="8"
+              stroke-linecap="round" fill="none"/>
+
+        <!-- Mid navy-blue rolling forms -->
+        <path
+            d="M0,168
+               C25,153 55,154 76,169
+               C99,185 105,208 101,235
+               C96,267 79,286 58,300
+               C38,314 19,316 0,311
+               Z"
+            fill="url(#sqBlueL)"
+            opacity=".92"
+        />
+
+        <path
+            d="M0,262
+               C28,246 62,252 91,273
+               C117,292 130,320 127,347
+               C124,380 104,405 78,422
+               C52,438 25,442 0,434
+               Z"
+            fill="#063a91"
+            opacity=".95"
+        />
+
+        <!-- Floating dots -->
+        <circle cx="77" cy="234" r="10" fill="url(#sqPinkGlowL)" filter="url(#sqGlowL)"/>
+        <circle cx="105" cy="361" r="14" fill="url(#sqGoldGlowL)" filter="url(#sqGlowL)"/>
+        <circle cx="53" cy="468" r="9" fill="url(#sqPinkGlowL)" filter="url(#sqGlowL)"/>
+
+        <!-- Large lower orange/pink sweep -->
+        <path
+            d="M0,520
+               C23,492 58,480 86,490
+               C116,501 132,525 137,558
+               C143,595 127,621 108,644
+               C91,665 91,693 116,716
+               C137,736 144,762 136,789
+               C126,822 99,837 68,838
+               C42,840 19,830 0,811
+               Z"
+            fill="url(#sqGoldOrangeL)"
+        />
+
+        <!-- Lower splash strokes -->
+        <path d="M77 614 C91 595 105 587 119 586"
+              stroke="#ff1493" stroke-width="10"
+              stroke-linecap="round" fill="none"/>
+        <path d="M94 638 C108 624 122 617 137 620"
+              stroke="#ff1493" stroke-width="7"
+              stroke-linecap="round" fill="none"/>
+
+        <circle cx="116" cy="684" r="12" fill="url(#sqGoldGlowL)" filter="url(#sqGlowL)"/>
+        <circle cx="150" cy="865" r="9" fill="url(#sqPinkGlowL)" filter="url(#sqGlowL)"/>
+
+        <!-- Bottom navy rolling form -->
+        <path
+            d="M0,840
+               C29,826 61,830 90,850
+               C116,868 135,900 143,933
+               C149,958 150,980 148,1000
+               L0,1000 Z"
+            fill="#073a91"
+            opacity=".96"
+        />
+    </svg>
+</div>
+
+
+<div class="side-art side-art-right" aria-hidden="true">
+    <svg viewBox="0 0 180 1000" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="sqPinkOrangeR" x1="1" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff1493"/>
+                <stop offset="58%" stop-color="#ff3f91"/>
+                <stop offset="100%" stop-color="#ff9a1d"/>
+            </linearGradient>
+
+            <linearGradient id="sqGoldOrangeR" x1="1" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffd94a"/>
+                <stop offset="55%" stop-color="#ff9a1d"/>
+                <stop offset="100%" stop-color="#ff1493"/>
+            </linearGradient>
+
+            <linearGradient id="sqBlueR" x1="1" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0049b9"/>
+                <stop offset="100%" stop-color="#082f7c"/>
+            </linearGradient>
+
+            <radialGradient id="sqPinkGlowR">
+                <stop offset="0%" stop-color="#ff5fba"/>
+                <stop offset="55%" stop-color="#ff1493"/>
+                <stop offset="100%" stop-color="#d90d7d"/>
+            </radialGradient>
+
+            <radialGradient id="sqGoldGlowR">
+                <stop offset="0%" stop-color="#fff07a"/>
+                <stop offset="65%" stop-color="#ffc72c"/>
+                <stop offset="100%" stop-color="#ff9a1d"/>
+            </radialGradient>
+
+            <filter id="sqGlowR" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </defs>
+
+        <!-- Top navy form -->
+        <path
+            d="M180,0
+               L55,0
+               C57,42 68,72 92,93
+               C117,115 143,122 180,118
+               Z"
+            fill="#073a91"
+            opacity=".96"
+        />
+
+        <!-- Upper orange/yellow sweep -->
+        <path
+            d="M180,126
+               C149,111 121,116 100,134
+               C79,152 72,178 78,205
+               C85,237 105,257 129,270
+               C148,280 164,282 180,277
+               Z"
+            fill="url(#sqGoldOrangeR)"
+        />
+
+        <path d="M61 160 C48 145 36 139 22 140"
+              stroke="#ffc72c" stroke-width="11"
+              stroke-linecap="round" fill="none"/>
+        <path d="M57 184 C42 174 28 171 18 175"
+              stroke="#ff1493" stroke-width="8"
+              stroke-linecap="round" fill="none"/>
+
+        <!-- Mid blue form -->
+        <path
+            d="M180,252
+               C151,238 120,244 97,263
+               C74,282 62,309 66,340
+               C70,373 90,397 116,414
+               C139,428 161,431 180,426
+               Z"
+            fill="url(#sqBlueR)"
+            opacity=".93"
+        />
+
+        <circle cx="94" cy="230" r="10" fill="url(#sqPinkGlowR)" filter="url(#sqGlowR)"/>
+        <circle cx="62" cy="359" r="13" fill="url(#sqGoldGlowR)" filter="url(#sqGlowR)"/>
+
+        <!-- Large middle/lower pink sweep -->
+        <path
+            d="M180,475
+               C153,452 120,448 94,461
+               C65,475 50,504 52,538
+               C54,572 73,596 96,613
+               C119,629 125,651 107,672
+               C87,695 79,721 89,749
+               C100,778 127,792 154,790
+               C165,789 174,786 180,782
+               Z"
+            fill="url(#sqPinkOrangeR)"
+        />
+
+        <path d="M89 570 C75 553 62 546 47 547"
+              stroke="#ff1493" stroke-width="10"
+              stroke-linecap="round" fill="none"/>
+        <path d="M74 595 C60 582 47 577 33 580"
+              stroke="#ff1493" stroke-width="7"
+              stroke-linecap="round" fill="none"/>
+
+        <circle cx="59" cy="672" r="12" fill="url(#sqGoldGlowR)" filter="url(#sqGlowR)"/>
+        <circle cx="112" cy="842" r="9" fill="url(#sqPinkGlowR)" filter="url(#sqGlowR)"/>
+
+        <!-- Bottom orange sweep -->
+        <path
+            d="M180,804
+               C151,791 124,799 105,818
+               C83,839 77,867 84,896
+               C91,928 110,951 137,965
+               C153,974 167,978 180,975
+               Z"
+            fill="url(#sqGoldOrangeR)"
+        />
+    </svg>
+</div>
+
 
 
 <!-- =====================================================
@@ -4640,6 +5258,86 @@ body::after {
         </div>
     
         <div class="hero-art">
+
+            <svg
+                class="hero-splash-svg"
+                viewBox="0 0 620 260"
+                aria-hidden="true"
+            >
+                <defs>
+                    <linearGradient id="heroPink" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#ff1493"/>
+                        <stop offset="100%" stop-color="#ff5f74"/>
+                    </linearGradient>
+
+                    <linearGradient id="heroGold" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#ffd84a"/>
+                        <stop offset="100%" stop-color="#ff9a1d"/>
+                    </linearGradient>
+
+                    <linearGradient id="heroBlue" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#0878f9"/>
+                        <stop offset="100%" stop-color="#0049bf"/>
+                    </linearGradient>
+                </defs>
+
+                <circle cx="377" cy="96" r="66" fill="url(#heroBlue)"/>
+                <circle cx="275" cy="118" r="43" fill="url(#heroPink)"/>
+                <circle cx="483" cy="158" r="34" fill="#10bd87"/>
+
+                <path
+                    d="M75 176
+                       C132 131 178 128 219 149
+                       C257 169 281 193 338 195
+                       C393 197 436 176 493 151
+                       C522 139 552 142 580 155
+                       C537 174 513 193 475 205
+                       C424 221 372 224 319 219
+                       C249 213 194 196 141 199
+                       C112 200 91 192 75 176Z"
+                    fill="url(#heroGold)"
+                />
+
+                <path
+                    d="M104 153
+                       C151 113 196 102 235 120
+                       C270 137 287 161 326 163
+                       C365 165 390 142 414 125
+                       C436 109 459 110 475 122
+                       C448 148 431 170 398 183
+                       C353 200 310 196 267 186
+                       C214 174 164 163 104 153Z"
+                    fill="url(#heroPink)"
+                    opacity=".96"
+                />
+
+                <path
+                    d="M143 126
+                       C167 101 189 89 211 87
+                       C198 111 199 127 209 145
+                       C183 138 162 133 143 126Z"
+                    fill="#10bd87"
+                />
+
+                <circle cx="165" cy="91" r="9" fill="#ff1493"/>
+                <circle cx="238" cy="78" r="8" fill="#ffc72c"/>
+                <circle cx="470" cy="92" r="9" fill="#ff1493"/>
+                <circle cx="532" cy="116" r="7" fill="#0878f9"/>
+
+                <path d="M550 73 L592 55"
+                      stroke="#ff1493"
+                      stroke-width="10"
+                      stroke-linecap="round"/>
+                <path d="M558 91 L607 90"
+                      stroke="#0878f9"
+                      stroke-width="9"
+                      stroke-linecap="round"/>
+                <path d="M544 106 L585 126"
+                      stroke="#ff1493"
+                      stroke-width="8"
+                      stroke-linecap="round"/>
+            </svg>
+
             <img
                 src="sendquack-hero.png"
                 alt="SendQuack personalized email"
