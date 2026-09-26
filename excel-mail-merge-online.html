@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Excel Mail Merge Online | Send Personalized Emails | SendQuack</title>
+    <meta name="description" content="Use SendQuack for a simple Excel mail merge online. Upload an Excel spreadsheet, personalize each email, preview messages and send without complex setup.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://sendquack.com/excel-mail-merge-online.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SendQuack">
+    <meta property="og:url" content="https://sendquack.com/excel-mail-merge-online.html">
+    <meta property="og:title" content="Excel Mail Merge Online | Send Personalized Emails | SendQuack">
+    <meta property="og:description" content="Use SendQuack for a simple Excel mail merge online. Upload an Excel spreadsheet, personalize each email, preview messages and send without complex setup.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Excel Mail Merge Online | Send Personalized Emails | SendQuack">
+    <meta name="twitter:description" content="Use SendQuack for a simple Excel mail merge online. Upload an Excel spreadsheet, personalize each email, preview messages and send without complex setup.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Excel Mail Merge Online",
+  "url": "https://sendquack.com/excel-mail-merge-online.html",
+  "description": "Use SendQuack for a simple Excel mail merge online. Upload an Excel spreadsheet, personalize each email, preview messages and send without complex setup.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "SendQuack",
+    "url": "https://sendquack.com/"
+  },
+  "about": {
+    "@type": "WebApplication",
+    "name": "SendQuack",
+    "url": "https://sendquack.com/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web"
+  }
+}
+    </script>
+
+    <style>
+
+:root {
+    --sq-navy: #082d5c;
+    --sq-blue: #0878f9;
+    --sq-hot-pink: #ff1493;
+    --sq-hot-pink-bright: #ff2aa1;
+    --sq-orange: #ff681c;
+    --sq-orange-mid: #ff951d;
+    --sq-gold: #ffc72c;
+    --sq-text: #334155;
+    --sq-muted: #64748b;
+    --sq-border: #d9e6f4;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    min-height: 100%;
+    background: linear-gradient(
+        135deg,
+        #061b3a 0%,
+        #082e68 48%,
+        #101b55 100%
+    );
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    color: var(--sq-text);
+    background: transparent;
+    overflow-x: hidden;
+}
+
+a { color: inherit; }
+
+.side-art {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 6vw;
+    max-width: 105px;
+    min-width: 65px;
+    opacity: .78;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.side-art svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.side-art-left { left: 0; }
+.side-art-right { right: 0; }
+
+.container {
+    position: relative;
+    z-index: 2;
+    width: 80%;
+    margin: 8px auto 24px;
+}
+
+.hero-shell {
+    overflow: hidden;
+    margin: 0 0 14px;
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 93% 8%, rgba(255,223,89,.97) 0 15%, transparent 15.5%),
+        radial-gradient(circle at 100% 92%, rgba(255,20,147,.67) 0 20%, transparent 20.5%),
+        linear-gradient(105deg, #ff681c 0%, #ff951d 49%, #ffc72c 100%);
+    box-shadow: 0 14px 34px rgba(0,0,0,.20);
+}
+
+.topbar-inner {
+    min-height: 0;
+    padding: 7px 22px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    border-bottom: 1px solid rgba(255,255,255,.27);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+
+.brand-name {
+    font-size: 23px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--sq-navy);
+}
+
+.brand-name span { color: var(--sq-blue); }
+
+.tagline {
+    margin-top: 2px;
+    color: #fff;
+    font-size: 10px;
+    line-height: 1.05;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.nav-pill {
+    min-height: 36px;
+    padding: 6px 11px;
+    border: 1px solid rgba(255,255,255,.55);
+    border-radius: 999px;
+    background: rgba(255,255,255,.95);
+    color: var(--sq-navy);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(8,45,92,.08);
+}
+
+.nav-pill.active {
+    background: linear-gradient(135deg, var(--sq-hot-pink-bright), var(--sq-hot-pink));
+    color: #fff;
+    border-color: rgba(255,255,255,.34);
+    box-shadow: 0 6px 16px rgba(255,20,147,.32);
+}
+
+.nav-pill:hover { transform: translateY(-1px); }
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(240px, .85fr);
+    align-items: center;
+    gap: 24px;
+    padding: 24px 28px 28px;
+}
+
+.hero h1 {
+    margin: 0 0 10px;
+    color: var(--sq-navy);
+    font-size: clamp(32px, 3.4vw, 52px);
+    line-height: 1.02;
+    letter-spacing: -1.6px;
+}
+
+.hero h1 .pink { color: var(--sq-hot-pink); }
+
+.hero p {
+    margin: 0;
+    max-width: 720px;
+    color: var(--sq-navy);
+    font-size: 15px;
+    line-height: 1.55;
+    font-weight: 550;
+}
+
+.hero-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.hero-benefits span {
+    padding: 6px 11px;
+    border: 1px solid rgba(255,255,255,.75);
+    border-radius: 999px;
+    background: rgba(255,255,255,.95);
+    color: var(--sq-navy);
+    font-size: 11px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(112,55,0,.12);
+}
+
+.hero-benefits i { color: var(--sq-hot-pink); }
+
+.hero-visual {
+    position: relative;
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-visual::before {
+    content: "";
+    position: absolute;
+    width: 86%;
+    aspect-ratio: 1.8;
+    border-radius: 48% 52% 61% 39% / 47% 43% 57% 53%;
+    background:
+        radial-gradient(circle at 74% 34%, #0878f9 0 13%, transparent 13.5%),
+        radial-gradient(circle at 29% 58%, #ff1493 0 16%, transparent 16.5%),
+        linear-gradient(135deg, #ffd84a, #ff9a1d);
+    transform: rotate(-7deg);
+    opacity: .95;
+}
+
+.hero-visual img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 390px;
+    max-height: 180px;
+    object-fit: contain;
+}
+
+.article-card {
+    background: #fff;
+    border-radius: 22px;
+    padding: clamp(26px, 4vw, 48px);
+    box-shadow: 0 14px 34px rgba(0,0,0,.20);
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #fff0f8;
+    color: var(--sq-hot-pink);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .65px;
+}
+
+.article-card h2 {
+    margin: 30px 0 10px;
+    color: var(--sq-navy);
+    font-size: clamp(23px, 2.4vw, 32px);
+    line-height: 1.15;
+    letter-spacing: -.5px;
+}
+
+.article-card h3 {
+    margin: 22px 0 8px;
+    color: var(--sq-navy);
+    font-size: 18px;
+}
+
+.article-card p,
+.article-card li {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.72;
+}
+
+.article-card ul,
+.article-card ol {
+    padding-left: 23px;
+}
+
+.article-card li + li { margin-top: 6px; }
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 18px 0 4px;
+}
+
+.step {
+    padding: 18px;
+    border: 1px solid #e4ebf4;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #ffffff, #f9fbfe);
+}
+
+.step-number {
+    width: 31px;
+    height: 31px;
+    margin-bottom: 10px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--sq-hot-pink-bright), var(--sq-hot-pink));
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 0 6px 15px rgba(255,20,147,.25);
+}
+
+.step strong {
+    color: var(--sq-navy);
+    font-size: 15px;
+}
+
+.callout {
+    margin: 28px 0;
+    padding: 20px 22px;
+    border-radius: 17px;
+    background: linear-gradient(110deg, #ff681c 0%, #ff951d 48%, #ffc72c 100%);
+    color: var(--sq-navy);
+}
+
+.callout strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.callout p {
+    margin: 0;
+    color: var(--sq-navy);
+    font-weight: 550;
+}
+
+.faq {
+    border-top: 1px solid #e6edf5;
+    padding: 16px 0;
+}
+
+.faq:last-child { border-bottom: 1px solid #e6edf5; }
+
+.faq h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+.faq p { margin: 0; }
+
+.related {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.related a {
+    padding: 16px;
+    border: 1px solid #e4ebf4;
+    border-radius: 14px;
+    background: #f8fbff;
+    color: var(--sq-navy);
+    text-decoration: none;
+    font-weight: 750;
+}
+
+.related a:hover {
+    border-color: #ff8fc9;
+    box-shadow: 0 0 0 3px rgba(255,20,147,.07);
+}
+
+.cta-row {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cta-primary,
+.cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 17px;
+    border-radius: 11px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.cta-primary {
+    background: linear-gradient(135deg, #0878f9 0%, #5f5cff 47%, #ff1493 100%);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(77,72,255,.20), 0 5px 16px rgba(255,20,147,.16);
+}
+
+.cta-secondary {
+    background: #fff;
+    color: var(--sq-navy);
+    border: 1px solid #d9e6f4;
+}
+
+.site-footer {
+    width: 100%;
+    margin: 10px 0 0;
+    padding: 22px 28px 12px;
+    border-radius: 22px;
+    background: linear-gradient(110deg, #ff681c 0%, #ff8c1c 48%, #ffc72c 100%);
+    box-shadow: 0 14px 34px rgba(0,0,0,.20);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1.55fr .85fr .85fr 1fr;
+    gap: clamp(22px, 3vw, 58px);
+    padding-bottom: 9px;
+}
+
+.footer-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo-row img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.footer-brand-name {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--sq-navy);
+}
+
+.footer-brand-name span { color: var(--sq-blue); }
+
+.footer-about p {
+    margin: 7px 0 3px;
+    color: var(--sq-navy);
+    font-size: 13px;
+}
+
+.responsible-message {
+    color: var(--sq-navy);
+    font-size: 11px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer-column h4 {
+    margin: 0 0 4px;
+    color: var(--sq-navy);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+.footer-column a,
+.footer-column span {
+    color: var(--sq-navy);
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.footer-column a:hover { color: var(--sq-hot-pink); }
+
+.footer-column small {
+    margin-left: 4px;
+    padding: 3px 7px;
+    border-radius: 999px;
+    background: var(--sq-hot-pink);
+    color: #fff;
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.footer-bottom {
+    margin-top: 5px;
+    padding-top: 9px;
+    border-top: 1px solid rgba(255,255,255,.42);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: var(--sq-navy);
+    font-size: 10px;
+}
+
+@media (max-width: 900px) {
+    .side-art { display: none; }
+    .container { width: calc(100% - 30px); }
+    .hero { grid-template-columns: 1fr; padding: 20px 20px 24px; }
+    .hero-visual { min-height: 135px; }
+    .hero-visual img { max-height: 145px; }
+    .steps { grid-template-columns: 1fr; }
+    .footer-main { grid-template-columns: 1fr 1fr; }
+    .footer-about { grid-column: 1 / -1; }
+}
+
+@media (max-width: 620px) {
+    .topbar-inner { padding: 7px 12px 6px; }
+    .nav-pill:not(.active) { display: none; }
+    .hero h1 { font-size: 31px; }
+    .article-card { padding: 24px 20px; border-radius: 18px; }
+    .related { grid-template-columns: 1fr; }
+    .site-footer { padding: 20px 20px 12px; }
+    .footer-main { grid-template-columns: 1fr; }
+    .footer-about { grid-column: auto; }
+    .footer-bottom { flex-direction: column; gap: 4px; }
+}
+
+    </style>
+</head>
+
+<body>
+
+<div aria-hidden="true" class="side-art side-art-left">
+<svg preserveaspectratio="none" viewbox="0 0 180 1000">
+<defs>
+<lineargradient id="sqPinkOrangeL" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#ff1493"></stop>
+<stop offset="58%" stop-color="#ff3f91"></stop>
+<stop offset="100%" stop-color="#ff9a1d"></stop>
+</lineargradient>
+<lineargradient id="sqGoldOrangeL" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#ffd94a"></stop>
+<stop offset="55%" stop-color="#ff9a1d"></stop>
+<stop offset="100%" stop-color="#ff1493"></stop>
+</lineargradient>
+<lineargradient id="sqBlueL" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#0049b9"></stop>
+<stop offset="100%" stop-color="#082f7c"></stop>
+</lineargradient>
+<radialgradient id="sqPinkGlowL">
+<stop offset="0%" stop-color="#ff5fba"></stop>
+<stop offset="55%" stop-color="#ff1493"></stop>
+<stop offset="100%" stop-color="#d90d7d"></stop>
+</radialgradient>
+<radialgradient id="sqGoldGlowL">
+<stop offset="0%" stop-color="#fff07a"></stop>
+<stop offset="65%" stop-color="#ffc72c"></stop>
+<stop offset="100%" stop-color="#ff9a1d"></stop>
+</radialgradient>
+<filter height="220%" id="sqGlowL" width="220%" x="-60%" y="-60%">
+<fegaussianblur result="blur" stddeviation="4"></fegaussianblur>
+<femerge>
+<femergenode in="blur"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+</defs>
+<!-- Large top pink/orange sweep -->
+<path d="M0,0
+               L124,0
+               C126,42 116,75 91,97
+               C65,119 38,126 0,121
+               Z" fill="url(#sqPinkOrangeL)"></path>
+<!-- Top splash strokes -->
+<path d="M116 78 C130 63 141 57 154 56" fill="none" stroke="#ffc72c" stroke-linecap="round" stroke-width="11"></path>
+<path d="M121 100 C136 91 149 88 161 91" fill="none" stroke="#ff1493" stroke-linecap="round" stroke-width="8"></path>
+<!-- Mid navy-blue rolling forms -->
+<path d="M0,168
+               C25,153 55,154 76,169
+               C99,185 105,208 101,235
+               C96,267 79,286 58,300
+               C38,314 19,316 0,311
+               Z" fill="url(#sqBlueL)" opacity=".92"></path>
+<path d="M0,262
+               C28,246 62,252 91,273
+               C117,292 130,320 127,347
+               C124,380 104,405 78,422
+               C52,438 25,442 0,434
+               Z" fill="#063a91" opacity=".95"></path>
+<!-- Floating dots -->
+<circle cx="82" cy="386" fill="url(#sqPinkGlowL)" filter="url(#sqGlowL)" r="10"></circle>
+<!-- Large lower orange/pink sweep -->
+<path d="M0,520
+               C23,492 58,480 86,490
+               C116,501 132,525 137,558
+               C143,595 127,621 108,644
+               C91,665 91,693 116,716
+               C137,736 144,762 136,789
+               C126,822 99,837 68,838
+               C42,840 19,830 0,811
+               Z" fill="url(#sqGoldOrangeL)"></path>
+<!-- Lower splash strokes -->
+<path d="M77 614 C91 595 105 587 119 586" fill="none" stroke="#ff1493" stroke-linecap="round" stroke-width="10"></path>
+<path d="M94 638 C108 624 122 617 137 620" fill="none" stroke="#ff1493" stroke-linecap="round" stroke-width="7"></path>
+<!-- Bottom navy rolling form -->
+<path d="M0,840
+               C29,826 61,830 90,850
+               C116,868 135,900 143,933
+               C149,958 150,980 148,1000
+               L0,1000 Z" fill="#073a91" opacity=".96"></path>
+</svg>
+</div>
+<div aria-hidden="true" class="side-art side-art-right">
+<svg preserveaspectratio="none" viewbox="0 0 180 1000">
+<defs>
+<lineargradient id="sqPinkOrangeR" x1="1" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ff1493"></stop>
+<stop offset="58%" stop-color="#ff3f91"></stop>
+<stop offset="100%" stop-color="#ff9a1d"></stop>
+</lineargradient>
+<lineargradient id="sqGoldOrangeR" x1="1" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ffd94a"></stop>
+<stop offset="55%" stop-color="#ff9a1d"></stop>
+<stop offset="100%" stop-color="#ff1493"></stop>
+</lineargradient>
+<lineargradient id="sqBlueR" x1="1" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#0049b9"></stop>
+<stop offset="100%" stop-color="#082f7c"></stop>
+</lineargradient>
+<radialgradient id="sqPinkGlowR">
+<stop offset="0%" stop-color="#ff5fba"></stop>
+<stop offset="55%" stop-color="#ff1493"></stop>
+<stop offset="100%" stop-color="#d90d7d"></stop>
+</radialgradient>
+<radialgradient id="sqGoldGlowR">
+<stop offset="0%" stop-color="#fff07a"></stop>
+<stop offset="65%" stop-color="#ffc72c"></stop>
+<stop offset="100%" stop-color="#ff9a1d"></stop>
+</radialgradient>
+<filter height="220%" id="sqGlowR" width="220%" x="-60%" y="-60%">
+<fegaussianblur result="blur" stddeviation="4"></fegaussianblur>
+<femerge>
+<femergenode in="blur"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+</defs>
+<!-- Top navy form -->
+<path d="M180,0
+               L55,0
+               C57,42 68,72 92,93
+               C117,115 143,122 180,118
+               Z" fill="#073a91" opacity=".96"></path>
+<!-- Upper orange/yellow sweep -->
+<path d="M180,126
+               C149,111 121,116 100,134
+               C79,152 72,178 78,205
+               C85,237 105,257 129,270
+               C148,280 164,282 180,277
+               Z" fill="url(#sqGoldOrangeR)"></path>
+<path d="M61 160 C48 145 36 139 22 140" fill="none" stroke="#ffc72c" stroke-linecap="round" stroke-width="11"></path>
+<path d="M57 184 C42 174 28 171 18 175" fill="none" stroke="#ff1493" stroke-linecap="round" stroke-width="8"></path>
+<!-- Mid blue form -->
+<path d="M180,252
+               C151,238 120,244 97,263
+               C74,282 62,309 66,340
+               C70,373 90,397 116,414
+               C139,428 161,431 180,426
+               Z" fill="url(#sqBlueR)" opacity=".93"></path>
+<circle cx="94" cy="335" fill="url(#sqGoldGlowR)" filter="url(#sqGlowR)" r="10"></circle>
+<!-- Large middle/lower pink sweep -->
+<path d="M180,475
+               C153,452 120,448 94,461
+               C65,475 50,504 52,538
+               C54,572 73,596 96,613
+               C119,629 125,651 107,672
+               C87,695 79,721 89,749
+               C100,778 127,792 154,790
+               C165,789 174,786 180,782
+               Z" fill="url(#sqPinkOrangeR)"></path>
+<path d="M89 570 C75 553 62 546 47 547" fill="none" stroke="#ff1493" stroke-linecap="round" stroke-width="10"></path>
+<path d="M74 595 C60 582 47 577 33 580" fill="none" stroke="#ff1493" stroke-linecap="round" stroke-width="7"></path>
+<!-- Bottom orange sweep -->
+<path d="M180,804
+               C151,791 124,799 105,818
+               C83,839 77,867 84,896
+               C91,928 110,951 137,965
+               C153,974 167,978 180,975
+               Z" fill="url(#sqGoldOrangeR)"></path>
+</svg>
+</div>
+
+<main class="container">
+
+    <section class="hero-shell">
+        <header>
+            <div class="topbar-inner">
+                <a href="/" class="brand" style="text-decoration:none;">
+                    <img src="sendquack-duck.png" class="brand-logo" alt="SendQuack">
+                    <div>
+                        <div class="brand-name">Send<span>Quack</span></div>
+                        <div class="tagline">Upload. Personalize. Send.</div>
+                    </div>
+                </a>
+
+                <nav class="nav-actions" aria-label="Primary">
+                    <a class="nav-pill active" href="/">
+                        <i class="fa-solid fa-envelope"></i>
+                        Email
+                    </a>
+                    <a class="nav-pill" href="/">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        Open SendQuack
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div>
+                <h1>Excel mail merge online,<br><span class="pink">made simple.</span></h1>
+                <p>Upload your Excel contacts, write one message and personalize it for every recipient. SendQuack gives you a straightforward browser-based mail merge workflow without complicated setup.</p>
+
+                <div class="hero-benefits">
+                    <span><i class="fa-solid fa-circle-check"></i>Excel upload</span>
+<span><i class="fa-solid fa-circle-check"></i>Personalized email</span>
+<span><i class="fa-solid fa-circle-check"></i>Live preview</span>
+                </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+                <img src="sendquack-hero.png" alt="">
+            </div>
+        </section>
+    </section>
+
+    <article class="article-card">
+        <div class="eyebrow">
+            <i class="fa-solid fa-bolt"></i>
+            Excel mail merge online
+        </div>
+
+        
+<p>An Excel mail merge lets you use information in a spreadsheet to create personalized messages for multiple recipients. Instead of copying the same email repeatedly and changing each name by hand, SendQuack uses your Excel contact data to personalize the message for you.</p>
+<p>SendQuack is designed for people who want a simpler online workflow: upload the spreadsheet, compose the message, preview the personalized result and send. You do not need to build a complicated automation or maintain a large mailing platform just to send a small batch of personalized emails.</p>
+
+
+        <h2>How to send an Excel mail merge online</h2>
+        <div class="steps">
+            <div class="step">
+            <div class="step-number">1</div>
+            <strong>Prepare your Excel file</strong>
+            <p>Create an Excel spreadsheet containing the recipient Name and Email Address columns.</p>
+        </div>
+<div class="step">
+            <div class="step-number">2</div>
+            <strong>Write one message</strong>
+            <p>Compose your email once and use recipient information to personalize the message.</p>
+        </div>
+<div class="step">
+            <div class="step-number">3</div>
+            <strong>Preview and send</strong>
+            <p>Review the personalized email before sending so you can catch mistakes before delivery.</p>
+        </div>
+        </div>
+
+        <h2>Why use an online Excel mail merge?</h2>
+        
+<p>Traditional mail merge workflows can involve desktop applications, configuration steps and switching between multiple tools. A browser-based workflow is useful when your source data already lives in Excel and you simply want to turn that list into personalized messages.</p>
+<ul>
+<li><strong>Keep the spreadsheet simple.</strong> Your contact list stays in a familiar Excel format.</li>
+<li><strong>Write once.</strong> You do not need to manually create a separate email for every recipient.</li>
+<li><strong>Check before sending.</strong> A live preview helps you see how personalization will appear.</li>
+<li><strong>Send responsibly.</strong> SendQuack includes unsubscribe and suppression controls intended to help respect recipient preferences.</li>
+</ul>
+
+
+        <div class="callout">
+            <strong>Simple messaging. Responsibly delivered.</strong>
+            <p>SendQuack is designed for people who have permission or another lawful basis to contact their recipients. Unsubscribe and suppression controls help support responsible sending.</p>
+        </div>
+
+        <h2>A simple fit for smaller personalized sends</h2>
+        
+<p>SendQuack is particularly suited to straightforward communication where you already know who you need to contact: customer follow-ups, community updates, invitations, announcements, professional outreach to people you are permitted to contact, and similar use cases.</p>
+<p>The goal is not to turn every spreadsheet into a mass-marketing campaign. SendQuack is built around responsible, personalized communication, and senders remain responsible for having permission or another lawful basis to contact their recipients.</p>
+
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq">
+            <h3>Can I use Excel for mail merge without Microsoft Word?</h3>
+            <p>Yes. SendQuack uses an uploaded Excel spreadsheet as the recipient source and handles the personalization in the browser, so a Word mail-merge workflow is not required.</p>
+        </div>
+<div class="faq">
+            <h3>What columns does SendQuack need?</h3>
+            <p>For the current SendQuack workflow, your spreadsheet should include Name and Email Address columns.</p>
+        </div>
+<div class="faq">
+            <h3>Can I preview the personalized email?</h3>
+            <p>Yes. SendQuack provides a live preview so you can check the recipient, subject and personalized message before sending.</p>
+        </div>
+<div class="faq">
+            <h3>Does SendQuack save my spreadsheet forever?</h3>
+            <p>SendQuack&#x27;s Privacy Policy explains its retention practices. Personal information is not sold, and information is retained only where reasonably necessary to provide and protect the service, honour unsubscribe or suppression requirements, resolve issues or meet applicable legal obligations.</p>
+        </div>
+
+        <h2>Related SendQuack guides</h2>
+        <div class="related">
+            <a href="mail-merge-without-outlook.html">Mail merge without Outlook. Just use your browser.</a>
+<a href="send-emails-from-spreadsheet.html">Send emails from a spreadsheet. Keep it personal.</a>
+        </div>
+
+        <div class="cta-row">
+            <a class="cta-primary" href="/">
+                <i class="fa-solid fa-envelope"></i>
+                Open SendQuack
+            </a>
+            <a class="cta-secondary" href="anti-spam.html">
+                Read the Anti-Spam Policy
+            </a>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-about">
+                <div class="footer-logo-row">
+                    <img src="sendquack-duck.png" alt="SendQuack">
+                    <div class="footer-brand-name">Send<span>Quack</span></div>
+                </div>
+                <p>Upload. Personalize. Send.</p>
+                <div class="responsible-message">Built for responsible communication.</div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Product</h4>
+                <a href="/">Email</a>
+                <span>WhatsApp <small>Coming Soon</small></span>
+                <span>SMS <small>Coming Soon</small></span>
+            </div>
+
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <a href="terms.html">Terms of Service</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="anti-spam.html">Anti-Spam Policy</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>© 2026 SendQuack. All rights reserved.</div>
+            <div>Simple messaging. Responsibly delivered.</div>
+        </div>
+    </footer>
+
+</main>
+</body>
+</html>
