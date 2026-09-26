@@ -5162,6 +5162,152 @@ body {
         width: 100%;
     }
 }
+
+/* =====================================================
+   PRIVACY / TRUST SPLASH
+===================================================== */
+
+.privacy-splash {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px;
+
+    margin: 0 0 16px;
+    padding: 13px 16px;
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(255,255,255,.98) 0%,
+            rgba(255,247,251,.98) 62%,
+            rgba(255,240,248,.98) 100%
+        );
+
+    border: 1px solid rgba(255,20,147,.24);
+    border-left: 5px solid #ff1493;
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 26px rgba(0,0,0,.15),
+        0 2px 8px rgba(255,20,147,.08);
+}
+
+.privacy-splash-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff2aa1 0%,
+            #ff1493 100%
+        );
+
+    color: #ffffff;
+    font-size: 18px;
+
+    box-shadow:
+        0 6px 15px rgba(255,20,147,.25);
+}
+
+.privacy-splash-title {
+    color: #082d5c;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.privacy-splash-title span {
+    color: #ff1493;
+    letter-spacing: .35px;
+}
+
+.privacy-splash-text {
+    margin-top: 3px;
+    color: #53677f;
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.privacy-splash-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 9px 12px;
+
+    border: 1px solid rgba(8,45,92,.14);
+    border-radius: 999px;
+
+    background: #ffffff;
+    color: #082d5c;
+
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 750;
+    white-space: nowrap;
+
+    transition:
+        transform .15s ease,
+        border-color .15s ease,
+        box-shadow .15s ease;
+}
+
+.privacy-splash-link:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255,20,147,.38);
+
+    box-shadow:
+        0 5px 12px rgba(255,20,147,.11);
+}
+
+.privacy-splash-link i {
+    color: #ff1493;
+}
+
+@media (max-width: 700px) {
+    .privacy-splash {
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .privacy-splash-link {
+        grid-column: 1 / -1;
+        justify-self: start;
+        margin-left: 56px;
+    }
+}
+
+@media (max-width: 480px) {
+    .privacy-splash {
+        gap: 10px;
+        padding: 12px 13px;
+    }
+
+    .privacy-splash-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .privacy-splash-title {
+        font-size: 14px;
+    }
+
+    .privacy-splash-text {
+        font-size: 10px;
+    }
+
+    .privacy-splash-link {
+        margin-left: 48px;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -5458,6 +5604,31 @@ body {
 </div>
 </section>
 </section>
+
+<!-- =================================================
+     PRIVACY / TRUST SPLASH
+================================================== -->
+<section class="privacy-splash" aria-label="SendQuack privacy promise">
+    <div class="privacy-splash-icon" aria-hidden="true">
+        <i class="fa-solid fa-shield-halved"></i>
+    </div>
+
+    <div class="privacy-splash-copy">
+        <div class="privacy-splash-title">
+            Your data is <span>NEVER</span> sold. Period.
+        </div>
+        <div class="privacy-splash-text">
+            We use it only to run and protect SendQuack, honour unsubscribe
+            and suppression requests, and meet applicable legal requirements.
+        </div>
+    </div>
+
+    <a class="privacy-splash-link" href="privacy.html">
+        Our Privacy Promise
+        <i class="fa-solid fa-arrow-right"></i>
+    </a>
+</section>
+
 <!-- =================================================
          STEP 1
     ================================================== -->
