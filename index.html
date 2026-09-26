@@ -3726,122 +3726,265 @@ select:focus-visible {
 
 
 /* =====================================================
-   SENDQUACK — MOCKUP-MATCH REFINEMENT
-   Final visual-only overrides.
-   Goal: closer to the approved orange/gold/navy/hot-pink mockup.
+   SENDQUACK — REDONE BALANCED FINAL LAYOUT
+   Keeps merged header + hero, restores comfortable width,
+   orange/gold footer, and adds visible hot-pink splashes.
 ===================================================== */
 
-/* The previous version visually merged header + hero.
-   The mockup uses two compact surfaces with a narrow navy gap. */
-.hero-shell {
-    overflow: visible !important;
-    margin: 8px 0 10px !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
+/* ---------- PAGE WIDTH / RHYTHM ---------- */
+
+@media (min-width: 1000px) {
+
+    .container {
+        width: 80% !important;
+        max-width: none !important;
+
+        margin: 8px auto 10px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+}
+
+@media (max-width: 999px) {
+
+    .container {
+        width: calc(100% - 30px) !important;
+        max-width: none !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
 }
 
 
-/* -----------------------------------------------------
-   BACKGROUND — deeper navy with stronger hot-pink energy
------------------------------------------------------ */
+/* ---------- DARK NAVY BACKGROUND + VISIBLE SPLASHES ---------- */
 
 html {
     background:
         radial-gradient(
-            circle at -2% 4%,
-            rgba(255,20,147,.72) 0,
-            rgba(255,20,147,.30) 10%,
-            transparent 19%
+            ellipse 10% 18% at 0% 12%,
+            rgba(255,20,147,.88) 0 56%,
+            transparent 58%
         ),
         radial-gradient(
-            circle at 102% 27%,
-            rgba(255,42,161,.60) 0,
-            rgba(255,42,161,.22) 9%,
-            transparent 18%
+            ellipse 7% 12% at 1% 63%,
+            rgba(255,195,44,.92) 0 56%,
+            transparent 58%
         ),
         radial-gradient(
-            circle at -3% 69%,
-            rgba(255,93,82,.50) 0,
-            rgba(255,20,147,.20) 11%,
-            transparent 21%
+            ellipse 8% 15% at 100% 21%,
+            rgba(255,20,147,.82) 0 56%,
+            transparent 58%
         ),
         radial-gradient(
-            circle at 103% 88%,
-            rgba(255,20,147,.58) 0,
-            rgba(255,193,44,.24) 10%,
-            transparent 21%
+            ellipse 10% 18% at 100% 82%,
+            rgba(255,102,30,.90) 0 56%,
+            transparent 58%
+        ),
+        radial-gradient(
+            circle at 8% 35%,
+            rgba(30,136,255,.48) 0,
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 92% 65%,
+            rgba(123,63,228,.40) 0,
+            transparent 27%
         ),
         linear-gradient(
             135deg,
-            #04183d 0%,
-            #063879 48%,
-            #081d52 100%
+            #061b3a 0%,
+            #082e68 48%,
+            #101b55 100%
         ) !important;
 }
 
 
-/* -----------------------------------------------------
-   HEADER — separate compact orange/gold bar
------------------------------------------------------ */
-
-.hero-shell .topbar {
+/* Extra small splash marks at the page edges */
+body {
     position: relative;
+    background: transparent !important;
+}
 
-    width: 100% !important;
-    max-width: none !important;
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
 
-    margin: 0 0 9px !important;
+    width: 120px;
+    height: 260px;
 
-    overflow: hidden !important;
+    opacity: .92;
+}
 
-    border: 1px solid rgba(255,255,255,.18) !important;
-    border-radius: 19px !important;
+body::before {
+    left: 0;
+    top: 185px;
 
     background:
+        radial-gradient(
+            ellipse 18% 5% at 17% 18%,
+            #ff2aa1 0 62%,
+            transparent 64%
+        ),
+        radial-gradient(
+            ellipse 18% 5% at 31% 24%,
+            #ffc72c 0 62%,
+            transparent 64%
+        ),
+        radial-gradient(
+            ellipse 18% 5% at 12% 31%,
+            #ff7a1a 0 62%,
+            transparent 64%
+        );
+}
+
+body::after {
+    right: 0;
+    top: 360px;
+
+    background:
+        radial-gradient(
+            ellipse 18% 5% at 76% 18%,
+            #ff2aa1 0 62%,
+            transparent 64%
+        ),
+        radial-gradient(
+            ellipse 18% 5% at 63% 25%,
+            #ffc72c 0 62%,
+            transparent 64%
+        ),
+        radial-gradient(
+            ellipse 18% 5% at 82% 33%,
+            #ff7a1a 0 62%,
+            transparent 64%
+        );
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ---------- MERGED HEADER + HERO: ONE SINGLE CARD ---------- */
+
+.hero-shell {
+    position: relative !important;
+    overflow: hidden !important;
+
+    margin: 0 0 10px !important;
+
+    border: 0 !important;
+    border-radius: 24px !important;
+
+    background:
+        radial-gradient(
+            circle at 93% 8%,
+            rgba(255,223,89,.98) 0 15%,
+            transparent 15.5%
+        ),
+        radial-gradient(
+            circle at 100% 92%,
+            rgba(255,20,147,.72) 0 21%,
+            transparent 21.5%
+        ),
+        radial-gradient(
+            circle at 63% 118%,
+            rgba(255,89,100,.52) 0 18%,
+            transparent 18.5%
+        ),
         linear-gradient(
-            100deg,
+            105deg,
             #ff681c 0%,
-            #ff941d 52%,
+            #ff951d 48%,
             #ffc72c 100%
         ) !important;
 
     box-shadow:
-        0 10px 24px rgba(0,0,0,.18) !important;
+        0 14px 34px rgba(0,0,0,.20) !important;
+}
+
+
+/* Header remains visually part of the same card */
+.hero-shell .topbar {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    background: transparent !important;
+
+    box-shadow: none !important;
+    backdrop-filter: none !important;
 }
 
 
 .hero-shell .topbar-inner {
-    padding: 8px 20px !important;
+    width: 100% !important;
+    max-width: none !important;
 
-    border-bottom: 0 !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 7px 22px 6px !important;
+
+    gap: 14px !important;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.28) !important;
+}
+
+
+.hero-shell .brand {
+    gap: 8px !important;
+    flex-shrink: 0;
 }
 
 
 .hero-shell .brand-logo {
-    width: 50px !important;
-    height: 50px !important;
+    width: 44px !important;
+    height: 44px !important;
 }
 
 
 .hero-shell .brand-name {
-    font-size: 26px !important;
+    font-size: 23px !important;
+    line-height: 1 !important;
 }
 
 
 .hero-shell .tagline {
+    margin-top: 2px !important;
+
     color: #ffffff !important;
-    font-size: 11px !important;
+
+    font-size: 10px !important;
+    line-height: 1.05 !important;
+}
+
+
+/* compact controls */
+.hero-shell .channels {
+    gap: 7px !important;
 }
 
 
 .hero-shell .channel,
 .hero-shell .header-history,
 .hero-shell .header-login {
-    min-height: 39px;
+    min-height: 36px !important;
 
-    box-shadow:
-        0 5px 12px rgba(72,42,0,.14) !important;
+    padding: 6px 11px !important;
+
+    border-radius: 999px !important;
 }
 
 
@@ -3854,124 +3997,138 @@ html {
             #ffe35e,
             #ffd43f
         ) !important;
+
+    border:
+        1px solid rgba(8,45,92,.14) !important;
+
+    color: #082d5c !important;
+
+    box-shadow:
+        0 4px 10px rgba(83,48,0,.13) !important;
 }
 
 
-/* -----------------------------------------------------
-   HERO — its own compact card
------------------------------------------------------ */
+.hero-shell .channel.active {
+    background:
+        linear-gradient(
+            135deg,
+            #ff2aa1,
+            #ff1493
+        ) !important;
+
+    color: #ffffff !important;
+
+    border-color:
+        rgba(255,255,255,.30) !important;
+
+    box-shadow:
+        0 5px 14px rgba(255,20,147,.28) !important;
+}
+
+
+.hero-shell .channel.active i,
+.hero-shell .channel.active span {
+    color: #ffffff !important;
+}
+
+
+.hero-shell .coming-soon {
+    background: #082d5c !important;
+    color: #ffd84d !important;
+
+    padding: 3px 6px !important;
+
+    font-size: 8px !important;
+}
+
+
+.hero-shell .logged-email {
+    font-size: 10px !important;
+}
+
+
+.hero-shell .logout-hint {
+    margin-top: 0 !important;
+
+    color: #082d5c !important;
+
+    font-size: 8px !important;
+}
+
+
+/* ---------- HERO CONTENT: TIGHT AGAIN ---------- */
 
 .hero-shell .hero {
-    position: relative;
-
-    min-height: 215px !important;
+    min-height: 0 !important;
 
     margin: 0 !important;
 
-    padding: 17px 30px 18px !important;
-
-    overflow: hidden;
+    padding: 11px 26px 14px !important;
 
     gap: 18px !important;
 
-    border: 1px solid rgba(255,255,255,.18) !important;
-    border-radius: 22px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
 
-    background:
-        radial-gradient(
-            circle at 92% 6%,
-            rgba(255,226,102,.98) 0 17%,
-            transparent 17.5%
-        ),
-        radial-gradient(
-            circle at 100% 91%,
-            rgba(255,20,147,.70) 0 21%,
-            transparent 21.5%
-        ),
-        radial-gradient(
-            circle at 64% 116%,
-            rgba(255,89,100,.53) 0 17%,
-            transparent 17.5%
-        ),
-        linear-gradient(
-            105deg,
-            #ff6d1a 0%,
-            #ff991e 51%,
-            #ffc72c 100%
-        ) !important;
+    background: transparent !important;
 
-    box-shadow:
-        0 12px 28px rgba(0,0,0,.18) !important;
-}
-
-
-/* Add some graphic energy around the artwork without touching the asset */
-.hero-shell .hero::after {
-    content: "";
-
-    position: absolute;
-    right: 20px;
-    top: 20px;
-
-    width: 43%;
-    height: 82%;
-
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            circle at 18% 45%,
-            rgba(255,20,147,.95) 0 3%,
-            transparent 3.5%
-        ),
-        radial-gradient(
-            circle at 32% 19%,
-            rgba(13,98,255,.95) 0 3%,
-            transparent 3.5%
-        ),
-        radial-gradient(
-            circle at 76% 63%,
-            rgba(255,20,147,.90) 0 2.5%,
-            transparent 3%
-        ),
-        radial-gradient(
-            circle at 57% 87%,
-            rgba(255,210,45,.95) 0 2.5%,
-            transparent 3%
-        );
-
-    opacity: .9;
+    box-shadow: none !important;
 }
 
 
 .hero-shell .hero-content {
     position: relative;
-    z-index: 3;
+    z-index: 4;
+
+    flex: 1 1 54% !important;
+    max-width: 700px !important;
 }
 
 
 .hero-shell .hero-content h1 {
-    font-size: clamp(34px, 3vw, 48px) !important;
+    margin: 0 0 6px !important;
+
+    color: #ffffff !important;
+
+    font-size:
+        clamp(30px, 2.7vw, 44px) !important;
+
     line-height: .98 !important;
-    margin-bottom: 8px !important;
+    letter-spacing: -1.4px !important;
+}
+
+
+.hero-shell .hero-content h1 .hero-second-line {
+    color: #082d5c !important;
+}
+
+
+.hero-shell .hero-content h1 .hero-hot-pink {
+    color: #ff1493 !important;
 }
 
 
 .hero-shell .hero-content p {
-    max-width: 700px !important;
+    max-width: 670px !important;
 
-    font-size: 13px !important;
-    line-height: 1.34 !important;
+    margin: 0 !important;
+
+    color: #ffffff !important;
+
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
 }
 
 
 .hero-shell .hero-benefits {
-    margin-top: 11px !important;
+    margin-top: 8px !important;
+    gap: 6px !important;
 }
 
 
 .hero-shell .hero-benefits span {
-    padding: 6px 12px !important;
+    padding: 5px 10px !important;
 
     background:
         linear-gradient(
@@ -3980,184 +4137,254 @@ html {
             #ffd43f
         ) !important;
 
-    font-size: 10px !important;
+    border:
+        1px solid rgba(8,45,92,.14) !important;
+
+    color: #082d5c !important;
+
+    font-size: 9px !important;
+    font-weight: 700 !important;
+
+    box-shadow:
+        0 4px 10px rgba(83,48,0,.12) !important;
 }
 
 
-/* Make the existing hero asset much closer to mockup scale */
+.hero-shell .hero-benefits span i {
+    color: #ff1493 !important;
+}
+
+
+/* ---------- LARGE COLOUR SPLASHES BEHIND DUCK ---------- */
+
 .hero-shell .hero-art {
-    position: relative;
-    z-index: 2;
+    position: relative !important;
+    z-index: 2 !important;
 
     flex: 1 1 46% !important;
+
+    min-height: 150px !important;
+
+    overflow: visible !important;
+}
+
+
+.hero-shell .hero-art::before {
+    content: "";
+
+    position: absolute;
+    z-index: 1;
+
+    right: 18px;
+    top: 50%;
+
+    width: 390px;
+    height: 185px;
+
+    transform:
+        translateY(-50%)
+        rotate(-4deg);
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse 25% 28% at 20% 62%,
+            #ff2aa1 0 58%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse 26% 29% at 36% 39%,
+            #006dff 0 58%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse 18% 20% at 54% 26%,
+            #ffc72c 0 58%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse 23% 25% at 72% 58%,
+            #10c48f 0 58%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse 17% 18% at 84% 40%,
+            #ff2aa1 0 58%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse 16% 17% at 10% 34%,
+            #ff7a1a 0 58%,
+            transparent 60%
+        );
+
+    opacity: .98;
+}
+
+
+.hero-shell .hero-art::after {
+    content: "";
+
+    position: absolute;
+    z-index: 2;
+
+    right: 40px;
+    top: 50%;
+
+    width: 360px;
+    height: 160px;
+
+    transform:
+        translateY(-50%)
+        rotate(-10deg);
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse 31% 8% at 18% 68%,
+            #ff7a1a 0 58%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse 32% 9% at 37% 72%,
+            #ffc72c 0 58%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse 23% 8% at 57% 27%,
+            #157dff 0 58%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse 19% 7% at 76% 66%,
+            #ff2aa1 0 58%,
+            transparent 60%
+        );
 }
 
 
 .hero-shell .hero-art img {
+    position: relative !important;
+    z-index: 3 !important;
+
     width: 100% !important;
 
-    max-width: 525px !important;
-    max-height: 205px !important;
+    max-width: 475px !important;
+    max-height: 172px !important;
+
+    object-fit: contain !important;
 
     transform:
-        translateX(6px)
-        scale(1.07);
+        translateX(3px)
+        scale(1.04) !important;
 
     transform-origin: center right;
 }
 
 
-/* -----------------------------------------------------
-   UPLOAD — match mockup proportions
------------------------------------------------------ */
-
-.upload-card {
-    border-radius: 19px !important;
+/* Remove the earlier dots-only overlay */
+.hero-shell .hero::after {
+    display: none !important;
 }
 
 
+/* ---------- UPLOAD / WORKSPACE: COMPACT ---------- */
+
 .upload-card .card-header {
-    padding: 8px 20px 5px !important;
+    padding: 7px 18px 4px !important;
 }
 
 
 .upload-card .step-number {
-    width: 38px !important;
-    height: 38px !important;
-
-    border-radius: 10px !important;
-}
-
-
-.upload-card .card-title {
-    padding: 6px 14px;
-
-    border-radius: 999px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ffe35e,
-            #ffd43f
-        );
+    width: 34px !important;
+    height: 34px !important;
 }
 
 
 .upload-content {
-    padding: 2px 20px 10px !important;
+    padding: 2px 18px 7px !important;
 }
 
 
 .upload-zone {
-    min-height: 68px !important;
+    min-height: 50px !important;
 
-    border:
-        2px dashed
-        var(--sq-hot-pink) !important;
-
-    border-radius: 12px !important;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ffffff,
-            #fffafc
-        ) !important;
+    border-color:
+        rgba(255,20,147,.86) !important;
 }
 
 
 .upload-icon {
-    width: 34px !important;
-    height: 34px !important;
+    width: 28px !important;
+    height: 28px !important;
 
-    font-size: 17px !important;
+    margin-bottom: 1px !important;
+
+    color: #ff1493 !important;
+
+    font-size: 14px !important;
 }
 
 
 .upload-main {
-    font-size: 13px !important;
+    font-size: 12px !important;
 }
 
 
 .upload-help {
+    margin-top: 0 !important;
+
     font-size: 10px !important;
 }
 
 
-/* -----------------------------------------------------
-   COMPOSE / PREVIEW — stronger mockup treatment
------------------------------------------------------ */
-
-.compose-card,
-.preview-card {
-    border-radius: 19px !important;
+.workspace {
+    margin-top: 10px !important;
 }
 
 
-.compose-card .card-header,
-.preview-card .card-header {
-    padding: 10px 20px 4px !important;
-}
-
-
-.compose-card .card-title,
-.preview-card .card-title {
-    padding: 6px 14px;
-
-    border-radius: 999px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ffe35e,
-            #ffd43f
-        ) !important;
-
-    color: #082d5c !important;
-}
-
-
-.compose-card .step-number,
-.preview-card .step-number {
-    width: 38px !important;
-    height: 38px !important;
-
-    border-radius: 10px !important;
-}
-
-
-.compose-body {
-    padding: 10px 20px 14px !important;
-}
-
-
-.card.preview-card .preview-body {
-    padding: 10px 20px 14px !important;
-}
-
-
-.card.preview-card .preview-box {
-    border-radius: 14px !important;
-}
-
-
-/* -----------------------------------------------------
-   FOOTER — mockup uses a navy footer, not another orange card
------------------------------------------------------ */
+/* ---------- FOOTER: RESTORED TO ORANGE/GOLD THEME ---------- */
 
 .site-footer {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 10px 0 0 !important;
+    padding: 22px 28px 12px !important;
+
+    box-sizing: border-box !important;
+
     background:
         linear-gradient(
-            105deg,
-            #031b45 0%,
-            #06336e 100%
+            110deg,
+            #ff681c 0%,
+            #ff8c1c 48%,
+            #ffc72c 100%
         ) !important;
 
-    border:
-        1px solid rgba(74,151,255,.42) !important;
+    border: 0 !important;
+    border-radius: 22px !important;
 
     box-shadow:
-        0 12px 30px rgba(0,0,0,.24) !important;
+        0 14px 34px rgba(0,0,0,.20) !important;
+}
+
+
+.footer-main {
+    grid-template-columns:
+        1.55fr
+        .85fr
+        .85fr
+        1fr !important;
+
+    gap:
+        clamp(22px, 3vw, 58px) !important;
+
+    padding-bottom: 9px !important;
+
+    align-items: start;
 }
 
 
@@ -4172,223 +4399,51 @@ html {
 .footer-bottom,
 .footer-column h4,
 .footer-brand-name {
-    color: #ffffff !important;
-}
-
-
-.footer-brand-name span {
-    color: #2f91ff !important;
-}
-
-
-.footer-column a:hover {
-    color: var(--sq-hot-pink) !important;
-}
-
-
-.footer-column small {
-    background: #ffd84d !important;
     color: #082d5c !important;
 }
 
 
-.footer-bottom {
-    border-top-color:
-        rgba(255,255,255,.22) !important;
+.footer-brand-name span {
+    color: #0878f9 !important;
 }
 
 
-/* -----------------------------------------------------
-   DESKTOP WIDTH — mockup is slightly wider than current page
------------------------------------------------------ */
-
-@media (min-width: 1000px) {
-
-    .container,
-    .site-footer {
-        width: 84% !important;
-        max-width: 1480px !important;
-    }
-
+.footer-column a:hover {
+    color: #ff1493 !important;
 }
 
 
-/* -----------------------------------------------------
-   MOBILE
------------------------------------------------------ */
+.footer-column small {
+    background: #ff1493 !important;
+    color: #ffffff !important;
 
-@media (max-width: 900px) {
-
-    .hero-shell .hero {
-        min-height: 0 !important;
-
-        padding: 16px 20px 18px !important;
-    }
-
-    .hero-shell .hero-art img {
-        transform: none;
-
-        max-height: 165px !important;
-    }
-
+    border: 0 !important;
 }
 
-
-
-/* =====================================================
-   SENDQUACK — FINAL SPLASH + FOOTER ALIGNMENT FIXES
-   Adds visible splash shapes and fixes squeezed footer width.
-===================================================== */
-
-/* keep the whole app consistently wide */
-.container {
-    width: min(90vw, 1500px) !important;
-    max-width: 1500px !important;
-    margin: 10px auto 18px !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
-}
-
-/* compact shell spacing */
-.hero-shell {
-    margin: 4px 0 10px !important;
-}
-
-.hero-shell .topbar {
-    margin: 0 0 8px !important;
-}
-
-.hero-shell .hero {
-    min-height: 205px !important;
-    padding: 16px 28px 16px !important;
-    gap: 18px !important;
-}
-
-/* make the headline side tighter */
-.hero-shell .hero-content {
-    max-width: 52% !important;
-}
-
-.hero-shell .hero-content h1 {
-    margin-bottom: 6px !important;
-}
-
-.hero-shell .hero-content p {
-    max-width: 690px !important;
-    margin: 0 !important;
-}
-
-.hero-shell .hero-benefits {
-    margin-top: 10px !important;
-}
-
-/* stronger artwork zone */
-.hero-shell .hero-art {
-    position: relative !important;
-    overflow: visible !important;
-    flex: 1 1 44% !important;
-    min-height: 180px !important;
-}
-
-.hero-shell .hero-art img {
-    position: relative !important;
-    z-index: 3 !important;
-    max-width: 560px !important;
-    max-height: 220px !important;
-    transform: translateX(4px) scale(1.08) !important;
-}
-
-/* main blue / green / pink blob layer */
-.hero-shell .hero-art::before {
-    content: "";
-    position: absolute;
-    right: 38px;
-    top: 50%;
-    width: 420px;
-    height: 220px;
-    transform: translateY(-50%);
-    z-index: 1;
-    pointer-events: none;
-    background:
-        radial-gradient(ellipse 23% 27% at 20% 66%, rgba(255, 96, 124, 0.96) 0 60%, transparent 61%),
-        radial-gradient(ellipse 26% 30% at 34% 42%, rgba(22, 104, 255, 0.98) 0 60%, transparent 61%),
-        radial-gradient(ellipse 18% 18% at 57% 33%, rgba(255, 211, 45, 0.98) 0 60%, transparent 61%),
-        radial-gradient(ellipse 24% 24% at 73% 58%, rgba(17, 196, 143, 0.98) 0 60%, transparent 61%),
-        radial-gradient(ellipse 13% 13% at 12% 32%, rgba(255, 37, 148, 0.98) 0 60%, transparent 61%),
-        radial-gradient(ellipse 12% 12% at 84% 38%, rgba(255, 37, 148, 0.92) 0 60%, transparent 61%),
-        radial-gradient(ellipse 10% 10% at 52% 16%, rgba(0, 111, 255, 0.92) 0 60%, transparent 61%);
-    filter: saturate(1.05);
-}
-
-/* paint-splash swoosh layer */
-.hero-shell .hero-art::after {
-    content: "";
-    position: absolute;
-    right: 58px;
-    top: 50%;
-    width: 400px;
-    height: 210px;
-    transform: translateY(-50%) rotate(-8deg);
-    z-index: 2;
-    pointer-events: none;
-    background:
-        radial-gradient(ellipse 30% 10% at 20% 64%, rgba(255, 120, 21, 0.96) 0 60%, transparent 61%),
-        radial-gradient(ellipse 36% 11% at 34% 71%, rgba(255, 212, 42, 0.98) 0 60%, transparent 61%),
-        radial-gradient(ellipse 20% 8% at 54% 29%, rgba(39, 140, 255, 0.98) 0 60%, transparent 61%),
-        radial-gradient(ellipse 18% 8% at 66% 75%, rgba(255, 120, 21, 0.95) 0 60%, transparent 61%),
-        radial-gradient(ellipse 14% 7% at 79% 63%, rgba(255, 212, 42, 0.96) 0 60%, transparent 61%),
-        radial-gradient(ellipse 15% 8% at 9% 44%, rgba(17, 196, 143, 0.95) 0 60%, transparent 61%);
-}
-
-/* remove tiny dots-only effect that was too subtle */
-.hero-shell .hero::after {
-    display: none !important;
-}
-
-/* upload box slightly tighter */
-.upload-card .card-header {
-    padding: 8px 20px 4px !important;
-}
-
-.upload-content {
-    padding: 2px 20px 10px !important;
-}
-
-.upload-zone {
-    min-height: 62px !important;
-}
-
-/* footer width + alignment fix */
-.site-footer {
-    width: 100% !important;
-    max-width: none !important;
-    margin: 12px 0 0 !important;
-    padding: 24px 28px 12px !important;
-    box-sizing: border-box !important;
-    align-self: stretch !important;
-}
-
-.footer-main {
-    grid-template-columns: 1.35fr 0.9fr 0.9fr 1fr !important;
-    gap: clamp(24px, 3.4vw, 72px) !important;
-    padding-bottom: 12px !important;
-    align-items: start !important;
-}
 
 .footer-about p {
-    margin: 8px 0 3px !important;
+    margin: 7px 0 3px !important;
 }
+
 
 .footer-bottom {
-    margin-top: 6px !important;
-    padding-top: 10px !important;
+    margin-top: 5px !important;
+    padding-top: 9px !important;
+
+    border-top-color:
+        rgba(255,255,255,.42) !important;
 }
 
-/* mobile adjustments */
+
+/* ---------- MOBILE ---------- */
+
 @media (max-width: 900px) {
+
     .hero-shell .hero {
-        min-height: 0 !important;
-        padding: 16px 18px 18px !important;
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 14px 18px 16px !important;
     }
 
     .hero-shell .hero-content {
@@ -4396,27 +4451,71 @@ html {
     }
 
     .hero-shell .hero-art {
-        min-height: 145px !important;
         width: 100% !important;
+        min-height: 130px !important;
+
+        justify-content: center !important;
     }
 
-    .hero-shell .hero-art::before,
+    .hero-shell .hero-art::before {
+        right: 50%;
+
+        width: 300px;
+        height: 145px;
+
+        transform:
+            translate(50%, -50%)
+            rotate(-4deg);
+    }
+
     .hero-shell .hero-art::after {
         right: 50%;
-        transform: translate(50%, -50%);
-        width: 300px;
-        height: 170px;
+
+        width: 280px;
+        height: 130px;
+
+        transform:
+            translate(50%, -50%)
+            rotate(-10deg);
     }
 
     .hero-shell .hero-art img {
-        max-width: 360px !important;
-        max-height: 170px !important;
+        max-width: 350px !important;
+        max-height: 140px !important;
+
         transform: none !important;
     }
 
-    .site-footer {
-        padding: 20px 20px 12px !important;
+}
+
+
+@media (max-width: 600px) {
+
+    body::before,
+    body::after {
+        display: none;
     }
+
+    .hero-shell {
+        border-radius: 18px !important;
+    }
+
+    .hero-shell .topbar-inner {
+        padding:
+            7px 12px
+            6px !important;
+    }
+
+    .hero-shell .hero-content h1 {
+        font-size: 30px !important;
+    }
+
+    .site-footer {
+        padding:
+            20px 20px
+            12px !important;
+    }
+
 }
 
 </style>
