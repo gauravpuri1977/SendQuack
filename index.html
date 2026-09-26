@@ -760,6 +760,19 @@
            PREVIEW
         ========================================================= */
 
+        <div class="preview-empty-icon">
+            <i class="fa-regular fa-envelope"></i>
+        </div>
+
+        <div class="preview-empty-icon-wrap">
+            <span class="preview-spark spark-left"></span>
+            <div class="preview-empty-icon">
+                <i class="fa-regular fa-envelope"></i>
+            </div>
+            <span class="preview-spark spark-right"></span>
+        </div>
+
+        
         .preview-body {
             padding: 21px 22px 23px;
         }
@@ -4879,7 +4892,87 @@ body {
 
 }
 
+/* =====================================================
+   FORCE UPLOAD ICON + PREVIEW ICON TO SHOW
+===================================================== */
 
+.upload-icon,
+.upload-zone-icon,
+.upload-zone .upload-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 3px solid #ff2ea6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    box-shadow: 0 6px 16px rgba(255, 46, 166, 0.18);
+    flex-shrink: 0;
+}
+
+.upload-icon i,
+.upload-zone-icon i,
+.upload-zone .upload-icon i {
+    font-size: 26px;
+    color: #ff2ea6 !important;
+    line-height: 1;
+    display: inline-block;
+}
+
+/* Preview empty state */
+.preview-empty-icon-wrap {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto 18px;
+}
+
+.preview-empty-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 22px;
+    background: #eaf2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.preview-empty-icon i {
+    font-size: 34px;
+    color: #6da8ff !important;
+    line-height: 1;
+    display: inline-block;
+}
+
+.preview-spark {
+    position: absolute;
+    top: 50%;
+    width: 18px;
+    height: 6px;
+    border-radius: 999px;
+    background: #ff2ea6;
+    transform: translateY(-50%) rotate(-25deg);
+    box-shadow: 0 0 10px rgba(255, 46, 166, 0.25);
+}
+
+.spark-left {
+    left: -22px;
+}
+
+.spark-right {
+    right: -22px;
+    transform: translateY(-50%) rotate(25deg);
+}
+
+/* If old pseudo-elements were interfering, disable them */
+.upload-icon::before,
+.upload-zone-icon::before,
+.preview-empty-icon::before,
+.preview-empty-icon::after {
+    content: none !important;
+}
 </style>
 
     
@@ -6476,7 +6569,10 @@ quill.on(
 // ----------------------------------------------------
 // EXCEL UPLOAD
 // ----------------------------------------------------
-
+<div class="upload-icon">
+    <i class="fa-solid fa-cloud-arrow-up"></i>
+</div>
+    
 document
     .getElementById("excelFile")
     .addEventListener(
