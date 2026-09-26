@@ -3444,6 +3444,285 @@ select {
 
 }
 
+
+
+/* =====================================================
+   SENDQUACK — HOT PINK ACCENT THEME
+   Final visual overrides only; functionality unchanged.
+===================================================== */
+
+:root {
+    --sq-hot-pink: #ff1493;
+    --sq-hot-pink-bright: #ff2aa1;
+    --sq-hot-pink-soft: #ff5fba;
+    --sq-hot-pink-pale: #fff0f8;
+}
+
+
+/* -----------------------------------------------------
+   PAGE BACKGROUND — restrained pink energy
+----------------------------------------------------- */
+
+html {
+    background:
+        radial-gradient(
+            circle at 1% 10%,
+            rgba(255,20,147,.48) 0,
+            transparent 14%
+        ),
+        radial-gradient(
+            circle at 98% 70%,
+            rgba(255,42,161,.42) 0,
+            transparent 16%
+        ),
+        radial-gradient(
+            circle at 8% 35%,
+            rgba(30,136,255,.48) 0,
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 92% 65%,
+            rgba(123,63,228,.40) 0,
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #061b3a 0%,
+            #082e68 48%,
+            #101b55 100%
+        ) !important;
+}
+
+
+/* -----------------------------------------------------
+   COMBINED HEADER + HERO
+----------------------------------------------------- */
+
+.hero-shell {
+    background:
+        radial-gradient(
+            circle at 94% 12%,
+            rgba(255,220,94,.96) 0 13%,
+            transparent 13.5%
+        ),
+        radial-gradient(
+            circle at 99% 91%,
+            rgba(255,20,147,.68) 0 17%,
+            transparent 17.5%
+        ),
+        radial-gradient(
+            circle at 62% 108%,
+            rgba(255,42,161,.34) 0 17%,
+            transparent 17.5%
+        ),
+        linear-gradient(
+            105deg,
+            #ff6b18 0%,
+            #ff951d 48%,
+            #ffc72c 100%
+        ) !important;
+}
+
+
+/* Active Email pill becomes the signature pink CTA */
+.hero-shell .channel.active {
+    background:
+        linear-gradient(
+            135deg,
+            var(--sq-hot-pink-bright),
+            var(--sq-hot-pink)
+        ) !important;
+
+    border-color:
+        rgba(255,255,255,.34) !important;
+
+    color: #ffffff !important;
+
+    box-shadow:
+        0 6px 16px rgba(255,20,147,.32) !important;
+}
+
+
+.hero-shell .channel.active i,
+.hero-shell .channel.active span {
+    color: #ffffff !important;
+}
+
+
+/* Headline: keep navy as the anchor and use pink only on the key word */
+.hero-shell .hero-content h1 .hero-second-line {
+    color: #082d5c !important;
+}
+
+
+.hero-shell .hero-content h1 .hero-hot-pink {
+    color: var(--sq-hot-pink) !important;
+
+    text-shadow:
+        0 2px 10px rgba(255,20,147,.16);
+}
+
+
+/* Benefit pills keep their gold surface; icons become pink */
+.hero-shell .hero-benefits span i {
+    color: var(--sq-hot-pink) !important;
+}
+
+
+/* -----------------------------------------------------
+   WORKFLOW ACCENTS
+----------------------------------------------------- */
+
+/* Step badges 1 / 2 / 3 */
+.step-number {
+    background:
+        linear-gradient(
+            135deg,
+            var(--sq-hot-pink-bright),
+            var(--sq-hot-pink)
+        ) !important;
+
+    color: #ffffff !important;
+
+    box-shadow:
+        0 6px 15px rgba(255,20,147,.30) !important;
+}
+
+
+/* Upload area */
+.upload-zone {
+    border-color:
+        rgba(255,20,147,.82) !important;
+}
+
+
+.upload-zone:hover {
+    border-color:
+        var(--sq-hot-pink) !important;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,20,147,.10),
+        0 0 0 3px rgba(255,20,147,.08) !important;
+}
+
+
+.upload-icon {
+    color:
+        var(--sq-hot-pink) !important;
+
+    box-shadow:
+        0 5px 15px rgba(255,20,147,.14) !important;
+}
+
+
+/* Download-template accent */
+.template-download i {
+    color:
+        var(--sq-hot-pink) !important;
+}
+
+
+/* -----------------------------------------------------
+   COMPOSE / SEND
+----------------------------------------------------- */
+
+/* Make primary send action feel branded, not generic blue */
+#sendButton {
+    background:
+        linear-gradient(
+            135deg,
+            #0878f9 0%,
+            #5f5cff 47%,
+            var(--sq-hot-pink) 100%
+        ) !important;
+
+    box-shadow:
+        0 8px 20px rgba(77,72,255,.20),
+        0 5px 16px rgba(255,20,147,.16) !important;
+}
+
+
+#sendButton:hover {
+    box-shadow:
+        0 11px 25px rgba(77,72,255,.25),
+        0 7px 20px rgba(255,20,147,.22) !important;
+}
+
+
+/* Checkbox receives the pink brand accent in modern browsers */
+#senderConsent {
+    accent-color:
+        var(--sq-hot-pink);
+}
+
+
+/* -----------------------------------------------------
+   PREVIEW DETAILS
+----------------------------------------------------- */
+
+.preview-empty-icon {
+    color:
+        var(--sq-hot-pink) !important;
+
+    background:
+        var(--sq-hot-pink-pale) !important;
+}
+
+
+.preview-badge {
+    box-shadow:
+        0 3px 8px rgba(0,0,0,.10),
+        0 0 0 1px rgba(255,20,147,.07) !important;
+}
+
+
+/* -----------------------------------------------------
+   SMALL INTERACTIONS
+----------------------------------------------------- */
+
+.footer-column a:hover {
+    color:
+        var(--sq-hot-pink) !important;
+}
+
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline:
+        3px solid rgba(255,20,147,.35);
+
+    outline-offset:
+        2px;
+}
+
+
+/* Keep the accent disciplined on smaller screens */
+@media (max-width: 600px) {
+
+    html {
+        background:
+            radial-gradient(
+                circle at 0% 8%,
+                rgba(255,20,147,.36) 0,
+                transparent 13%
+            ),
+            radial-gradient(
+                circle at 100% 80%,
+                rgba(255,42,161,.30) 0,
+                transparent 15%
+            ),
+            linear-gradient(
+                135deg,
+                #061b3a 0%,
+                #082e68 55%,
+                #101b55 100%
+            ) !important;
+    }
+
+}
+
 </style>
 
     
@@ -3536,7 +3815,9 @@ select {
     
             <h1>
                 Send personalized<br>
-                <span>emails in seconds.</span>
+                <span class="hero-second-line">
+                    emails in <span class="hero-hot-pink">seconds.</span>
+                </span>
             </h1>
     
             <p>
