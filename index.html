@@ -5964,6 +5964,96 @@ main.container {
     font-weight: 800;
 }
 
+
+
+/* =========================================================
+   TRUST + FREE TRIAL ROW
+========================================================= */
+.trust-promo-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    gap: 12px;
+    margin: 0 20px 12px;
+    align-items: stretch;
+}
+
+.hero-shell .trust-promo-row .privacy-splash,
+.hero-shell .trust-promo-row .free-trial-promo {
+    margin: 0 !important;
+    height: 100%;
+}
+
+.hero-shell .trust-promo-row .privacy-splash {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 11px;
+    padding: 12px 14px;
+}
+
+.hero-shell .trust-promo-row .privacy-splash-link {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-left: 53px;
+    padding: 7px 10px;
+}
+
+.hero-shell .trust-promo-row .free-trial-promo {
+    padding: 12px 14px !important;
+    gap: 12px;
+}
+
+.hero-shell .trust-promo-row .free-trial-copy {
+    gap: 10px;
+}
+
+.hero-shell .trust-promo-row .free-trial-text strong {
+    font-size: 15px;
+}
+
+.hero-shell .trust-promo-row .free-trial-text span {
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.hero-shell .trust-promo-row .free-trial-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 7px;
+}
+
+.hero-shell .trust-promo-row .free-trial-start,
+.hero-shell .trust-promo-row .free-trial-plans {
+    width: 100%;
+    padding: 8px 10px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+    .trust-promo-row {
+        grid-template-columns: 1fr;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .hero-shell .trust-promo-row .privacy-splash-link {
+        margin-left: 53px;
+    }
+
+    .hero-shell .trust-promo-row .free-trial-actions {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 520px) {
+    .hero-shell .trust-promo-row .privacy-splash-link {
+        margin-left: 48px;
+    }
+
+    .hero-shell .trust-promo-row .free-trial-actions {
+        flex-direction: column;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -6266,6 +6356,7 @@ main.container {
 </section>
 
 
+<div class="trust-promo-row">
 <!-- =================================================
      PRIVACY / TRUST SPLASH
 ================================================== -->
@@ -6306,6 +6397,7 @@ main.container {
         <button class="free-trial-plans" id="freeTrialPlansButton" type="button">View all plans</button>
     </div>
 </section>
+</div>
 </section>
 
 
