@@ -6278,11 +6278,11 @@ main.container {
         <div class="free-trial-pill">Free Trial</div>
         <div class="free-trial-text">
             <strong>Send your first 10 emails free.</strong>
-            <span>No card required · No expiry · Up to 10 recipients per send</span>
+            <span>Free account required · No card required · No expiry · Up to 10 recipients per send</span>
         </div>
     </div>
     <div class="free-trial-actions">
-        <a class="free-trial-start" href="#excelFile">Start free</a>
+        <button class="free-trial-start" id="startFreeButton" type="button">Start free</button>
         <button class="free-trial-plans" id="freeTrialPlansButton" type="button">View all plans</button>
     </div>
 </section>
@@ -6645,7 +6645,7 @@ main.container {
 </main>
 <!-- AUTH SCREEN -->
 <div id="authScreen" style="display: none;">
-<h2>Welcome to SendQuack</h2>
+<h2>Sign in or create your free account</h2>
 <input id="authEmail" placeholder="Email address" type="email"/>
 <input id="authPassword" placeholder="Password" type="password"/>
 <button id="loginButton">
@@ -6655,7 +6655,7 @@ main.container {
             Forgot password?
         </button>
 <button id="signupButton">
-            Create Account
+            Create Free Account
         </button>
 <div id="authMessage"></div>
 <div id="resetPasswordSection" style="
@@ -7808,6 +7808,56 @@ document
         }
 
 // ----------------------------------------------------
+// AUTH GATE FOR FREE TRIAL / SENDING
+// ----------------------------------------------------
+
+async function requireSendQuackAccount(messageText) {
+
+    const {
+        data: { session },
+        error
+    } = await supabaseClient.auth.getSession();
+
+    if (!error && session && session.access_token) {
+        return session;
+    }
+
+    const authMessage =
+        document.getElementById("authMessage");
+
+    if (authMessage) {
+        authMessage.innerHTML = `
+            <div style="
+                padding:14px;
+                background:#fff8dc;
+                border-radius:10px;
+                color:#082d5c;
+                line-height:1.5;
+            ">
+                <div style="
+                    font-size:16px;
+                    font-weight:800;
+                    margin-bottom:5px;
+                ">
+                    Create your free SendQuack account
+                </div>
+                <div style="
+                    font-size:13px;
+                ">
+                    ${messageText || "Sign up to send your 10 free emails. No card required."}
+                </div>
+            </div>
+        `;
+    }
+
+    document
+        .getElementById("authScreen")
+        .style.display = "flex";
+
+    return null;
+}
+
+// ----------------------------------------------------
 // SEND BUTTON
 // ----------------------------------------------------
 
@@ -7816,6 +7866,16 @@ document
 .addEventListener(
     "click",
     async function() {
+
+    // A SendQuack account is required even for the Free Trial.
+    const session =
+        await requireSendQuackAccount(
+            "Sign up or log in to use your 10 lifetime Free Trial email credits."
+        );
+
+    if (!session) {
+        return;
+    }
 
 
     if (rows.length === 0) {
@@ -7916,33 +7976,6 @@ document
 
         return;
     }
-
-        // --------------------------------------------
-// GET LOGGED-IN USER SESSION
-// --------------------------------------------
-
-const {
-    data: { session },
-    error: sessionError
-} = await supabaseClient.auth.getSession();
-
-
-if (
-    sessionError ||
-    !session ||
-    !session.access_token
-) {
-
-    alert(
-        "Please log in before sending emails."
-    );
-
-    document
-        .getElementById("authScreen")
-        .style.display = "flex";
-
-    return;
-}
 
 if (
     !document
@@ -8482,8 +8515,39 @@ document
         }
     });
 
+
+    const startFreeButton =
+        document.getElementById("startFreeButton");
+
+    if (startFreeButton) {
+        startFreeButton.addEventListener("click", async function () {
+
+            const session =
+                await requireSendQuackAccount(
+                    "Create an account to get 10 lifetime email credits. No card required."
+                );
+
+            if (!session) {
+                return;
+            }
+
+            const upload =
+                document.getElementById("excelFile");
+
+            if (upload) {
+                const target =
+                    upload.closest(".upload-card") || upload;
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        });
+    }
+
     document.querySelectorAll("[data-plan]").forEach(button => {
-        button.addEventListener("click", function () {
+        button.addEventListener("click", async function () {
             const plan = this.getAttribute("data-plan");
 
             document.querySelectorAll("[data-plan-card]").forEach(card => {
@@ -8495,12 +8559,32 @@ document
             } catch (e) {}
 
             if (plan === "Free Trial") {
-                closePricingModal();
-                const upload = document.getElementById("excelFile");
-                if (upload) {
-                    const target = upload.closest(".upload-card") || upload;
-                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+                const session =
+                    await requireSendQuackAccount(
+                        "Create an account to get 10 lifetime email credits. No card required."
+                    );
+
+                if (!session) {
+                    closePricingModal();
+                    return;
                 }
+
+                closePricingModal();
+
+                const upload =
+                    document.getElementById("excelFile");
+
+                if (upload) {
+                    const target =
+                        upload.closest(".upload-card") || upload;
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+
                 return;
             }
 
