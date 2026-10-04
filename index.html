@@ -5844,6 +5844,107 @@ body.modal-open {
     }
 }
 
+
+
+/* =========================================================
+   TOP CONTAINER GAP
+========================================================= */
+main.container {
+    padding-top: 5px !important;
+}
+
+.hero-shell {
+    margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   FREE TRIAL — INTEGRATED INTO TOP HERO SHELL
+========================================================= */
+
+.hero-shell .privacy-splash {
+    margin: 0 20px 10px !important;
+    border-radius: 14px !important;
+}
+
+.hero-shell .free-trial-promo {
+    margin: 0 20px 18px !important;
+    padding: 14px 16px !important;
+
+    border: 1px solid rgba(255,255,255,.38) !important;
+    border-radius: 14px !important;
+
+    background: rgba(255,255,255,.17) !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(4px);
+}
+
+.hero-shell .free-trial-pill {
+    background: #082d5c !important;
+    color: #ffffff !important;
+}
+
+.hero-shell .free-trial-text strong {
+    color: #082d5c !important;
+}
+
+.hero-shell .free-trial-text span {
+    color: rgba(8,45,92,.82) !important;
+    font-weight: 650;
+}
+
+.hero-shell .free-trial-start {
+    border-color: #ff1493 !important;
+    background: #ff1493 !important;
+    color: #ffffff !important;
+    box-shadow: 0 5px 12px rgba(255,20,147,.18);
+}
+
+.hero-shell .free-trial-start:hover {
+    background: #e81285 !important;
+}
+
+/* View all plans now uses the homepage navy/yellow palette */
+.hero-shell .free-trial-plans {
+    border: 1px solid rgba(8,45,92,.16) !important;
+    background: #082d5c !important;
+    color: #ffd94a !important;
+    box-shadow: 0 5px 12px rgba(8,45,92,.16);
+}
+
+.hero-shell .free-trial-plans:hover {
+    background: #063a73 !important;
+    color: #ffffff !important;
+}
+
+/* Header Plans button should follow the same homepage theme */
+.hero-shell .header-plans {
+    border-color: rgba(8,45,92,.14) !important;
+    background: #082d5c !important;
+    color: #ffd94a !important;
+    border-radius: 999px !important;
+    min-height: 38px;
+    padding: 7px 12px !important;
+    box-shadow: 0 4px 10px rgba(83,48,0,.13) !important;
+}
+
+.hero-shell .header-plans i {
+    color: #ffd94a !important;
+}
+
+.hero-shell .header-plans:hover {
+    background: #063a73 !important;
+    color: #ffffff !important;
+}
+
+@media (max-width: 700px) {
+    .hero-shell .privacy-splash,
+    .hero-shell .free-trial-promo {
+        margin-left: 12px !important;
+        margin-right: 12px !important;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -6143,25 +6244,7 @@ body.modal-open {
 <img alt="SendQuack personalized email" src="sendquack-hero.png"/>
 </div>
 </section>
-</section>
 
-
-<!-- =================================================
-     FREE TRIAL PROMOTION
-================================================== -->
-<section class="free-trial-promo" aria-label="Free Trial">
-    <div class="free-trial-copy">
-        <div class="free-trial-pill">Free Trial</div>
-        <div class="free-trial-text">
-            <strong>Send your first 10 emails free.</strong>
-            <span>No card required · No expiry · Up to 10 recipients per send</span>
-        </div>
-    </div>
-    <div class="free-trial-actions">
-        <a class="free-trial-start" href="#excelFile">Start free</a>
-        <button class="free-trial-plans" id="freeTrialPlansButton" type="button">View all plans</button>
-    </div>
-</section>
 
 <!-- =================================================
      PRIVACY / TRUST SPLASH
@@ -6186,6 +6269,25 @@ body.modal-open {
         <i class="fa-solid fa-arrow-right"></i>
     </a>
 </section>
+
+<!-- =================================================
+     FREE TRIAL PROMOTION
+================================================== -->
+<section class="free-trial-promo" aria-label="Free Trial">
+    <div class="free-trial-copy">
+        <div class="free-trial-pill">Free Trial</div>
+        <div class="free-trial-text">
+            <strong>Send your first 10 emails free.</strong>
+            <span>No card required · No expiry · Up to 10 recipients per send</span>
+        </div>
+    </div>
+    <div class="free-trial-actions">
+        <a class="free-trial-start" href="#excelFile">Start free</a>
+        <button class="free-trial-plans" id="freeTrialPlansButton" type="button">View all plans</button>
+    </div>
+</section>
+</section>
+
 
 <!-- =================================================
          STEP 1
