@@ -7277,6 +7277,32 @@ let errorCount = 0;
 
             currentAccountStatus = data;
 
+            if (adminPlanButton) {
+                adminPlanButton.style.display =
+                    data.is_admin
+                    ? "inline-flex"
+                    : "none";
+            }
+
+            const adminTestModeBadge =
+                document.getElementById(
+                    "adminTestModeBadge"
+                );
+
+            if (adminTestModeBadge) {
+                adminTestModeBadge.style.display =
+                    (
+                        data.is_admin
+                        && isAdminTestModeEnabled()
+                    )
+                    ? "inline-flex"
+                    : "none";
+            }
+
+            if (!data.is_admin) {
+                setAdminTestMode(false);
+            }
+
             if (planBadge) {
                 planBadge.textContent =
                     data.display_name
