@@ -6054,6 +6054,121 @@ main.container {
     }
 }
 
+
+
+/* =========================================================
+   SIGNUP PLAN CHOICE
+========================================================= */
+
+#authScreen h2,
+#authScreen input,
+#authScreen button,
+#authMessage,
+.signup-plan-section {
+    width: 430px;
+    max-width: calc(100vw - 48px);
+}
+
+.signup-plan-section {
+    margin-top: 2px;
+}
+
+.signup-plan-label {
+    margin: 2px 0 7px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: left;
+}
+
+.signup-plan-options {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.signup-plan-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 9px 11px;
+    border: 1px solid rgba(255,255,255,.34);
+    border-radius: 9px;
+    background: rgba(255,255,255,.12);
+    color: #ffffff;
+    cursor: pointer;
+    transition: background .15s ease, border-color .15s ease;
+}
+
+.signup-plan-option:hover {
+    background: rgba(255,255,255,.18);
+}
+
+.signup-plan-option.selected {
+    border-color: #ffd94a;
+    background: rgba(255,217,74,.16);
+    box-shadow: 0 0 0 1px rgba(255,217,74,.16);
+}
+
+.signup-plan-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.signup-plan-main {
+    min-width: 0;
+    text-align: left;
+}
+
+.signup-plan-name {
+    display: block;
+    font-size: 12px;
+    font-weight: 850;
+}
+
+.signup-plan-detail {
+    display: block;
+    margin-top: 2px;
+    color: rgba(255,255,255,.74);
+    font-size: 9px;
+    line-height: 1.3;
+}
+
+.signup-plan-price {
+    flex: 0 0 auto;
+    color: #ffd94a;
+    font-size: 11px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.signup-plan-note {
+    margin-top: 7px;
+    color: rgba(255,255,255,.72);
+    font-size: 9px;
+    line-height: 1.35;
+    text-align: left;
+}
+
+.signup-plan-note strong {
+    color: #ffd94a;
+}
+
+@media (max-width: 520px) {
+    #authScreen h2,
+    #authScreen input,
+    #authScreen button,
+    #authMessage,
+    .signup-plan-section {
+        width: calc(100vw - 32px);
+        max-width: none;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -6495,7 +6610,7 @@ main.container {
 </div>
 <div id="editor">
 <p>
-                            Dear {Name},
+                            Dear {{Name}},
                         </p>
 <p>
 </p>
@@ -6757,9 +6872,66 @@ main.container {
 </main>
 <!-- AUTH SCREEN -->
 <div id="authScreen" style="display: none;">
-<h2>Sign in or create your free account</h2>
+<h2>Sign in or create your account</h2>
 <input id="authEmail" placeholder="Email address" type="email"/>
 <input id="authPassword" placeholder="Password" type="password"/>
+
+<div class="signup-plan-section" id="signupPlanSection">
+    <div class="signup-plan-label">Choose a plan for your new account</div>
+
+    <div class="signup-plan-options">
+        <label class="signup-plan-option selected" data-signup-plan-card="free_trial">
+            <input checked name="signupPlan" type="radio" value="free_trial"/>
+            <span class="signup-plan-main">
+                <span class="signup-plan-name">Free Trial</span>
+                <span class="signup-plan-detail">10 lifetime email credits · no card required</span>
+            </span>
+            <span class="signup-plan-price">$0</span>
+        </label>
+
+        <label class="signup-plan-option" data-signup-plan-card="quick_send_100">
+            <input name="signupPlan" type="radio" value="quick_send_100"/>
+            <span class="signup-plan-main">
+                <span class="signup-plan-name">Quick Send 100</span>
+                <span class="signup-plan-detail">100 email credits · valid 6 months</span>
+            </span>
+            <span class="signup-plan-price">$1.49 once</span>
+        </label>
+
+        <label class="signup-plan-option" data-signup-plan-card="quick_send_500">
+            <input name="signupPlan" type="radio" value="quick_send_500"/>
+            <span class="signup-plan-main">
+                <span class="signup-plan-name">Quick Send 500</span>
+                <span class="signup-plan-detail">500 email credits · valid 6 months</span>
+            </span>
+            <span class="signup-plan-price">$3.49 once</span>
+        </label>
+
+        <label class="signup-plan-option" data-signup-plan-card="individual">
+            <input name="signupPlan" type="radio" value="individual"/>
+            <span class="signup-plan-main">
+                <span class="signup-plan-name">Individual</span>
+                <span class="signup-plan-detail">1,000 emails/month · 90-day history</span>
+            </span>
+            <span class="signup-plan-price">$4.99/mo</span>
+        </label>
+
+        <label class="signup-plan-option" data-signup-plan-card="pro">
+            <input name="signupPlan" type="radio" value="pro"/>
+            <span class="signup-plan-main">
+                <span class="signup-plan-name">Pro</span>
+                <span class="signup-plan-detail">5,000 emails/month · 1-year history</span>
+            </span>
+            <span class="signup-plan-price">$12.99/mo</span>
+        </label>
+    </div>
+
+    <div class="signup-plan-note" id="signupPlanNote">
+        <strong>Free Trial activates immediately.</strong>
+        Paid plans activate only after successful payment.
+    </div>
+</div>
+
 <button id="loginButton">
             Login
         </button>
@@ -6767,7 +6939,7 @@ main.container {
             Forgot password?
         </button>
 <button id="signupButton">
-            Create Free Account
+            Create Free Trial Account
         </button>
 <div id="authMessage"></div>
 <div id="resetPasswordSection" style="
@@ -7178,6 +7350,118 @@ document
             );
     
     // ----------------------------------------------------
+// SIGNUP PLAN SELECTION
+// ----------------------------------------------------
+
+const SIGNUP_PLAN_NAMES = {
+    free_trial: "Free Trial",
+    quick_send_100: "Quick Send 100",
+    quick_send_500: "Quick Send 500",
+    individual: "Individual",
+    pro: "Pro"
+};
+
+function getSelectedSignupPlan() {
+    const selected =
+        document.querySelector(
+            'input[name="signupPlan"]:checked'
+        );
+
+    return selected
+        ? selected.value
+        : "free_trial";
+}
+
+function setSelectedSignupPlan(plan) {
+    const allowed = Object.keys(
+        SIGNUP_PLAN_NAMES
+    );
+
+    if (!allowed.includes(plan)) {
+        plan = "free_trial";
+    }
+
+    document
+        .querySelectorAll(
+            'input[name="signupPlan"]'
+        )
+        .forEach(input => {
+            input.checked =
+                input.value === plan;
+        });
+
+    document
+        .querySelectorAll(
+            "[data-signup-plan-card]"
+        )
+        .forEach(card => {
+            card.classList.toggle(
+                "selected",
+                card.getAttribute(
+                    "data-signup-plan-card"
+                ) === plan
+            );
+        });
+
+    const signupButton =
+        document.getElementById(
+            "signupButton"
+        );
+
+    if (signupButton) {
+        signupButton.textContent =
+            plan === "free_trial"
+                ? "Create Free Trial Account"
+                : "Create Account · "
+                    + SIGNUP_PLAN_NAMES[plan];
+    }
+
+    try {
+        sessionStorage.setItem(
+            "sendquack_selected_plan",
+            plan
+        );
+    } catch (e) {}
+}
+
+document
+    .querySelectorAll(
+        'input[name="signupPlan"]'
+    )
+    .forEach(input => {
+        input.addEventListener(
+            "change",
+            function () {
+                setSelectedSignupPlan(
+                    this.value
+                );
+            }
+        );
+    });
+
+try {
+    const savedPlan =
+        sessionStorage.getItem(
+            "sendquack_selected_plan"
+        );
+
+    if (savedPlan) {
+        const planMap = {
+            "Free Trial": "free_trial",
+            "Quick Send 100": "quick_send_100",
+            "Quick Send 500": "quick_send_500",
+            "Individual": "individual",
+            "Pro": "pro"
+        };
+
+        setSelectedSignupPlan(
+            planMap[savedPlan]
+            || savedPlan
+        );
+    }
+} catch (e) {}
+
+// ----------------------------------------------------
 // SIGN UP
 // ----------------------------------------------------
 
@@ -7196,7 +7480,7 @@ document
                 options: {
                     data: {
                         sendquack_initial_plan:
-                            "free_trial"
+                            getSelectedSignupPlan()
                     }
                 }
             });
@@ -7215,6 +7499,20 @@ document
             document
     .getElementById("authPassword")
     .value = "";
+
+const selectedPlan =
+    getSelectedSignupPlan();
+
+const selectedPlanName =
+    SIGNUP_PLAN_NAMES[selectedPlan]
+    || "Free Trial";
+
+const activationText =
+    selectedPlan === "free_trial"
+        ? "Your Free Trial will be ready when you log in."
+        : "You selected <strong>"
+            + selectedPlanName
+            + "</strong>. Your account will start on the Free Trial until payment for this plan is completed.";
 
 message.innerHTML = `
     <div style="
@@ -7238,6 +7536,9 @@ message.innerHTML = `
             We’ve sent you a confirmation email.
             Click the link in that email to activate your
             SendQuack account, then come back and log in.
+            <div style="margin-top:8px;">
+                ${activationText}
+            </div>
         </div>
     </div>
 `;
@@ -8824,6 +9125,23 @@ document
                 sessionStorage.setItem("sendquack_selected_plan", plan);
             } catch (e) {}
 
+            const signupPlanMap = {
+                "Free Trial": "free_trial",
+                "Quick Send 100": "quick_send_100",
+                "Quick Send 500": "quick_send_500",
+                "Individual": "individual",
+                "Pro": "pro"
+            };
+
+            if (
+                typeof setSelectedSignupPlan === "function"
+                && signupPlanMap[plan]
+            ) {
+                setSelectedSignupPlan(
+                    signupPlanMap[plan]
+                );
+            }
+
             if (plan === "Free Trial") {
 
                 const session =
@@ -8850,6 +9168,43 @@ document
                         block: "start"
                     });
                 }
+
+                return;
+            }
+
+            const {
+                data: { session: pricingSession }
+            } = await supabaseClient.auth.getSession();
+
+            if (!pricingSession) {
+                closePricingModal();
+
+                const authMessage =
+                    document.getElementById(
+                        "authMessage"
+                    );
+
+                if (authMessage) {
+                    authMessage.innerHTML = `
+                        <div style="
+                            padding:12px;
+                            background:#fff8dc;
+                            border-radius:9px;
+                            color:#082d5c;
+                            line-height:1.45;
+                        ">
+                            <strong>${plan} selected.</strong><br>
+                            Create your account first. Paid access
+                            will activate after checkout.
+                        </div>
+                    `;
+                }
+
+                document
+                    .getElementById(
+                        "authScreen"
+                    )
+                    .style.display = "flex";
 
                 return;
             }
