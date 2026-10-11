@@ -6320,6 +6320,22 @@ main.container {
     line-height: 1.4;
 }
 
+
+
+#resendConfirmationButton {
+    background: transparent !important;
+    color: #082d5c !important;
+    border: 0 !important;
+    padding: 4px 0 !important;
+    font-size: 11px !important;
+    text-decoration: underline;
+    box-shadow: none !important;
+}
+
+#resendConfirmationButton:hover {
+    opacity: .78;
+}
+
 </style>
 </head>
 <body>
@@ -7141,6 +7157,9 @@ main.container {
 <button id="forgotPasswordButton" type="button">
             Forgot password?
         </button>
+<button id="resendConfirmationButton" type="button">
+            Resend confirmation email
+        </button>
 <button id="signupButton">
             Create Free Trial Account
         </button>
@@ -7787,6 +7806,82 @@ message.innerHTML = `
     </div>
 `;
         });
+
+
+        // ----------------------------------------------------
+        // RESEND CONFIRMATION EMAIL
+        // ----------------------------------------------------
+
+        document
+            .getElementById(
+                "resendConfirmationButton"
+            )
+            .addEventListener(
+                "click",
+                async () => {
+
+                    const email =
+                        document
+                        .getElementById(
+                            "authEmail"
+                        )
+                        .value
+                        .trim();
+
+                    const message =
+                        document
+                        .getElementById(
+                            "authMessage"
+                        );
+
+                    if (!email) {
+                        message.textContent =
+                            "Enter your email address first.";
+                        return;
+                    }
+
+                    message.textContent =
+                        "Sending confirmation email...";
+
+                    const { error } =
+                        await supabaseClient.auth.resend({
+                            type: "signup",
+                            email: email
+                        });
+
+                    if (error) {
+                        message.textContent =
+                            error.message;
+                        return;
+                    }
+
+                    message.innerHTML = `
+                        <div style="
+                            padding:14px;
+                            background:#fff8dc;
+                            border-radius:10px;
+                            color:#082d5c;
+                            line-height:1.5;
+                        ">
+                            <div style="
+                                font-size:15px;
+                                font-weight:800;
+                                margin-bottom:6px;
+                            ">
+                                Confirmation email sent
+                            </div>
+                            <div style="
+                                font-size:13px;
+                            ">
+                                Check your inbox and spam/junk folder.
+                                Click the confirmation link, then return
+                                to SendQuack and log in.
+                            </div>
+                        </div>
+                    `;
+                }
+            );
+
 
         // ----------------------------------------------------
         // LOGIN
